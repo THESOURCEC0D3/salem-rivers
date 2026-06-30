@@ -1,0 +1,46 @@
+import { church, whatsappLink } from "../../content/church";
+import { Container } from "../Container";
+import { PhotoPlaceholder } from "../PhotoPlaceholder";
+import { WhatsAppIcon } from "../icons";
+
+/** Section 4 — the pastor's genuine, plain, warm welcome. */
+export function PastorWelcome() {
+  return (
+    <section className="py-16 sm:py-20 lg:py-24">
+      <Container>
+        <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1fr] lg:gap-14">
+          <PhotoPlaceholder
+            label={church.pastor.photo}
+            className="mx-auto aspect-[4/5] w-full max-w-sm"
+          />
+
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-accent">
+              A word from our pastor
+            </p>
+            <blockquote className="text-balance font-serif text-2xl leading-snug text-foreground sm:text-3xl">
+              &ldquo;{church.pastor.words}&rdquo;
+            </blockquote>
+            <div className="mt-6">
+              <p className="text-lg font-semibold text-foreground">
+                {church.pastor.name}
+              </p>
+              <p className="text-muted-foreground">{church.pastor.title}</p>
+            </div>
+            <a
+              href={whatsappLink(
+                `Hello Pastor, I'd like to ask a question about ${church.name}.`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-whatsapp-hover hover:underline"
+            >
+              <WhatsAppIcon size={20} />
+              Have a question? Message us
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}

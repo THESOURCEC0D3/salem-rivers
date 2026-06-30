@@ -1,26 +1,138 @@
 @import "tailwindcss";
 
+/*
+  Salem Rivers — design tokens (warm royal-purple + gold on ivory).
+  Source of truth: design-system/salem-rivers/MASTER.md
+  Tailwind v4: tokens declared in @theme become utilities (bg-primary, text-foreground, font-serif, …).
+*/
+@theme {
+  /* Neutrals — warm, never blue-gray */
+  --color-background: #fffcf7;
+  --color-surface: #ffffff;
+  --color-card: #ffffff;
+  --color-foreground: #2a1a33;
+  --color-muted: #f4eee6;
+  --color-muted-foreground: #6b5b73;
+  --color-border: #e8ddcf;
+
+  /* Brand — royal purple */
+  --color-primary: #6d28d9;
+  --color-primary-hover: #5b21b6;
+  --color-on-primary: #ffffff;
+  --color-secondary: #8b5cf6;
+  --color-purple-soft: #f3eefc;
+
+  /* Brand — warm gold */
+  --color-accent: #b45309; /* accessible gold for text/borders */
+  --color-on-accent: #ffffff;
+  --color-gold: #c8881d; /* brighter gold for small flourishes */
+  --color-gold-soft: #f7ead0; /* gold-tinted surface */
+
+  /* System */
+  --color-destructive: #dc2626;
+  --color-ring: #6d28d9;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebe5d;
+
+  /* Fonts (injected by next/font via CSS variables on <html>) */
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+
+  /* Warm-tinted elevation */
+  --shadow-sm: 0 1px 2px rgba(42, 26, 51, 0.06);
+  --shadow-md: 0 4px 12px rgba(42, 26, 51, 0.08);
+  --shadow-lg: 0 12px 28px rgba(42, 26, 51, 0.12);
+  --shadow-xl: 0 24px 48px rgba(42, 26, 51, 0.16);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Single, polished light theme (see build notes — dark mode is a deliberate later add). */
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 22%, transparent);
+}
+
+/* Accessible, always-visible keyboard focus */
+:focus-visible {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+  Photo placeholders. Until real church photos land, these warm gradient panels
+  stand in for <Image>. They are intentionally labelled so they never read as
+  "finished". Swap each for <Image src=… /> when assets arrive (see church.ts).
+*/
+.photo-ph {
+  position: relative;
+  background:
+    radial-gradient(120% 120% at 15% 10%, color-mix(in srgb, var(--color-gold) 28%, transparent), transparent 55%),
+    radial-gradient(120% 120% at 90% 90%, color-mix(in srgb, var(--color-primary) 38%, transparent), transparent 55%),
+    linear-gradient(135deg, #4c1d95 0%, #6d28d9 45%, #9a3412 100%);
+  overflow: hidden;
+}
+.photo-ph::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Hero backdrop: warm worship gradient with a legibility scrim baked in. */
+.hero-backdrop {
+  background:
+    radial-gradient(90% 80% at 80% 0%, color-mix(in srgb, var(--color-gold) 30%, transparent), transparent 60%),
+    radial-gradient(80% 90% at 0% 100%, color-mix(in srgb, var(--color-secondary) 45%, transparent), transparent 55%),
+    linear-gradient(160deg, #3b1668 0%, #5b21b6 38%, #4c1d95 70%, #2a1a33 100%);
+}
+.hero-scrim {
+  background: linear-gradient(180deg, rgba(20, 8, 35, 0.25) 0%, rgba(20, 8, 35, 0.55) 70%, rgba(20, 8, 35, 0.72) 100%);
 }
