@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { church, whatsappLink } from "../../content/church";
 import { Container } from "../Container";
-import { PhotoPlaceholder } from "../PhotoPlaceholder";
 import { WhatsAppIcon } from "../icons";
 
 /** Section 4 — the pastor's genuine, plain, warm welcome. */
@@ -9,10 +9,16 @@ export function PastorWelcome() {
     <section className="py-16 sm:py-20 lg:py-24">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1fr] lg:gap-14">
-          <PhotoPlaceholder
-            label={church.pastor.photo}
-            className="mx-auto aspect-[4/5] w-full max-w-sm"
-          />
+          {/* Photo sits in the left column and he faces right — into the quote. */}
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl">
+            <Image
+              src="/images/BishopHillary.png"
+              alt={`${church.pastor.name}, ${church.pastor.title} of ${church.name}`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 24rem"
+              className="object-cover object-center"
+            />
+          </div>
 
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-accent">

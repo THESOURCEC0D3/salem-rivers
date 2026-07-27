@@ -1,9 +1,7 @@
-import { church } from "./content/church";
 import { Hero } from "./components/home/Hero";
 import { PastorWelcome } from "./components/home/PastorWelcome";
 import { GlimpseStrip } from "./components/home/GlimpseStrip";
-import { Testimonials } from "./components/Testimonials";
-import { Section } from "./components/Section";
+import { TestimonySection } from "./components/home/TestimonySection";
 import { GetInvolved } from "./components/home/GetInvolved";
 import { NextEvent } from "./components/home/NextEvent";
 import { ReadyToJoin } from "./components/home/ReadyToJoin";
@@ -18,14 +16,7 @@ export default function Home() {
       <Hero />
       <PastorWelcome />
       <GlimpseStrip />
-      <Section
-        id="testimonies"
-        eyebrow="Testimonies"
-        title="What people say"
-        className="bg-background"
-      >
-        <Testimonials items={[...church.testimonials]} />
-      </Section>
+      <TestimonySection />
       <GetInvolved />
       <NextEvent />
       <ReadyToJoin />

@@ -1,31 +1,46 @@
 import Image from "next/image";
 import Link from "next/link";
 import { church, PLAN_VISIT_HREF } from "../../content/church";
-import { Container } from "../Container";
 import { ArrowRightIcon, ClockIcon, MapPinIcon, HeartIcon } from "../icons";
 
 /**
- * Hero — "the trailer." A strong still backdrop (no autoplay video), a big
- * "Welcome to Salem Rivers", one warm line, and service times + location visible
- * WITHOUT scrolling, with two CTAs: Plan Your Visit (primary) and Give online.
+ * Hero — "the trailer." A full-bleed photo of a service as the backdrop, with
+ * "Welcome to Salem Rivers" + warm line + service times/location overlaid hard
+ * left. Two CTAs: Plan Your Visit (primary) and Give online.
  */
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden">
-      {/* Real congregation photo; scrim over it guarantees ≥4.5:1 text contrast. */}
+    <section className="relative isolate overflow-hidden bg-[#100a17]">
+      {/* Solid dark base — what shows while the photo streams in, so text never flashes unreadable */}
+      <div className="absolute inset-0 -z-30 bg-[#100a17]" />
+
+      {/* The service, full bleed. This is the LCP image, hence priority. */}
       <Image
-        src="/images/hero.jpeg"
-        alt={`${church.name} gathered for worship`}
+        src="/images/HeroImage2.jpg"
+        alt="A Salem Rivers service — the minister preaching on stage with the choir behind him"
         fill
         priority
         sizes="100vw"
-        className="absolute inset-0 -z-20 object-cover"
+        className="-z-20 object-cover object-center"
       />
-      <div className="absolute inset-0 -z-10 hero-scrim" />
 
-      <Container>
-        <div className="flex min-h-[calc(100svh-4rem)] flex-col justify-center py-20 text-white sm:py-24">
-          <h1 className="max-w-4xl">
+      {/*
+        Left-weighted scrim. This photo is already dark, so it needs far less help than
+        a bright one: heavy only under the copy, then clearing completely from md up so
+        the stage, choir and LED wall stay visible. Mobile keeps a black/25 floor on the
+        right because the copy spans most of the width there.
+      */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/25 md:via-black/45 md:to-transparent" />
+      {/* Bottom vignette — also mutes the anniversary logo burned into the photo's lower edge */}
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
+
+      {/*
+        Deliberately wider than the site Container (max-w-6xl): the copy hugs the left
+        edge so more of the photo reads, instead of starting a third of the way in.
+      */}
+      <div className="mx-auto w-full max-w-[110rem] px-5 sm:px-8 lg:px-12">
+        <div className="flex min-h-[calc(100svh-4rem)] max-w-xl flex-col justify-center py-20 text-white sm:py-24">
+          <h1>
             <span className="block text-lg font-medium uppercase tracking-[0.18em] text-gold-soft sm:text-xl">
               Welcome to
             </span>
@@ -76,7 +91,7 @@ export function Hero() {
             </Link>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

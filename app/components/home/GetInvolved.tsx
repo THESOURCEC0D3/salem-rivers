@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { church, whatsappLink } from "../../content/church";
 import { Section } from "../Section";
 import { PhotoPlaceholder } from "../PhotoPlaceholder";
+import { departmentImages } from "../departmentImages";
 import { WhatsAppIcon } from "../icons";
 
 /**
@@ -17,31 +19,54 @@ export function GetInvolved() {
       className="bg-muted/40"
     >
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {church.departments.map((d) => (
-          <li
-            key={d.name}
-            className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md"
-          >
-            <PhotoPlaceholder label={d.photo} rounded="" className="aspect-[16/10] w-full" />
-            <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-xl font-semibold text-foreground">{d.name}</h3>
-              <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted-foreground">
-                {d.blurb}
-              </p>
-              <a
-                href={whatsappLink(
-                  `Hello ${church.name}! I'd like to serve in the ${d.name} department.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-whatsapp-hover hover:underline"
-              >
-                <WhatsAppIcon size={18} />
-                I&apos;d like to serve here
-              </a>
-            </div>
-          </li>
-        ))}
+        {church.departments.map((d) => {
+          // Departments without a real photo yet fall back to the placeholder panel.
+          const photo = departmentImages[d.name];
+          return (
+            <li
+              key={d.name}
+              className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md"
+            >
+              {photo ? (
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    placeholder="blur"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className={`object-cover ${photo.objectPosition ?? "object-center"}`}
+                  />
+                </div>
+              ) : (
+                <PhotoPlaceholder
+                  label={d.photo}
+                  rounded=""
+                  className="aspect-[16/10] w-full"
+                />
+              )}
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-xl font-semibold text-foreground">
+                  {d.name}
+                </h3>
+                <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted-foreground">
+                  {d.blurb}
+                </p>
+                <a
+                  href={whatsappLink(
+                    `Hello ${church.name}! I'd like to serve in the ${d.name} department.`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-whatsapp-hover hover:underline"
+                >
+                  <WhatsAppIcon size={18} />
+                  I&apos;d like to serve here
+                </a>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </Section>
   );

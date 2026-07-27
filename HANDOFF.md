@@ -69,7 +69,7 @@ There are no automated tests; verification = tsc clean + build green + eyeball t
 | `/about` About | ✅ done | `about/AboutHero`, `WhatWeBelieve`, `HowWeFunction` (reuses departments), `Leadership`, `Vision`, `ReadyToJoin` |
 | `/events` Events | ✅ done | `events/EventsHero`, `UpcomingEvents` (each → WhatsApp "I'd like to come"), `PastEvents`, `ReadyToJoin` |
 | `/watch` Watch | 🟡 **placeholder** ("Coming soon" + red pulsing dot). Full page deferred — see §8. |
-| `/give` Give | ❌ not built (conditional — `church.give.enabled` toggles the footer link) |
+| `/give` Give | 🟡 **placeholder** ("Coming soon", mirrors `/watch`). Real giving (Paystack/Flutterwave) deferred — see §8c. `church.give.enabled` still toggles the footer link. |
 | Contact | by design **not a page** — the footer carries canonical address/map/phone (local SEO). |
 
 **Nav:** `Home · About · Events · Watch` (no "I'm New" — newcomers go to About). The header **Plan Your
