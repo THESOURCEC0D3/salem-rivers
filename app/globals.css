@@ -15,12 +15,13 @@
   --color-muted-foreground: #6b5b73;
   --color-border: #e8ddcf;
 
-  /* Brand — royal purple */
-  --color-primary: #6d28d9;
-  --color-primary-hover: #5b21b6;
+  /* Brand — royal blue. rgb(75, 112, 194) */
+  --color-primary: #4b70c2;
+  --color-primary-hover: #3d5ca0; /* ~18% darker, for hover/active */
   --color-on-primary: #ffffff;
-  --color-secondary: #8b5cf6;
-  --color-purple-soft: #f3eefc;
+  --color-secondary: #7c98d6; /* lighter companion, used in placeholder gradients */
+  /* Tinted page-hero / chip surface. Name kept for now — see note; the value is blue. */
+  --color-purple-soft: #eef2fb;
 
   /* Brand — warm gold */
   --color-accent: #b45309; /* accessible gold for text/borders */
@@ -30,7 +31,7 @@
 
   /* System */
   --color-destructive: #dc2626;
-  --color-ring: #6d28d9;
+  --color-ring: #4b70c2;
   --color-whatsapp: #25d366;
   --color-whatsapp-hover: #1ebe5d;
 
@@ -112,7 +113,7 @@ h4 {
   background:
     radial-gradient(120% 120% at 15% 10%, color-mix(in srgb, var(--color-gold) 28%, transparent), transparent 55%),
     radial-gradient(120% 120% at 90% 90%, color-mix(in srgb, var(--color-primary) 38%, transparent), transparent 55%),
-    linear-gradient(135deg, #4c1d95 0%, #6d28d9 45%, #9a3412 100%);
+    linear-gradient(135deg, #26407e 0%, #4b70c2 45%, #9a3412 100%);
   overflow: hidden;
 }
 .photo-ph::after {
@@ -131,7 +132,7 @@ h4 {
   background:
     radial-gradient(90% 80% at 80% 0%, color-mix(in srgb, var(--color-gold) 30%, transparent), transparent 60%),
     radial-gradient(80% 90% at 0% 100%, color-mix(in srgb, var(--color-secondary) 45%, transparent), transparent 55%),
-    linear-gradient(160deg, #3b1668 0%, #5b21b6 38%, #4c1d95 70%, #2a1a33 100%);
+    linear-gradient(160deg, #1b2f5e 0%, #3d5ca0 38%, #26407e 70%, #1d2333 100%);
 }
 .hero-scrim {
   background: linear-gradient(180deg, rgba(20, 8, 35, 0.25) 0%, rgba(20, 8, 35, 0.55) 70%, rgba(20, 8, 35, 0.72) 100%);

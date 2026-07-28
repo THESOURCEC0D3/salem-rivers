@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 import event1 from "../../public/images/Event1.jpeg";
+import thanksgiving from "../../public/images/Thanksgiving.jpeg";
 
 /**
  * Real event flyer images, keyed by event id (see `church.events`).
@@ -7,5 +8,6 @@ import event1 from "../../public/images/Event1.jpeg";
  * Add an entry here when a real flyer lands; events without one fall back to a placeholder.
  */
 export const eventImages: Record<string, StaticImageData> = {
+  "q2-thanksgiving": thanksgiving,
   "covenant-week": event1,
 };

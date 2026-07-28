@@ -5,6 +5,7 @@ import {
   DoorMarkIcon,
   MapPinIcon,
   PhoneIcon,
+  MailIcon,
   ClockIcon,
   NavigationIcon,
   WhatsAppIcon,
@@ -57,6 +58,15 @@ export function Footer() {
                 <PhoneIcon size={18} className="mt-0.5 shrink-0 text-accent" />
                 <a href={church.phoneHref} className="hover:text-primary">
                   {church.phone}
+                </a>
+              </li>
+              <li className="flex gap-2.5">
+                <MailIcon size={18} className="mt-0.5 shrink-0 text-accent" />
+                <a
+                  href={`mailto:${church.email}`}
+                  className="break-all hover:text-primary"
+                >
+                  {church.email}
                 </a>
               </li>
             </ul>

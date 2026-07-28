@@ -42,42 +42,40 @@ export const church = {
   name: "Salem Rivers",
   /** Short identity used in the footer + search engine schema (not the hero). */
   identity: "A warm Pentecostal family in Port Harcourt.",
-  /** The one nice line under the hero title. [Precious will refine later] */
-  tagline: "Come as you are — there's a seat saved for you.",
+  /** The one nice line under the hero title. */
+  tagline:
+    "In Salem God is making many mighty through the Word and Prayer",
 
   city: "Port Harcourt",
   state: "Rivers State",
-  /** [CONFIRM] */
-  neighbourhood: "[Neighbourhood]",
+  neighbourhood: "Rumuomasi",
 
-  /** [CONFIRM time] One Sunday service + midweek. */
+  /** One Sunday service + midweek. */
   serviceTimes: [
-    { label: "Sunday Service", time: "[9:00 AM]" },
-    { label: "Wednesday · Bible Study", time: "[5:30 PM]" },
+    { label: "Sunday Service", time: "7:00 AM" },
+    { label: "Wednesday · Bible Study", time: "5:30 PM" },
   ] satisfies ServiceTime[],
 
-  /** [CONFIRM] Canonical Name/Address/Phone — keep identical everywhere for local SEO. */
-  address: "[12 Example Close, Off Aba Road, Port Harcourt, Rivers State]",
-  /** [CONFIRM] Replace with a real Google Maps directions link to the church. */
+  /** Canonical Name/Address/Phone — keep identical everywhere for local SEO. */
+  address: "1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State",
   directionsUrl:
-    "https://www.google.com/maps/dir/?api=1&destination=Port+Harcourt+Rivers+State",
-  /** [CONFIRM] Embeddable map URL (Google Maps → Share → Embed). */
+    "https://www.google.com/maps/dir/?api=1&destination=1+Faith+Avenue%2C+Rumuomasi%2C+Port+Harcourt%2C+Rivers+State",
+  /** Embeddable map URL (Google Maps → Share → Embed). */
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Port%20Harcourt%20Rivers%20State&output=embed",
+    "https://www.google.com/maps?q=1%20Faith%20Avenue%2C%20Rumuomasi%2C%20Port%20Harcourt%2C%20Rivers%20State&output=embed",
 
-  /** [CONFIRM] */
-  phone: "[+234 800 000 0000]",
-  phoneHref: "tel:+2348000000000",
+  phone: "0703 065 9232",
+  phoneHref: "tel:+2347030659232",
+  email: "info@salemrivers.org",
 
-  /** [CONFIRM] International format, digits only, no “+”. Used for wa.me links. */
-  whatsappNumber: "2348000000000",
+  /** International format, digits only, no “+”. Used for wa.me links. */
+  whatsappNumber: "2347030659232",
 
   pastor: {
-    /** [CONFIRM] */
-    name: "[Pastor's Name]",
-    title: "Lead Pastor",
+    name: "Bishop Hilary Ogoliegbune",
+    title: "Bishop",
     words:
-      "Whoever you are, however you come — you are welcome here. Sunday isn't a performance to watch; it's a family to belong to. We'd be honoured to meet you in person, and to pray with you.",
+      "We are sent of God to raise a triumphant people: A people strong in Faith, A people empowered by Wisdom, and A people intimate with the Holy Spirit.",
     photo: "[A genuine, friendly photo of the pastor]",
   },
 
@@ -173,9 +171,9 @@ export const church = {
     // Leadership — real photos + short intros. [CONFIRM names, roles, bios, photos]
     leadership: [
       {
-        name: "[Pastor's Name]",
-        role: "Lead Pastor",
-        photo: "[Photo of the lead pastor]",
+        name: "Bishop Hilary Ogoliegbune",
+        role: "Bishop",
+        photo: "[Photo of the Bishop]",
         bio: "[A warm two-line introduction — heart for the church, family, how long they've served.]",
       },
       {
@@ -274,6 +272,16 @@ export const church = {
   events: {
     upcoming: [
       {
+        id: "q2-thanksgiving",
+        title: "2nd Quarter Thanksgiving",
+        date: "Sunday, 2 August 2026",
+        time: "7:00 AM",
+        location: "Church Auditorium, #1 Faith Avenue, Rumuomasi",
+        blurb:
+          "A morning of praise and gratitude as we mark the second quarter together — with Archbishop Dr Sam Amaga as chief host. Come and rejoice with us.",
+        flyer: "2nd Quarter Thanksgiving flyer",
+      },
+      {
         id: "covenant-week",
         title: "Covenant Week of Celebration",
         date: "[1st - 5th July]",
@@ -333,7 +341,7 @@ export const church = {
 
   /** Watch (subordinate fallback). [CONFIRM] */
   watch: {
-    nextLiveLabel: "Live this Sunday from [9:00 AM]",
+    nextLiveLabel: "Live this Sunday from 7:00 AM",
     youtubeUrl: "https://youtube.com/@example",
     facebookUrl: "https://facebook.com/example",
   },

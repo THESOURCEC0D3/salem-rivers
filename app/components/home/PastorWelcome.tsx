@@ -3,7 +3,7 @@ import { church, whatsappLink } from "../../content/church";
 import { Container } from "../Container";
 import { WhatsAppIcon } from "../icons";
 
-/** Section 4 — the pastor's genuine, plain, warm welcome. */
+/** Section 4 — the Bishop's genuine, plain, warm welcome. */
 export function PastorWelcome() {
   return (
     <section className="py-16 sm:py-20 lg:py-24">
@@ -22,7 +22,7 @@ export function PastorWelcome() {
 
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-accent">
-              A word from our pastor
+              A word from our Bishop
             </p>
             <blockquote className="text-balance font-serif text-2xl leading-snug text-foreground sm:text-3xl">
               &ldquo;{church.pastor.words}&rdquo;
@@ -35,7 +35,7 @@ export function PastorWelcome() {
             </div>
             <a
               href={whatsappLink(
-                `Hello Pastor, I'd like to ask a question about ${church.name}.`,
+                `Hello Bishop, I'd like to ask a question about ${church.name}.`,
               )}
               target="_blank"
               rel="noopener noreferrer"

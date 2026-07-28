@@ -104,6 +104,13 @@ export const PhoneIcon = (p: IconProps) => (
   </Stroke>
 );
 
+export const MailIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="m3.5 7 8.5 6 8.5-6" />
+  </Stroke>
+);
+
 export const QuoteIcon = (p: IconProps) => (
   <Stroke {...p}>
     <path d="M10 8c-2.2 0-4 1.8-4 4v4h4v-4H8a2 2 0 0 1 2-2V8ZM20 8c-2.2 0-4 1.8-4 4v4h4v-4h-2a2 2 0 0 1 2-2V8Z" />

@@ -3,6 +3,7 @@ import worship1 from "../../public/images/worship1.jpg";
 import greeting1 from "../../public/images/Greeting1.jpg";
 import children1 from "../../public/images/children1.jpg";
 import event1 from "../../public/images/event1.jpg";
+import bishopHug from "../../public/images/Bishophug.jpg";
 
 /**
  * "A glimpse of us" photos, in grid order — the first is the featured tile.
@@ -25,5 +26,9 @@ export const glimpseImages: { src: StaticImageData; alt: string }[] = [
   {
     src: event1,
     alt: "The school band lined up outside to welcome arriving guests at a church event",
+  },
+  {
+    src: bishopHug,
+    alt: "Two members sharing a warm embrace during a praise night service",
   },
 ];
