@@ -16,7 +16,7 @@ export function Hero() {
 
       {/* The service, full bleed. This is the LCP image, hence priority. */}
       <Image
-        src="/images/HeroImage2.jpg"
+        src="/images/HeroImage3-clean.png"
         alt="A Salem Rivers service — the minister preaching on stage with the choir behind him"
         fill
         priority
@@ -31,8 +31,12 @@ export function Hero() {
         right because the copy spans most of the width there.
       */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/25 md:via-black/45 md:to-transparent" />
-      {/* Bottom vignette — also mutes the anniversary logo burned into the photo's lower edge */}
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
+      {/*
+        Light bottom vignette. The photo's lower third is already near-black silhouetted
+        congregation, so the CTAs read fine over it — this just settles the edge rather
+        than blacking it out (the burned-in logo that needed hiding is gone from this cut).
+      */}
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
 
       {/*
         Deliberately wider than the site Container (max-w-6xl): the copy hugs the left
