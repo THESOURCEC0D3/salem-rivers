@@ -2,15 +2,34 @@ import Image from "next/image";
 import { Section } from "../Section";
 import { glimpseImages } from "../glimpseImages";
 
-/** Section 3 — "A glimpse of us." Real faces and moments, not the building. */
-export function GlimpseStrip() {
+/**
+ * Life at Salem Rivers — real faces and moments, not the building.
+ * `bg-background` keeps the light/muted alternation correct now that the
+ * About section (muted) sits directly above this one.
+ *
+ * The heading props are overridable so /about can reuse this gallery verbatim
+ * with its own wording and surface. Every default is the homepage's current
+ * value, so calling `<GlimpseStrip />` with no props is unchanged behaviour —
+ * do not "simplify" these back to hardcoded strings.
+ */
+export function GlimpseStrip({
+  eyebrow = "A glimpse of us",
+  title = "Life at Salem Rivers",
+  intro = "Take a glimpse into our worship, community, ministries, and moments of fellowship.",
+  className = "bg-background",
+}: {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  className?: string;
+} = {}) {
   return (
     <Section
       id="glimpse"
-      eyebrow="A glimpse of us"
-      title="Real people, real Sundays"
-      intro="This is who you'll meet — a family that worships, prays, and does life together."
-      className="bg-muted/40"
+      eyebrow={eyebrow}
+      title={title}
+      intro={intro}
+      className={className}
     >
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {glimpseImages.map((photo, i) => {

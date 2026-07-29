@@ -16,7 +16,7 @@ export function EventsHero() {
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
             There&apos;s always something happening at {church.name}. An event
             can be an easy first step — come along, bring a friend, and meet the
-            family before a Sunday.
+            family.
           </p>
         </div>
       </Container>

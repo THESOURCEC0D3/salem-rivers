@@ -8,15 +8,30 @@ import { WhatsAppIcon } from "../icons";
 /**
  * Get involved — the church's serving teams. Cards mirror the event card:
  * an image on top, text below. Each links to a low-friction WhatsApp message.
+ *
+ * Heading and surface are overridable so /about can reuse these exact ministry
+ * cards without a second copy of them. Defaults are the homepage's current
+ * values, so `<GetInvolved />` with no props is unchanged behaviour.
  */
-export function GetInvolved() {
+export function GetInvolved({
+  eyebrow = "Get involved",
+  title = "Find your place in the family",
+  intro = "There's a seat for you on Sunday — and a place to serve through the week.",
+  // background, not muted: NextEvent above is now bg-muted/40.
+  className = "bg-background",
+}: {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  className?: string;
+} = {}) {
   return (
     <Section
       id="get-involved"
-      eyebrow="Get involved"
-      title="Find your place in the family"
-      intro="There's a seat for you on Sunday — and a place to serve through the week."
-      className="bg-muted/40"
+      eyebrow={eyebrow}
+      title={title}
+      intro={intro}
+      className={className}
     >
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {church.departments.map((d) => {

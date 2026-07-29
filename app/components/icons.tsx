@@ -161,6 +161,124 @@ export const DoorMarkIcon = (p: IconProps) => (
   </Stroke>
 );
 
+/* ---- About page glyphs (same 24 grid, 1.75 stroke) ---- */
+
+export const ChevronDownIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="m6 9 6 6 6-6" />
+  </Stroke>
+);
+
+/** Open book — scripture, teaching, wisdom. */
+export const BookIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M12 6.5S10 4.5 4 4.5v13c6 0 8 2 8 2s2-2 8-2v-13c-6 0-8 2-8 2Z" />
+    <path d="M12 6.5v13" />
+  </Stroke>
+);
+
+export const CrossIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M12 3.5v17" />
+    <path d="M7 8.5h10" />
+  </Stroke>
+);
+
+/** Olive branch — peace, righteousness. */
+export const LeafIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M20 4C10 4 4 9 4 16c0 2 1 4 1 4s2-1 4-1c7 0 11-6 11-15Z" />
+    <path d="M5 19 14 10" />
+  </Stroke>
+);
+
+/** Flame — the Holy Spirit, fire, passion. */
+export const FlameIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M12 21a5 5 0 0 0 5-5c0-4-5-9-5-9s-5 5-5 9a5 5 0 0 0 5 5Z" />
+    <path d="M12 21a2.2 2.2 0 0 0 2.2-2.2c0-1.8-2.2-4-2.2-4s-2.2 2.2-2.2 4A2.2 2.2 0 0 0 12 21Z" />
+  </Stroke>
+);
+
+/** Sunrise — confidence, hope, a positive outlook. */
+export const SunriseIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <circle cx="12" cy="13.5" r="3.5" />
+    <path d="M12 5v2M4.5 13.5h-2M21.5 13.5h-2M6.6 8.1 8 9.5M17.4 8.1 16 9.5" />
+    <path d="M3 19h18" />
+  </Stroke>
+);
+
+/** Rising line — growth, capacity building. */
+export const TrendingUpIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M3 17l6-6 4 4 8-8" />
+    <path d="M15 7h6v6" />
+  </Stroke>
+);
+
+/** Balance scales — integrity. */
+export const ScalesIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M12 4v16M7 20.5h10" />
+    <path d="M12 7 5 9m7-2 7 2" />
+    <path d="M2.5 15a2.5 2.5 0 0 0 5 0L5 9.5 2.5 15ZM16.5 15a2.5 2.5 0 0 0 5 0L19 9.5 16.5 15Z" />
+  </Stroke>
+);
+
+/** Target — diligence, focus. */
+export const TargetIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <circle cx="12" cy="12" r="8.5" />
+    <circle cx="12" cy="12" r="4.5" />
+    <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+  </Stroke>
+);
+
+/** Gift — sacrifice, giving. */
+export const GiftIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <rect x="3.5" y="9.5" width="17" height="11" rx="1.5" />
+    <path d="M2.5 9.5h19M12 9.5v11" />
+    <path d="M12 9.5S10.5 4.5 8 4.5a2.2 2.2 0 0 0 0 5M12 9.5s1.5-5 4-5a2.2 2.2 0 0 1 0 5" />
+  </Stroke>
+);
+
+/** People — family, community, ministries. */
+export const UsersIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <circle cx="9" cy="8.5" r="3.5" />
+    <path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+    <path d="M16 5.5a3.5 3.5 0 0 1 0 6.9" />
+    <path d="M17.6 14.3A6.5 6.5 0 0 1 21.5 20" />
+  </Stroke>
+);
+
+/** Water drop — baptism. */
+export const DropletIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M12 3s6 6.5 6 10.5a6 6 0 0 1-12 0C6 9.5 12 3 12 3Z" />
+  </Stroke>
+);
+
+/** Seedling — foundations, new growth. */
+export const SeedlingIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <path d="M12 21v-8" />
+    <path d="M12 13c0-3 2-5 5-5 0 3-2 5-5 5Z" />
+    <path d="M12 15.5c0-2.7-2-4.5-4.7-4.5 0 2.7 2 4.5 4.7 4.5Z" />
+  </Stroke>
+);
+
+/** Globe — the nations, church planting, impact. */
+export const GlobeIcon = (p: IconProps) => (
+  <Stroke {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18" />
+    <path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z" />
+  </Stroke>
+);
+
 export const beatIcons = {
   clock: ClockIcon,
   shirt: ShirtIcon,

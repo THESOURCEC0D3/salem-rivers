@@ -64,7 +64,7 @@ There are no automated tests; verification = tsc clean + build green + eyeball t
 
 | Route | Status | Components |
 |-------|--------|-----------|
-| `/` Home | ✅ done | `home/Hero` (real photo `hero.jpeg`), `home/PastorWelcome`, `home/GlimpseStrip`, `Testimonials` (auto carousel), `home/GetInvolved` (departments), `home/NextEvent` (= `events.upcoming[0]`), `home/ReadyToJoin` |
+| `/` Home | ✅ done | In render order: `home/Hero` (real photo `hero.jpeg`), `home/PastorWelcome`, `home/AboutSalemRivers`, `home/GlimpseStrip`, `home/NextEvent` (= `events.upcoming[0]`), `home/GetInvolved` (departments), `home/TestimonySection`, `home/NeedPrayer`, `home/ReadyToJoin`. ⚠️ `AboutSalemRivers` and `NeedPrayer` are **not** in `pages/home.md`'s 8-section spec, and spec item 2 ("New here? Here's what Sunday looks like") is not built — reconcile the spec with the page before launch. |
 | `/visit` Plan Your Visit | ✅ done (deliberately minimal) | service times, address + lazy map, **WhatsApp + call (no form)**. The keystone; only the "Plan Your Visit" button links here. |
 | `/about` About | ✅ done | `about/AboutHero`, `WhatWeBelieve`, `HowWeFunction` (reuses departments), `Leadership`, `Vision`, `ReadyToJoin` |
 | `/events` Events | ✅ done | `events/EventsHero`, `UpcomingEvents` (each → WhatsApp "I'd like to come"), `PastEvents`, `ReadyToJoin` |
@@ -116,6 +116,15 @@ background image + `hero-scrim` + white text; falls back to the warm gradient) a
 - **Give** — a `/give` route (Paystack or Flutterwave), understated; flip `church.give.enabled` for the
   footer link. **Testimonies** — already live (homepage carousel). **Sermon archive** — separate from Watch,
   a later add.
+
+> ⛔ **A sermon section already exists, parked — do not rebuild it.**
+> `app/components/home/LatestSermon.tsx` (component) and `church.sermons` (data) are complete and
+> type-check, but are **imported by nothing**. They were briefly on the homepage and were removed: a
+> sermon block is not one of the 8 sections in `pages/home.md`, and it made watching a co-equal CTA,
+> which §1 rules out. Read the banner at the top of `LatestSermon.tsx` before reviving either.
+> Outstanding if it is ever cleared: there is no `/sermons` route, so its "Browse all sermons" link
+> points at `/watch`; and prefer `church.watch.latestServiceId` (§8a) over the duplicate video-id slot
+> at `church.sermons.latest.youtubeId`.
 
 ## 9. `[BRACKET]` placeholders still to fill (all in `church.ts` unless noted)
 

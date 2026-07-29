@@ -6,8 +6,9 @@ export function WhatWeBelieve() {
   return (
     <Section
       id="beliefs"
-      eyebrow="What we believe"
-      title="The heart of our faith, plainly"
+      eyebrow="The heart of our faith"
+      title="What We Believe"
+      intro="Plainly stated, without the jargon."
       className="bg-background"
     >
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

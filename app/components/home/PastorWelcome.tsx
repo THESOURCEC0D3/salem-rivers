@@ -21,9 +21,16 @@ export function PastorWelcome() {
           </div>
 
           <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-accent">
+            {/*
+              An <h2>, not a <p>, so this section appears in the document
+              outline — it was the only homepage section a screen-reader user
+              navigating by heading would skip. `font-sans` keeps it visually
+              identical: globals.css sets serif on h1–h4, and this eyebrow has
+              always been Nunito.
+            */}
+            <h2 className="mb-3 font-sans text-xs font-bold uppercase tracking-[0.14em] text-accent">
               A word from our Bishop
-            </p>
+            </h2>
             <blockquote className="text-balance font-serif text-2xl leading-snug text-foreground sm:text-3xl">
               &ldquo;{church.pastor.words}&rdquo;
             </blockquote>

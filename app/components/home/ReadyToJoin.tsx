@@ -15,8 +15,15 @@ export function ReadyToJoin() {
           <h2 className="text-balance text-3xl font-semibold sm:text-4xl">
             Ready to join the family?
           </h2>
+          {/*
+            The tagline used to be concatenated in front of this line. It no
+            longer ends in a full stop, which produced a run-on ("…Word and
+            Prayer Come and see…"), and it already leads the hero at the top of
+            the same page — so this closing line now stands on its own.
+          */}
           <p className="max-w-xl text-lg text-white/85">
-            {church.tagline} Come and see — we&apos;d love to meet you this Sunday.
+            Come and see — there&apos;s a seat saved for you, and we&apos;d love
+            to meet you this Sunday.
           </p>
 
           <Link

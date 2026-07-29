@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { church, PLAN_VISIT_HREF } from "../../content/church";
-import { ArrowRightIcon, ClockIcon, MapPinIcon, HeartIcon } from "../icons";
+import { ArrowRightIcon, ClockIcon, MapPinIcon } from "../icons";
 
 /**
  * Hero — "the trailer." A full-bleed photo of a service as the backdrop, with
@@ -77,7 +77,12 @@ export function Hero() {
             </span>
           </div>
 
-          {/* CTAs — primary contrasts the dark hero (white); Give online is the secondary. */}
+          {/*
+            CTAs — primary contrasts the dark hero (white). The secondary is
+            translucent on purpose: it complements rather than competes, and
+            sends a first-timer to About, the page written to answer "what am I
+            walking into?" before they commit to a date.
+          */}
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href={PLAN_VISIT_HREF}
@@ -87,11 +92,10 @@ export function Hero() {
               <ArrowRightIcon size={18} />
             </Link>
             <Link
-              href={church.give.href}
+              href="/about"
               className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-[background-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:bg-white/20 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              <HeartIcon size={20} />
-              Give online
+              I&apos;m new here
             </Link>
           </div>
         </div>

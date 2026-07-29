@@ -112,8 +112,17 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              {/*
+                Points at /visit, not /contact — there is no contact route by
+                design (HANDOFF §6: the footer + Plan Your Visit carry the
+                canonical address/phone/WhatsApp for local SEO). This link used
+                to 404 on every page of the site.
+              */}
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary">
+                <Link
+                  href={PLAN_VISIT_HREF}
+                  className="text-muted-foreground hover:text-primary"
+                >
                   Contact
                 </Link>
               </li>

@@ -37,6 +37,49 @@ export type ExpectBeat = { q: string; a: string };
 export type Belief = { title: string; body: string };
 export type Leader = { name: string; role: string; photo: string; bio: string };
 
+/* ---- About page shapes ---- */
+/** One dated beat on the heritage timeline. `year` may read "Today"/"Since then". */
+export type TimelineEntry = { year: string; title: string; body: string };
+/** A titled statement with no icon — vision pillars, passions. */
+export type Pillar = { title: string; body: string };
+/**
+ * A titled statement WITH an icon. `icon` is a key into the icon map declared by
+ * the rendering component (same indirection as `beatIcons`) so this content file
+ * never imports React.
+ */
+export type IconedItem = {
+  title: string;
+  body: string;
+  icon: string;
+  /** Optional schedule line, rendered as a chip above the body (e.g. "Mondays, 6:00 PM"). */
+  when?: string;
+};
+export type JourneyStep = { title: string; body: string };
+export type Faq = { q: string; a: string };
+/**
+ * PARKED — used only by the unrendered `home/LatestSermon.tsx`. A sermon feature
+ * is deferred and conditional on church clearance (HANDOFF §8c); do not build on
+ * this without that clearance. Kept so the parked component still type-checks.
+ */
+export type Sermon = {
+  title: string;
+  speaker: string;
+  date: string;
+  description: string;
+  /**
+   * The 11-character YouTube VIDEO ID — not the full URL.
+   *   https://www.youtube.com/watch?v=dQw4w9WgXcQ → "dQw4w9WgXcQ"
+   *   https://youtu.be/dQw4w9WgXcQ               → "dQw4w9WgXcQ"
+   *   https://www.youtube.com/live/dQw4w9WgXcQ   → "dQw4w9WgXcQ"
+   * null = no video yet; the player renders a disabled placeholder.
+   */
+  youtubeId: string | null;
+  /** Placeholder label for the sermon still/thumbnail. */
+  thumbnail: string;
+  /** Fallback for "Watch now" when there is no embeddable video yet. */
+  watchHref: string;
+};
+
 export const church = {
   /** [CONFIRM] Official church name. */
   name: "Salem Rivers",
@@ -128,31 +171,40 @@ export const church = {
       "Salem Rivers is a warm Pentecostal family in Port Harcourt. We're ordinary people from every walk of life, brought together by Jesus and a shared hunger to know God and love our city.",
       "We're not a perfect church — we're a real one. Whoever you are, however you come, you'll find a place to belong here.",
     ],
+    /**
+     * Short mission / vision / culture lines for the homepage About section.
+     * Kept to one sentence each on purpose — the homepage is the trailer, the
+     * About page is the full picture.
+     */
+    mission:
+      "[CONFIRM] To raise a triumphant people — strong in faith, empowered by wisdom, and intimate with the Holy Spirit.",
+    culture:
+      "[CONFIRM] Warm, real and family-first. Come as you are, and you'll be met by people who are glad you did.",
     // Plain-language beliefs, not a theology dump. [CONFIRM exact wording with leadership.]
     beliefs: [
       {
         title: "The Bible",
-        body: "We hold the Bible as God's living word — our guide for faith, life, and everything we do.",
+        body: "God's living word — our final authority for faith, life, and everything we do.",
       },
       {
-        title: "Jesus",
-        body: "At the centre of everything is Jesus: God's Son, who saves, heals, and welcomes anyone who comes.",
+        title: "Jesus Christ",
+        body: "God's Son, crucified and risen. He is the centre of everything here, not one theme among many.",
+      },
+      {
+        title: "Salvation",
+        body: "A gift received by grace through faith — never earned, never deserved, and open to anyone who comes.",
       },
       {
         title: "The Holy Spirit",
-        body: "We believe the Holy Spirit is active today — empowering, comforting, and leading God's people.",
+        body: "Active today: empowering, comforting, and leading God's people. We make room for Him.",
       },
       {
         title: "Prayer",
-        body: "We're a praying church. We bring everything, big and small, to God — and we expect Him to answer.",
+        body: "We bring everything to God, big and small — and we expect Him to answer.",
       },
       {
-        title: "Family & belonging",
-        body: "Church is family. We do life together: celebrating, grieving, growing, and serving side by side.",
-      },
-      {
-        title: "Our city",
-        body: "We're here for Port Harcourt — sharing God's love in word and in practical action.",
+        title: "Discipleship",
+        body: "Following Jesus is a life, not a decision. We grow together and pass on what we've received.",
       },
     ] satisfies Belief[],
     howWeFunction: {
@@ -172,25 +224,300 @@ export const church = {
     leadership: [
       {
         name: "Bishop Hilary Ogoliegbune",
-        role: "Bishop",
+        role: "Lead Pastor",
         photo: "[Photo of the Bishop]",
-        bio: "[A warm two-line introduction — heart for the church, family, how long they've served.]",
+        bio: "Bishop Hilary leads Salem Rivers with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM — add years served and a personal line.]",
       },
       {
-        name: "[Name]",
-        role: "[Assistant Pastor]",
-        photo: "[Photo]",
-        bio: "[Short, warm introduction.]",
+        name: "Rev. Dr. (Mrs) Ogoliegbune",
+        role: "Pastor's Wife",
+        photo: "[Photo of the Pastor's wife]",
+        bio: "[CONFIRM full name.] She serves alongside the Bishop, with a particular heart for women, families, and the campus work. [Add a warm two-line introduction.]",
       },
       {
-        name: "[Name]",
-        role: "[Elder / Departmental Head]",
-        photo: "[Photo]",
-        bio: "[Short, warm introduction.]",
+        name: "Archbishop Sam Amaga",
+        role: "Founder, Foundation Faith Church",
+        photo: "[Photo of the Archbishop]",
+        bio: "Began preaching in 1973 and was commissioned, with Dr. Love Sam-Amaga, to raise an army of believers. Planted Foundation Faith Church in Port Harcourt in 1988 — the root Salem Rivers grows from.",
+      },
+      {
+        name: "Dr. Love Sam-Amaga",
+        role: "Co-Founder",
+        photo: "[Photo of Dr. Love Sam-Amaga]",
+        bio: "Co-carrier of the original commission, and a mother in the faith to a generation of believers across the nations the ministry now reaches. [CONFIRM wording.]",
       },
     ] satisfies Leader[],
     vision:
       "Our heart is to see a Port Harcourt where everyone has a church family to belong to — a people growing in God, lifting one another, and carrying His love to every corner of our city. [Refine with the church's own vision statement.]",
+
+    /* ---------- About page content (sections in page order) ---------- */
+
+    /** Section 1 — Who we are. Short paragraphs on purpose; this is a phone-first page. */
+    whoWeAre: [
+      "Salem Rivers is a Christ-centred, Bible-believing family in Port Harcourt. Everything here starts and ends with Jesus.",
+      "We're ordinary people from every walk of life — students, traders, professionals, families — brought together by one hunger to know God.",
+      "We take the Bible seriously and each other personally. Faith is grown in community here, not in isolation.",
+      "We exist to raise disciples: believers who are established, equipped, and sent out to serve this city well.",
+    ],
+
+    /**
+     * Section 2 — Heritage. The line we stand in.
+     * [CONFIRM dates and wording with church leadership before launch.]
+     */
+    heritage: {
+      intro:
+        "Salem Rivers did not begin in a vacuum. We are one local expression of a work God started decades ago, and the vision we carry today was handed to us.",
+      /** The founders' feature panel above the timeline. */
+      founders: {
+        names: "Archbishop Sam Amaga & Dr. Love Sam-Amaga",
+        role: "Founders, Foundation Faith Church",
+        body: "In 1984 God called them to raise an army of believers — a people strong in faith, empowered by wisdom, and intimate with the Holy Spirit. Everything Salem Rivers is today grows out of that commission.",
+      },
+      timeline: [
+        {
+          year: "1973",
+          title: "The preaching begins",
+          body: "Archbishop Sam Amaga starts preaching the gospel — long before there was a church, a building, or a name.",
+        },
+        {
+          year: "1984",
+          title: "The commission",
+          body: "God calls Archbishop Sam Amaga and Dr. Love Sam-Amaga to raise an army of believers: strong in faith, empowered by wisdom, intimate with the Holy Spirit.",
+        },
+        {
+          year: "1985",
+          title: "Full-time ministry",
+          body: "The call is answered without reserve. Ministry stops being something done alongside everything else and becomes the whole work.",
+        },
+        {
+          year: "1988",
+          title: "Foundation Faith Church",
+          body: "The first church is planted in Port Harcourt — the same soil Salem Rivers stands on today.",
+        },
+        {
+          year: "1998",
+          title: "Salem International Christian Center",
+          body: "A decade on, the work is planted in Lagos, and the vision proves it can travel beyond the city it was born in.",
+        },
+        {
+          year: "Onward",
+          title: "Global church planting",
+          body: "The ministry expands across Africa, into Europe and beyond — congregation after congregation carrying the same commission.",
+        },
+        {
+          year: "Today",
+          title: "Salem Rivers",
+          body: "Here in Port Harcourt we continue that same vision, one person at a time.",
+        },
+      ] satisfies TimelineEntry[],
+    },
+
+    /** Section 3 — the four pillars of the vision. */
+    visionPillars: [
+      {
+        title: "Strong in Faith",
+        body: "Faith that holds when life is hard — built on the word of God rather than on circumstances or feelings.",
+      },
+      {
+        title: "Empowered by Wisdom",
+        body: "Wisdom for real decisions: work, family, money, purpose. God's counsel applied to ordinary Monday mornings.",
+      },
+      {
+        title: "Intimate with the Holy Spirit",
+        body: "Not a distant God, but a daily friendship — the Holy Spirit leading, comforting and empowering as you go.",
+      },
+      {
+        title: "Doing Exploits for God and in Life",
+        body: "Faith that shows. People who excel where God has placed them and leave their world better than they found it.",
+      },
+    ] satisfies Pillar[],
+
+    /** Section 4 — the mission statement, shown large and alone. */
+    missionStatement:
+      "To establish 300 million disciples in over 150,000 churches around the world by 2055, if Jesus tarries.",
+    missionSupport:
+      "It is a big number because it is a big commission. Every service, every class and every campus outreach is a step toward it — and every person who says yes counts.",
+
+    /** Section 5 — what drives the work. */
+    passion: [
+      {
+        title: "Winning souls",
+        body: "Bringing people to Jesus — on campuses, in homes, and across our city.",
+      },
+      {
+        title: "Establishing believers",
+        body: "Helping new believers stand on a firm foundation instead of drifting.",
+      },
+      {
+        title: "Making disciples",
+        body: "Growing followers of Jesus who can walk it out and pass it on.",
+      },
+      {
+        title: "Equipping leaders",
+        body: "Raising people who can carry responsibility and lead others well.",
+      },
+      {
+        title: "Transforming generations",
+        body: "Reaching the young, so what God does here outlives all of us.",
+      },
+    ] satisfies Pillar[],
+
+    /** Section 6 — core values. `icon` keys are resolved in `CoreValues.tsx`. */
+    coreValues: [
+      {
+        title: "Practical Peace & Righteousness",
+        body: "Right living that shows up in ordinary conduct — not performance, but peace you can actually live in.",
+        icon: "leaf",
+      },
+      {
+        title: "Faith & Wisdom",
+        body: "We believe God and we think clearly. Faith and good sense are partners here, never rivals.",
+        icon: "book",
+      },
+      {
+        title: "Intimacy with the Holy Spirit",
+        body: "A daily walk with the Spirit — listening, yielding, and being led rather than merely informed.",
+        icon: "flame",
+      },
+      {
+        title: "Confidence & Positive Mentality",
+        body: "Boldness rooted in who God says you are. We refuse a small, fearful view of life.",
+        icon: "sunrise",
+      },
+      {
+        title: "Capacity Building",
+        body: "We grow people. Skills, character and gifting are developed on purpose, not left to chance.",
+        icon: "growth",
+      },
+      {
+        title: "Integrity",
+        body: "The same in private as in public. What we say is what we do, whether or not anyone is watching.",
+        icon: "scales",
+      },
+      {
+        title: "Responsibility",
+        body: "We own our work, our words and our commitments — to God, to family, and to one another.",
+        icon: "shield",
+      },
+      {
+        title: "Diligence",
+        body: "Faithful in the small and the unseen. Excellence is a habit here, not an occasion.",
+        icon: "target",
+      },
+      {
+        title: "Sacrifice",
+        body: "Nothing worth building is free. We give time, resources and comfort for what outlasts us.",
+        icon: "gift",
+      },
+    ] satisfies IconedItem[],
+
+    /**
+     * Section 10 — how the local church actually runs, week to week.
+     *
+     * ⚠️ The `when` lines for Sunday Worship and Midweek restate `serviceTimes`
+     * at the top of this file. Change one, change the other.
+     *
+     * "[to be confirmed]" inside a `when` is deliberate and visitor-facing: the
+     * church gave the time but has not yet verified it, and a wrong time on a
+     * church website costs someone a wasted trip. Delete the marker once confirmed.
+     */
+    churchLife: [
+      {
+        title: "Sunday Worship",
+        when: "Sundays, 7:00 AM",
+        body: "Our main gathering: heartfelt praise, the word taught plainly, prayer, and time to actually meet people afterwards.",
+        icon: "music",
+      },
+      {
+        title: "Midweek Services",
+        when: "Wednesdays, 5:30 PM",
+        body: "Bible study and prayer in the middle of the week — where the teaching goes deeper, questions are welcome, and there's room to grow.",
+        icon: "book",
+      },
+      {
+        title: "Foundation Classes",
+        when: "Mondays, 6:00 PM · and Sundays after service",
+        body: "Where discipleship starts. A friendly course laying the spiritual foundations of the faith and what it means to belong here — come to whichever session suits you.",
+        icon: "seedling",
+      },
+      {
+        title: "Water Baptism",
+        when: "Saturdays, 9:00 AM [to be confirmed]",
+        body: "A public step of obedience after believing in Jesus. If you're ready, speak to any leader and we'll walk you through it — no fee, no fuss.",
+        icon: "droplet",
+      },
+      {
+        title: "Children's Church",
+        when: "During the main service",
+        body: "Children are taught the ways of God from a very young age, with separate classes for different age groups so the teaching actually fits them. A warm, vetted team, and a space built for them.",
+        icon: "baby",
+      },
+      {
+        title: "Evangelism",
+        when: "Mondays, 7:00 AM [to be confirmed]",
+        body: "We go out. Every Monday morning we take the gospel into our streets, campuses and neighbourhoods — anyone can join, and you'll never go alone.",
+        icon: "navigation",
+      },
+      {
+        title: "We Care Ministry",
+        when: "[Details to be confirmed]",
+        body: "[Outline the We Care ministry — who it reaches, what it does, and how someone gets help or joins. Awaiting details from the church.]",
+        icon: "heart",
+      },
+      {
+        title: "Ministries & Departments",
+        body: "Volunteer teams that carry the work — music, media, ushering, protocol and more. There's a place for you below.",
+        icon: "users",
+      },
+    ] satisfies IconedItem[],
+
+    /** Section 11 — the path from first visit to sent-out believer. */
+    journey: [
+      { title: "Visit", body: "Come as you are, sit at the back if you like. No pressure." },
+      { title: "Know Christ", body: "Meet Jesus for yourself — the beginning of everything." },
+      { title: "Foundation Class", body: "Learn the basics and get your footing." },
+      { title: "Water Baptism", body: "Go public with the decision you've made." },
+      { title: "Join a Ministry", body: "Find a team and start serving with others." },
+      { title: "Grow in Faith", body: "Go deeper through teaching, prayer and community." },
+      { title: "Serve Others", body: "Carry responsibility and help the next person along." },
+      { title: "Impact Your World", body: "Take it into your campus, work and family." },
+    ] satisfies JourneyStep[],
+
+    /**
+     * Section 12 — FAQs.
+     * ⚠️ The service-time and location answers restate `serviceTimes` and
+     * `address` above. If you change those, change these too.
+     */
+    faqs: [
+      {
+        q: "What time are services?",
+        a: "Sunday Service starts at 7:00 AM, and Bible Study is on Wednesday at 5:30 PM. Come a few minutes early if you'd like someone to show you around.",
+      },
+      {
+        q: "Where are you located?",
+        a: "1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State. There's a Get Directions link in the footer that opens straight in Google Maps.",
+      },
+      {
+        q: "Is there children's church?",
+        a: "Yes. Children are cared for by a warm, vetted team in a space made just for them, running during the main service.",
+      },
+      {
+        q: "What should I wear?",
+        a: "Come as you are. Some dress up, many come casual — you'll fit in either way.",
+      },
+      {
+        q: "Can I visit if I'm not a Christian?",
+        a: "Absolutely, and you're genuinely welcome. There's no spotlight on guests, no pressure to stand, speak or give. Come and see.",
+      },
+      {
+        q: "How long is the service?",
+        a: "[CONFIRM] About two hours, including worship, the message and prayer.",
+      },
+      {
+        q: "Do you livestream services?",
+        a: "Not yet — our livestream is on the way. For now the best seat is in the room, and the Watch page will carry it as soon as it's live.",
+      },
+    ] satisfies Faq[],
   },
 
   /** Testimonies — CLEARED by the church for launch. Carousel on the homepage. */
@@ -272,71 +599,83 @@ export const church = {
   events: {
     upcoming: [
       {
+        id: "salem-campus-outreach",
+        title: "Salem Campus Outreach — Ignite",
+        date: "Thursday 30 July – Saturday 1 August 2026",
+        // Two different start times across the three days, so this field carries
+        // both rather than hiding one. Same for `location` below — two venues.
+        time: "Thu & Fri 4:30 PM · Sat 9:00 AM",
+        location:
+          "Ignatius Ajuru University of Education — ICT Centre (Thu & Fri) · Science Village Auditorium (Sat)",
+        blurb:
+          "Three days on campus under the theme Ignite — Youths on Fire. Worship and Wonders, the Street Wise Campaign, and Faith Dynamite Voice, with the Grand Outreach closing it on Saturday morning. Free welfare materials for the first 500 students.",
+        flyer: "Salem Campus Outreach — Ignite flyer",
+      },
+      {
         id: "q2-thanksgiving",
         title: "2nd Quarter Thanksgiving",
         date: "Sunday, 2 August 2026",
         time: "7:00 AM",
         location: "Church Auditorium, #1 Faith Avenue, Rumuomasi",
         blurb:
-          "A morning of praise and gratitude as we mark the second quarter together — with Archbishop Dr Sam Amaga as chief host. Come and rejoice with us.",
+          "A morning of praise and gratitude as we mark the second quarter together. Come and rejoice with us.",
         flyer: "2nd Quarter Thanksgiving flyer",
       },
+    ] satisfies ChurchEvent[],
+    /*
+     * Past events. Real events only — the invented placeholder entries that used
+     * to pad this list out have been deleted. Covenant Week keeps its real flyer:
+     * `PastEvents.tsx` now looks the image up in `eventImages` by id, the same
+     * way `UpcomingEvents.tsx` does, and only falls back to a placeholder panel
+     * when no image is mapped.
+     */
+    past: [
       {
         id: "covenant-week",
         title: "Covenant Week of Celebration",
-        date: "[1st - 5th July]",
-        time: "[8:00 AM]",
-        location: "[Main Auditorium]",
-        blurb:
-          "A morning of celebration, music, and thanksgiving — a warm first Sunday to walk into.",
-        flyer: "[Event flyer / poster]",
-      },
-      {
-        id: "family-friends-sunday",
-        title: "[Family & Friends Sunday]",
-        date: "[Sun, 13 July]",
-        time: "[8:00 AM]",
-        location: "[Main Auditorium]",
-        blurb:
-          "[A special Sunday to bring someone with you — worship, the word, and a warm welcome.]",
-        flyer: "[Event flyer]",
-      },
-      {
-        id: "midweek-revival",
-        title: "[Midweek Revival Night]",
-        date: "[Wed, 16 July]",
-        time: "[5:30 PM]",
-        location: "[Main Auditorium]",
-        blurb: "[An evening of worship and prayer in the middle of the week.]",
-        flyer: "[Event flyer]",
-      },
-    ] satisfies ChurchEvent[],
-    past: [
-      {
-        id: "past-thanksgiving",
-        title: "[Annual Thanksgiving]",
-        date: "[June 2026]",
-        photo: "[Congregation celebrating together]",
-      },
-      {
-        id: "past-outreach",
-        title: "[Community Outreach]",
-        date: "[May 2026]",
-        photo: "[Outreach in the community]",
-      },
-      {
-        id: "past-youth",
-        title: "[Youth Conference]",
-        date: "[April 2026]",
-        photo: "[Young people worshipping]",
-      },
-      {
-        id: "past-baptism",
-        title: "[Baptism Sunday]",
-        date: "[March 2026]",
-        photo: "[Baptism celebration]",
+        date: "[1–5 July 2026]",
+        photo: "[Covenant Week celebration]",
       },
     ] satisfies PastEvent[],
+  },
+
+  /**
+   * PARKED — NOT RENDERED ANYWHERE. This fed a homepage sermon section that was
+   * removed: it was never in the spec (design-system/.../home.md lists 8
+   * sections, none a sermon block) and a sermon feature is deferred + gated on
+   * church clearance (HANDOFF §8c). The component survives, unimported, at
+   * `home/LatestSermon.tsx`.
+   *
+   * Do NOT fill these placeholders as part of the normal `[BRACKET]` sweep —
+   * they are not on the launch checklist (HANDOFF §9). If the church clears a
+   * sermon feature, prefer `church.watch.latestServiceId` (HANDOFF §8a) over a
+   * second video-id slot here.
+   */
+  sermons: {
+    latest: {
+      title: "[Sermon title — the message, not the series]",
+      speaker: "[Speaker — e.g. Bishop Hilary Ogoliegbune]",
+      date: "[Sunday, 26 July 2026]",
+      description:
+        "[Two lines on what this message is about — enough that someone who missed Sunday wants to catch up.]",
+      /* ⬇️ PASTE THE YOUTUBE VIDEO ID HERE to turn the player on. Nothing else to change. */
+      youtubeId: null,
+      thumbnail: "[Still from the service — the speaker mid-message]",
+      watchHref: "/watch",
+    } satisfies Sermon,
+    /** Where "Browse all sermons" goes. Repoint at /sermons once that page exists. */
+    archiveHref: "/watch",
+  },
+
+  /**
+   * Prayer — the church's "we'll stand with you" channel. WhatsApp-first like
+   * every other contact path on the site (no forms, architecture doc §2).
+   */
+  prayer: {
+    heading: "Need prayer?",
+    body: "No matter what you're facing, we'd be honored to stand with you in prayer. Our prayer team is here to support you.",
+    whatsappMessage:
+      "Hello Salem Rivers — I'd like to request prayer.",
   },
 
   /** Watch (subordinate fallback). [CONFIRM] */

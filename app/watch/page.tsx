@@ -24,11 +24,18 @@ export default function WatchPage() {
           </p>
 
           <div className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-5 py-2.5 shadow-sm">
-            {/* Red pulsing "live" indicator (static under prefers-reduced-motion) */}
-            <span className="relative flex h-3 w-3" aria-hidden="true">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500" />
-            </span>
+            {/*
+              A STATIC GOLD dot, deliberately. This used to be a pulsing red one
+              — the universal "broadcasting right now" signal — sitting next to
+              the words "Coming soon" on a page where nothing has ever been live.
+              It read as either broken or dishonest. The real red/pulsing
+              indicator belongs on the live state of the built Watch page
+              (HANDOFF §8a), gated on the schedule check, and nowhere else.
+            */}
+            <span
+              className="inline-flex h-3 w-3 rounded-full bg-accent"
+              aria-hidden="true"
+            />
             <span className="font-serif text-lg font-semibold text-foreground">
               Coming soon
             </span>
