@@ -28,7 +28,7 @@ export function Leadership() {
           const photo = leaderImages[leader.name];
           return (
             <li
-              key={`${leader.role}-${leader.name}`}
+              key={leader.name}
               className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md"
             >
               {photo ? (
@@ -78,9 +78,16 @@ export function Leadership() {
                 <h3 className="font-serif text-lg font-semibold leading-snug text-foreground">
                   {leader.name}
                 </h3>
-                <p className="mt-0.5 text-sm font-semibold text-accent">
-                  {leader.role}
-                </p>
+                {/*
+                  Rendered only when there is a role. An empty string would still
+                  emit a <p> with its top margin, leaving that card's bio sitting
+                  a line lower than its neighbours' — a ragged row for no reason.
+                */}
+                {leader.role && (
+                  <p className="mt-0.5 text-sm font-semibold text-accent">
+                    {leader.role}
+                  </p>
+                )}
                 <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted-foreground">
                   {leader.bio}
                 </p>

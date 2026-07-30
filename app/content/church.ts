@@ -228,19 +228,15 @@ export const church = {
       // The serving teams (departments) are defined once in `departments` above and reused here.
     },
     // Leadership — real photos + short intros. [CONFIRM names, roles, bios, photos]
+    /**
+     * ORDER IS INTENTIONAL: the founders lead, then the local church's leaders.
+     * It follows the same line the Heritage timeline tells — where this came
+     * from, then who carries it here. Renders in array order; do not re-sort.
+     *
+     * `role: ""` renders nothing — the card simply omits the role line. Use it
+     * where a title has not been given, rather than inventing one.
+     */
     leadership: [
-      {
-        name: "Bishop Hilary Ogoliegbune",
-        role: "Lead Pastor",
-        photo: "[Photo of the Bishop]",
-        bio: "Bishop Hilary leads Salem Rivers with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM — add years served and a personal line.]",
-      },
-      {
-        name: "Rev. Dr. (Mrs) Ogoliegbune",
-        role: "Pastor's Wife",
-        photo: "[Photo of the Pastor's wife]",
-        bio: "[CONFIRM full name.] She serves alongside the Bishop, with a particular heart for women, families, and the campus work. [Add a warm two-line introduction.]",
-      },
       {
         name: "Archbishop Sam Amaga",
         role: "Founder, Foundation Faith Church",
@@ -252,6 +248,18 @@ export const church = {
         role: "Co-Founder",
         photo: "[Photo of Dr. Love Sam-Amaga]",
         bio: "Co-carrier of the original commission, and a mother in the faith to a generation of believers across the nations the ministry now reaches. [CONFIRM wording.]",
+      },
+      {
+        name: "Bishop Hilary Ogoliegbune",
+        role: "Bishop",
+        photo: "[Photo of the Bishop]",
+        bio: "Bishop Hilary leads Salem Rivers with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM — add years served and a personal line.]",
+      },
+      {
+        name: "Rev. Dr. (Mrs) Ogoliegbune",
+        role: "",
+        photo: "[Photo of the Pastor's wife]",
+        bio: "[CONFIRM full name.] She serves alongside the Bishop, with a particular heart for women, families, and the campus work. [Add a warm two-line introduction.]",
       },
     ] satisfies Leader[],
     vision:

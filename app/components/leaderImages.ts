@@ -39,7 +39,7 @@ export const leaderImages: Record<
 > = {
   "Bishop Hilary Ogoliegbune": {
     src: bishopHilary,
-    alt: "Bishop Hilary Ogoliegbune, Lead Pastor of Salem Rivers",
+    alt: "Bishop Hilary Ogoliegbune, Bishop of Salem Rivers",
     kind: "photo",
     // Portrait source in a 4/5 card — anchor to the top so the crop keeps the face.
     objectPosition: "object-top",

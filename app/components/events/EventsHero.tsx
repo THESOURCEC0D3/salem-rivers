@@ -1,25 +1,29 @@
 import { church } from "../../content/church";
-import { Container } from "../Container";
+import { PageHero } from "../PageHero";
 
-/** Events header — prove the church is alive; frame events as an easy first step. */
+/**
+ * Events header — prove the church is alive; frame events as an easy first step.
+ *
+ * Currently on the GRADIENT skin because no suitable photo exists yet. To give
+ * this page a photo hero, add one prop — nothing else changes:
+ *
+ *   image={{ src: "/images/events-hero.jpg", alt: "…" }}
+ *
+ * HANDOFF §8b specifies that file as "a wide crowd/congregation photo — NOT the
+ * flyer". Two existing images were considered and rejected: `Hero-Congregation.jpg`
+ * and `HeroImage2.jpg` both carry burned-in "38th Anniversary" event graphics that
+ * collide with hero copy and pin an evergreen page to one past event.
+ *
+ * KEEP IT `compact`. Two full event flyers render immediately below this at their
+ * natural ratio — a tall photo hero stacked above them would put three competing
+ * images in the first two screens.
+ */
 export function EventsHero() {
   return (
-    <section className="border-b border-border bg-gradient-to-b from-purple-soft to-background">
-      <Container>
-        <div className="max-w-3xl py-16 sm:py-20 lg:py-24">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-accent">
-            What&apos;s happening
-          </p>
-          <h1 className="text-balance text-4xl font-semibold leading-[1.05] text-foreground sm:text-5xl lg:text-6xl">
-            Events
-          </h1>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            There&apos;s always something happening at {church.name}. An event
-            can be an easy first step — come along, bring a friend, and meet the
-            family.
-          </p>
-        </div>
-      </Container>
-    </section>
+    <PageHero
+      eyebrow="What's happening"
+      title="Events"
+      intro={`There's always something happening at ${church.name}. An event can be an easy first step — come along, bring a friend, and meet the family.`}
+    />
   );
 }
