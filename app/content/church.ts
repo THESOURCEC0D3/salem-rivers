@@ -172,14 +172,21 @@ export const church = {
       "We're not a perfect church — we're a real one. Whoever you are, however you come, you'll find a place to belong here.",
     ],
     /**
-     * Short mission / vision / culture lines for the homepage About section.
-     * Kept to one sentence each on purpose — the homepage is the trailer, the
-     * About page is the full picture.
+     * ONE-LINE SUMMARIES FOR THE HOMEPAGE About section (the trailer).
+     * Each is the compressed form of a full /about section — keep them to a
+     * sentence. If you change the long version, change the summary with it.
+     *   identitySummary  → /about "Who We Are"
+     *   heritageSummary  → /about "Our Heritage"
+     *   visionSummary    → /about "Our Vision" (the four pillars, in one line)
+     *   `missionStatement` below is shared verbatim by both pages — it is a
+     *   stated commitment and must not be paraphrased.
      */
-    mission:
-      "[CONFIRM] To raise a triumphant people — strong in faith, empowered by wisdom, and intimate with the Holy Spirit.",
-    culture:
-      "[CONFIRM] Warm, real and family-first. Come as you are, and you'll be met by people who are glad you did.",
+    identitySummary:
+      "A Christ-centred, Bible-believing family in Port Harcourt. Everything here starts and ends with Jesus.",
+    heritageSummary:
+      "We grow out of Foundation Faith Church, planted in Port Harcourt in 1988 by Archbishop Sam Amaga and Dr. Love Sam-Amaga.",
+    visionSummary:
+      "To raise a triumphant people — strong in faith, empowered by wisdom, intimate with the Holy Spirit, and doing exploits for God.",
     // Plain-language beliefs, not a theology dump. [CONFIRM exact wording with leadership.]
     beliefs: [
       {

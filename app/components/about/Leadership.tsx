@@ -32,14 +32,38 @@ export function Leadership() {
               className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md"
             >
               {photo ? (
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-muted">
+                /*
+                  Two rendering modes, one frame. Every card is the same 4/5 box
+                  so the row stays even; only what happens INSIDE differs.
+
+                  cutout → transparent PNG. object-contain (never crop a masked
+                    subject), bottom-aligned so they stand on the card's base
+                    rather than float, on a tinted gradient that gives the empty
+                    alpha somewhere to be. No blur placeholder: the generated
+                    blurDataURL has no alpha and would flash an opaque block.
+
+                  photo  → ordinary opaque image. Cropped to fill, blur-up on.
+                */
+                <div
+                  className={`relative aspect-[4/5] w-full overflow-hidden ${
+                    photo.kind === "cutout"
+                      ? "bg-gradient-to-b from-purple-soft to-muted"
+                      : "bg-muted"
+                  }`}
+                >
                   <Image
                     src={photo.src}
                     alt={photo.alt}
-                    placeholder="blur"
+                    {...(photo.kind === "photo"
+                      ? { placeholder: "blur" as const }
+                      : {})}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className={`object-cover ${photo.objectPosition ?? "object-center"}`}
+                    className={
+                      photo.kind === "cutout"
+                        ? "object-contain object-bottom p-3"
+                        : `object-cover ${photo.objectPosition ?? "object-center"}`
+                    }
                   />
                 </div>
               ) : (
