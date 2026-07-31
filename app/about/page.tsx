@@ -14,11 +14,12 @@ import { FaqAccordion } from "../components/about/FaqAccordion";
 import { FinalCta } from "../components/about/FinalCta";
 import { GlimpseStrip } from "../components/home/GlimpseStrip";
 import { GetInvolved } from "../components/home/GetInvolved";
+import { Reveal } from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Who Salem Rivers Church is — our heritage, vision, mission, values, beliefs and leadership. A Pentecostal family in Port Harcourt raising people strong in faith, empowered by wisdom, and intimate with the Holy Spirit.",
+    "Who Salem Rivers Church is: our heritage, vision, mission, values, beliefs and leadership. A Pentecostal family in Port Harcourt raising people strong in faith, empowered by wisdom, and intimate with the Holy Spirit.",
 };
 
 /**
@@ -48,40 +49,72 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      {/*
+        AboutHero is NOT wrapped in `Reveal`: it is the route's LCP element and is
+        already on screen. Every section below it reveals on scroll.
+      */}
       <AboutHero />
-      <WhoWeAre />
-      <OurHeritage />
-      <OurVision />
-      <OurMission />
-      <OurPassion />
-      <CoreValues />
-      <WhatWeBelieve />
-      <Leadership />
+      <Reveal>
+        <WhoWeAre />
+      </Reveal>
+      <Reveal>
+        <OurHeritage />
+      </Reveal>
+      <Reveal>
+        <OurVision />
+      </Reveal>
+      <Reveal>
+        <OurMission />
+      </Reveal>
+      <Reveal>
+        <OurPassion />
+      </Reveal>
+      <Reveal>
+        <CoreValues />
+      </Reveal>
+      <Reveal>
+        <WhatWeBelieve />
+      </Reveal>
+      <Reveal>
+        <Leadership />
+      </Reveal>
 
       {/* Reused gallery — this page's wording, homepage's component. */}
-      <GlimpseStrip
-        eyebrow="A glimpse of us"
-        title="Life at Salem Rivers"
-        intro="Take a glimpse into our worship, fellowship, ministries, outreach, and church family."
-        className="bg-background"
-      />
+      <Reveal>
+        <GlimpseStrip
+          eyebrow="A glimpse of us"
+          title="Life at Salem Rivers"
+          intro="Take a glimpse into our worship, fellowship, ministries, outreach, and church family."
+          className="bg-background"
+        />
+      </Reveal>
 
-      <ChurchLife />
+      <Reveal>
+        <ChurchLife />
+      </Reveal>
 
       {/*
         Reused ministry cards — the "Ministries & Departments" card in ChurchLife
         above anchors down to this section's `#get-involved` id.
       */}
-      <GetInvolved
-        eyebrow="Ministries & departments"
-        title="The teams that carry the work"
-        intro="Every one of these is volunteer-run, and every one of them has room for you."
-        className="bg-background"
-      />
+      <Reveal>
+        <GetInvolved
+          eyebrow="Ministries & departments"
+          title="The teams that carry the work"
+          intro="Every one of these is volunteer-run, and every one of them has room for you."
+          className="bg-background"
+        />
+      </Reveal>
 
-      <YourJourney />
-      <FaqAccordion />
-      <FinalCta />
+      <Reveal>
+        <YourJourney />
+      </Reveal>
+      <Reveal>
+        <FaqAccordion />
+      </Reveal>
+      <Reveal>
+        <FinalCta />
+      </Reveal>
     </>
   );
 }

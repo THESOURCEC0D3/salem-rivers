@@ -7,7 +7,7 @@ import { PLAN_VISIT_HREF } from "../content/church";
 export const metadata: Metadata = {
   title: "Watch",
   description:
-    "Our livestream and latest services are coming soon. In the meantime, plan a visit — the best seat is in the room.",
+    "Our livestream and latest services are coming soon. In the meantime, plan a visit, because the best seat is in the room.",
 };
 
 /**
@@ -45,7 +45,7 @@ export default function WatchPage() {
             Our livestream is on the way
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            Watch live and catch the latest services here soon — but the best
+            Watch live and catch the latest services here soon, but the best
             seat is always in the room.
           </p>
 

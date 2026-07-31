@@ -20,7 +20,7 @@ export function PhotoPlaceholder({
     <div
       className={`photo-ph ${rounded} ${className}`}
       role="img"
-      aria-label={`Placeholder — ${label}`}
+      aria-label={`Placeholder: ${label}`}
     >
       <div className="absolute inset-0 grid place-items-center p-4 text-center">
         <span className="max-w-[18rem] rounded-full bg-black/30 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-white/90 backdrop-blur-sm">
@@ -35,7 +35,7 @@ export function PhotoPlaceholder({
 export function PlaceholderNote() {
   return (
     <p className="text-center text-xs text-muted-foreground">
-      Gradient panels are placeholders — swap in real photos of {church.name}{" "}
+      Gradient panels are placeholders. Swap in real photos of {church.name}{" "}
       (faces, not the building). See <code>app/content/church.ts</code>.
     </p>
   );

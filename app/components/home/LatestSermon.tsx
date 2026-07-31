@@ -104,7 +104,7 @@ export function LatestSermon({
                   size={16}
                   className="mr-1.5 inline-block align-[-2px] text-accent"
                 />
-                Press play to watch here — no need to leave the page.
+                Press play to watch here, no need to leave the page.
               </p>
             ) : (
               <Link

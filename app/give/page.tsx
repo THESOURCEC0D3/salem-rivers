@@ -7,7 +7,7 @@ import { PLAN_VISIT_HREF } from "../content/church";
 export const metadata: Metadata = {
   title: "Give",
   description:
-    "Online giving is coming soon. Thank you for your generosity — it fuels everything we do.",
+    "Online giving is coming soon. Thank you for your generosity, which fuels everything we do.",
 };
 
 /**
@@ -39,7 +39,7 @@ export default function GivePage() {
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
             Soon you&apos;ll be able to give securely online. Until then, thank
-            you for your generosity — it fuels everything we do.
+            you for your generosity, which fuels everything we do.
           </p>
 
           <Link

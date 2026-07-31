@@ -22,7 +22,7 @@ export function ReadyToJoin() {
             the same page — so this closing line now stands on its own.
           */}
           <p className="max-w-xl text-lg text-white/85">
-            Come and see — there&apos;s a seat saved for you, and we&apos;d love
+            Come and see. There&apos;s a seat saved for you, and we&apos;d love
             to meet you this Sunday.
           </p>
 

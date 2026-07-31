@@ -122,7 +122,7 @@ function TestimonyCard({ quote, name, context, photo }: Testimonial) {
           <span
             className="photo-ph h-12 w-12 shrink-0 rounded-full"
             role="img"
-            aria-label={`Placeholder — ${photo}`}
+            aria-label={`Placeholder: ${photo}`}
           />
         )}
         <span className="text-left">

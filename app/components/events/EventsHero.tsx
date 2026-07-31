@@ -23,7 +23,7 @@ export function EventsHero() {
     <PageHero
       eyebrow="What's happening"
       title="Events"
-      intro={`There's always something happening at ${church.name}. An event can be an easy first step — come along, bring a friend, and meet the family.`}
+      intro={`There's always something happening at ${church.name}. An event can be an easy first step, so come along, bring a friend, and meet the family.`}
     />
   );
 }

@@ -64,7 +64,7 @@ export function YouTubeFacade({
       type="button"
       onClick={() => ready && setActive(true)}
       disabled={!ready}
-      aria-label={ready ? `Play: ${title}` : `${title} — coming soon`}
+      aria-label={ready ? `Play: ${title}` : `${title}, coming soon`}
       className={`group relative block aspect-video w-full cursor-pointer overflow-hidden focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-default ${
         poster ? "bg-black" : "photo-ph"
       } ${className}`}

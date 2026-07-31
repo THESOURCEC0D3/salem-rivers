@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { church, whatsappLink } from "../../content/church";
 import { Section } from "../Section";
+import { Reveal } from "../Reveal";
 import { PhotoPlaceholder } from "../PhotoPlaceholder";
 import { departmentImages } from "../departmentImages";
 import { WhatsAppIcon } from "../icons";
@@ -16,7 +17,7 @@ import { WhatsAppIcon } from "../icons";
 export function GetInvolved({
   eyebrow = "Get involved",
   title = "Find your place in the family",
-  intro = "There's a seat for you on Sunday — and a place to serve through the week.",
+  intro = "There's a seat for you on Sunday, and a place to serve through the week.",
   // background, not muted: NextEvent above is now bg-muted/40.
   className = "bg-background",
 }: {
@@ -34,12 +35,17 @@ export function GetInvolved({
       className={className}
     >
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {church.departments.map((d) => {
+        {church.departments.map((d, i) => {
           // Departments without a real photo yet fall back to the placeholder panel.
           const photo = departmentImages[d.name];
           return (
-            <li
+            // `as="li"` so the reveal wrapper IS the list item — a div between
+            // <ul> and <li> would be invalid markup and break the grid.
+            <Reveal
+              as="li"
               key={d.name}
+              y={16}
+              delay={i * 0.06}
               className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md"
             >
               {photo ? (
@@ -79,7 +85,7 @@ export function GetInvolved({
                   I&apos;d like to serve here
                 </a>
               </div>
-            </li>
+            </Reveal>
           );
         })}
       </ul>

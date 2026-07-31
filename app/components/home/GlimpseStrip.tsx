@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Section } from "../Section";
+import { Reveal } from "../Reveal";
 import { glimpseImages } from "../glimpseImages";
 
 /**
@@ -36,8 +37,16 @@ export function GlimpseStrip({
           // The first tile is the featured one: double-wide, and square on mobile.
           const featured = i === 0;
           return (
-            <div
+            /*
+              Per-tile reveal, staggered 70ms apart so the grid fills in as a
+              sweep rather than all at once. y=16 (less than the 24 default)
+              because these are small tiles in a tight grid; more travel reads as
+              the layout shifting rather than settling.
+            */
+            <Reveal
               key={photo.src.src}
+              y={16}
+              delay={i * 0.07}
               className={`relative overflow-hidden rounded-2xl ${
                 featured
                   ? "col-span-2 row-span-2 aspect-square lg:col-span-2 lg:aspect-[4/5]"
@@ -56,7 +65,7 @@ export function GlimpseStrip({
                 }
                 className="object-cover"
               />
-            </div>
+            </Reveal>
           );
         })}
       </div>

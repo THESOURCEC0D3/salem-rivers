@@ -17,7 +17,7 @@ export function Hero() {
       {/* The service, full bleed. This is the LCP image, hence priority. */}
       <Image
         src="/images/HeroImage3-clean.png"
-        alt="A Salem Rivers service — the minister preaching on stage with the choir behind him"
+        alt="A Salem Rivers service, with the minister preaching on stage and the choir behind him"
         fill
         priority
         sizes="100vw"
@@ -44,12 +44,21 @@ export function Hero() {
       */}
       <div className="mx-auto w-full max-w-[110rem] px-5 sm:px-8 lg:px-12">
         <div className="flex min-h-[calc(100svh-4rem)] max-w-xl flex-col justify-center py-20 text-white sm:py-24">
+          {/*
+            Two-part heading, one <h1>: the small gold "Welcome to" is the lead-in
+            and the church's full name carries the display weight. The name is
+            split across two lines so "Foundation Faith Church" and "Salem Rivers"
+            each get their own, which is how the church says it aloud.
+            Sizes stepped down from 6xl/7xl/8xl — the full name is far longer than
+            "Salem Rivers" was and would otherwise wrap to four lines on a phone.
+          */}
           <h1>
             <span className="block text-lg font-medium uppercase tracking-[0.18em] text-gold-soft sm:text-xl">
               Welcome to
             </span>
-            <span className="mt-2 block text-balance text-6xl font-semibold leading-[0.95] sm:text-7xl lg:text-8xl">
-              {church.name}
+            <span className="mt-2 block text-balance text-4xl font-semibold leading-[1.02] sm:text-5xl lg:text-6xl">
+              Foundation Faith Church,
+              <span className="block">Salem Rivers.</span>
             </span>
           </h1>
 

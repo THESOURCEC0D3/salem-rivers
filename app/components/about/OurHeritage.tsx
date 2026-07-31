@@ -37,7 +37,7 @@ export function OurHeritage() {
           <div className="relative mx-auto w-full max-w-[18rem] px-6 pt-8 sm:mx-0 sm:max-w-none sm:px-0 sm:pl-8 sm:pt-10">
             <Image
               src={founders}
-              alt={`${church.about.heritage.founders.names} — ${church.about.heritage.founders.role}`}
+              alt={`${church.about.heritage.founders.names}, ${church.about.heritage.founders.role}`}
               sizes="(max-width: 640px) 18rem, 24rem"
               className="h-auto w-full object-contain"
             />

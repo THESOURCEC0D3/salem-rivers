@@ -22,11 +22,11 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: {
-    default: `${church.name} — A Pentecostal family in ${church.city}`,
+    default: `${church.name}, a Pentecostal family in ${church.city}`,
     template: `%s · ${church.name}`,
   },
   description:
-    "A warm Pentecostal church in Port Harcourt. New here? Find service times, plan your first visit, and come as you are — there's a seat saved for you.",
+    "A warm Pentecostal church in Port Harcourt. New here? Find service times, plan your first visit, and come as you are. There's a seat saved for you.",
   keywords: [
     "church in Port Harcourt",
     "Pentecostal church Port Harcourt",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     church.name,
   ],
   openGraph: {
-    title: `${church.name} — Come and see`,
+    title: `${church.name}: Come and see`,
     description:
       "A warm Pentecostal family in Port Harcourt. Plan your first visit.",
     type: "website",
@@ -72,6 +72,15 @@ export default function RootLayout({
       className={`${fraunces.variable} ${nunito.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        {/*
+          The <noscript> opacity override that used to live here is gone, and
+          deliberately so. `Reveal` no longer renders opacity:0 server-side at
+          all — it waits for a successful hydration before hiding anything (see
+          the comment block in Reveal.tsx). With nothing hidden in the SSR
+          output there is nothing for a fallback to un-hide, and a rule that only
+          covered the JS-disabled case never helped the failure that actually
+          bit us: JS enabled but broken.
+        */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

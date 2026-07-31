@@ -38,7 +38,7 @@ export function CoreValues() {
       id="core-values"
       eyebrow="How we live"
       title="Our Core Values"
-      intro="The nine things we hold each other to — in the building and outside it."
+      intro="The nine things we hold each other to, in the building and outside it."
       className="bg-muted/40"
     >
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

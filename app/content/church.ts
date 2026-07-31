@@ -125,17 +125,17 @@ export const church = {
   /** Plan Your Visit (the keystone page). All [BRACKETS] to confirm with the church. */
   visit: {
     opener:
-      "Thinking about visiting? Here's everything you need — no surprises, no pressure. By the time you arrive, it'll already feel familiar.",
+      "Thinking about visiting? Here's everything you need. No surprises, no pressure. By the time you arrive, it'll already feel familiar.",
     logistics: {
       duration: "[About 2 hours]",
       parking: "[Free parking is available right by the church]",
       entrance:
-        "[Come in through the main entrance — a welcomer will be there to meet you]",
+        "[Come in through the main entrance, where a welcomer will be there to meet you]",
     },
     whatToExpect: [
       {
         q: "What's the worship like?",
-        a: "Lively, heartfelt Pentecostal praise — singing, music, and prayer. Expect joy and energy, with quieter moments to reflect and pray.",
+        a: "Lively, heartfelt Pentecostal praise with singing, music, and prayer. Expect joy and energy, with quieter moments to reflect and pray.",
       },
       {
         q: "What happens when I arrive?",
@@ -147,21 +147,21 @@ export const church = {
       },
       {
         q: "What should I wear?",
-        a: "Come as you are. Some dress up, many come casual — you'll fit in either way. Wear whatever you're comfortable in.",
+        a: "Come as you are. Some dress up, many come casual, and you'll fit in either way. Wear whatever you're comfortable in.",
       },
     ] satisfies ExpectBeat[],
     kids: {
       title: "Your kids are in good hands",
       body: "We love having children, and we take their safety and joy seriously. During the service they're cared for by a warm, vetted team in a space made just for them.",
       points: [
-        "[Children's church for ages … during the main service]",
+        "[Children's church for ages ... during the main service]",
         "[Simple, secure check-in and check-out]",
         "[Where to take them when you arrive]",
       ],
     },
     welcomeVideo: {
       youtubeId: null as string | null,
-      label: "[30–60s welcome video — the room, the worship, the people]",
+      label: "[30 to 60 second welcome video showing the room, the worship, the people]",
     },
   },
 
@@ -169,7 +169,7 @@ export const church = {
   about: {
     intro: [
       "Salem Rivers is a warm Pentecostal family in Port Harcourt. We're ordinary people from every walk of life, brought together by Jesus and a shared hunger to know God and love our city.",
-      "We're not a perfect church — we're a real one. Whoever you are, however you come, you'll find a place to belong here.",
+      "We're not a perfect church. We're a real one. Whoever you are, however you come, you'll find a place to belong here.",
     ],
     /**
      * ONE-LINE SUMMARIES FOR THE HOMEPAGE About section (the trailer).
@@ -186,12 +186,12 @@ export const church = {
     heritageSummary:
       "We grow out of Foundation Faith Church, planted in Port Harcourt in 1988 by Archbishop Sam Amaga and Dr. Love Sam-Amaga.",
     visionSummary:
-      "To raise a triumphant people — strong in faith, empowered by wisdom, intimate with the Holy Spirit, and doing exploits for God.",
+      "To raise a triumphant people: strong in faith, empowered by wisdom, intimate with the Holy Spirit, and doing exploits for God.",
     // Plain-language beliefs, not a theology dump. [CONFIRM exact wording with leadership.]
     beliefs: [
       {
         title: "The Bible",
-        body: "God's living word — our final authority for faith, life, and everything we do.",
+        body: "God's living word, and our final authority for faith, life, and everything we do.",
       },
       {
         title: "Jesus Christ",
@@ -199,7 +199,7 @@ export const church = {
       },
       {
         title: "Salvation",
-        body: "A gift received by grace through faith — never earned, never deserved, and open to anyone who comes.",
+        body: "A gift received by grace through faith. Never earned, never deserved, and open to anyone who comes.",
       },
       {
         title: "The Holy Spirit",
@@ -207,7 +207,7 @@ export const church = {
       },
       {
         title: "Prayer",
-        body: "We bring everything to God, big and small — and we expect Him to answer.",
+        body: "We bring everything to God, big and small, and we expect Him to answer.",
       },
       {
         title: "Discipleship",
@@ -216,10 +216,10 @@ export const church = {
     ] satisfies Belief[],
     howWeFunction: {
       intro:
-        "We're a volunteer-powered family. Here's how things work week to week — and how you can be part of it.",
+        "We're a volunteer-powered family. Here's how things work week to week, and how you can be part of it.",
       membership: {
         title: "Becoming part of the family",
-        body: "[Outline the real membership path — e.g. start attending, join a newcomers' class, then get connected to a unit. Confirm the actual steps.]",
+        body: "[Outline the real membership path. For example: start attending, join a newcomers' class, then get connected to a unit. Confirm the actual steps.]",
       },
       rhythms: {
         title: "Our weekly rhythm",
@@ -241,7 +241,7 @@ export const church = {
         name: "Archbishop Sam Amaga",
         role: "Founder, Foundation Faith Church",
         photo: "[Photo of the Archbishop]",
-        bio: "Began preaching in 1973 and was commissioned, with Dr. Love Sam-Amaga, to raise an army of believers. Planted Foundation Faith Church in Port Harcourt in 1988 — the root Salem Rivers grows from.",
+        bio: "Began preaching in 1973 and was commissioned, with Dr. Love Sam-Amaga, to raise an army of believers. Planted Foundation Faith Church in Port Harcourt in 1988, the root Salem Rivers grows from.",
       },
       {
         name: "Dr. Love Sam-Amaga",
@@ -253,7 +253,7 @@ export const church = {
         name: "Bishop Hilary Ogoliegbune",
         role: "Bishop",
         photo: "[Photo of the Bishop]",
-        bio: "Bishop Hilary leads Salem Rivers with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM — add years served and a personal line.]",
+        bio: "Bishop Hilary leads Salem Rivers with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM: add years served and a personal line.]",
       },
       {
         name: "Rev. Dr. (Mrs) Ogoliegbune",
@@ -263,14 +263,14 @@ export const church = {
       },
     ] satisfies Leader[],
     vision:
-      "Our heart is to see a Port Harcourt where everyone has a church family to belong to — a people growing in God, lifting one another, and carrying His love to every corner of our city. [Refine with the church's own vision statement.]",
+      "Our heart is to see a Port Harcourt where everyone has a church family to belong to: a people growing in God, lifting one another, and carrying His love to every corner of our city. [Refine with the church's own vision statement.]",
 
     /* ---------- About page content (sections in page order) ---------- */
 
     /** Section 1 — Who we are. Short paragraphs on purpose; this is a phone-first page. */
     whoWeAre: [
       "Salem Rivers is a Christ-centred, Bible-believing family in Port Harcourt. Everything here starts and ends with Jesus.",
-      "We're ordinary people from every walk of life — students, traders, professionals, families — brought together by one hunger to know God.",
+      "We're ordinary people from every walk of life: students, traders, professionals and families, brought together by one hunger to know God.",
       "We take the Bible seriously and each other personally. Faith is grown in community here, not in isolation.",
       "We exist to raise disciples: believers who are established, equipped, and sent out to serve this city well.",
     ],
@@ -286,13 +286,13 @@ export const church = {
       founders: {
         names: "Archbishop Sam Amaga & Dr. Love Sam-Amaga",
         role: "Founders, Foundation Faith Church",
-        body: "In 1984 God called them to raise an army of believers — a people strong in faith, empowered by wisdom, and intimate with the Holy Spirit. Everything Salem Rivers is today grows out of that commission.",
+        body: "In 1984 God called them to raise an army of believers: a people strong in faith, empowered by wisdom, and intimate with the Holy Spirit. Everything Salem Rivers is today grows out of that commission.",
       },
       timeline: [
         {
           year: "1973",
           title: "The preaching begins",
-          body: "Archbishop Sam Amaga starts preaching the gospel — long before there was a church, a building, or a name.",
+          body: "Archbishop Sam Amaga starts preaching the gospel, long before there was a church, a building, or a name.",
         },
         {
           year: "1984",
@@ -307,7 +307,7 @@ export const church = {
         {
           year: "1988",
           title: "Foundation Faith Church",
-          body: "The first church is planted in Port Harcourt — the same soil Salem Rivers stands on today.",
+          body: "The first church is planted in Port Harcourt, on the same soil Salem Rivers stands on today.",
         },
         {
           year: "1998",
@@ -317,7 +317,7 @@ export const church = {
         {
           year: "Onward",
           title: "Global church planting",
-          body: "The ministry expands across Africa, into Europe and beyond — congregation after congregation carrying the same commission.",
+          body: "The ministry expands across Africa, into Europe and beyond, congregation after congregation carrying the same commission.",
         },
         {
           year: "Today",
@@ -331,7 +331,7 @@ export const church = {
     visionPillars: [
       {
         title: "Strong in Faith",
-        body: "Faith that holds when life is hard — built on the word of God rather than on circumstances or feelings.",
+        body: "Faith that holds when life is hard, built on the word of God rather than on circumstances or feelings.",
       },
       {
         title: "Empowered by Wisdom",
@@ -339,7 +339,7 @@ export const church = {
       },
       {
         title: "Intimate with the Holy Spirit",
-        body: "Not a distant God, but a daily friendship — the Holy Spirit leading, comforting and empowering as you go.",
+        body: "Not a distant God, but a daily friendship, with the Holy Spirit leading, comforting and empowering as you go.",
       },
       {
         title: "Doing Exploits for God and in Life",
@@ -351,13 +351,13 @@ export const church = {
     missionStatement:
       "To establish 300 million disciples in over 150,000 churches around the world by 2055, if Jesus tarries.",
     missionSupport:
-      "It is a big number because it is a big commission. Every service, every class and every campus outreach is a step toward it — and every person who says yes counts.",
+      "It is a big number because it is a big commission. Every service, every class and every campus outreach is a step toward it, and every person who says yes counts.",
 
     /** Section 5 — what drives the work. */
     passion: [
       {
         title: "Winning souls",
-        body: "Bringing people to Jesus — on campuses, in homes, and across our city.",
+        body: "Bringing people to Jesus on campuses, in homes, and across our city.",
       },
       {
         title: "Establishing believers",
@@ -381,7 +381,7 @@ export const church = {
     coreValues: [
       {
         title: "Practical Peace & Righteousness",
-        body: "Right living that shows up in ordinary conduct — not performance, but peace you can actually live in.",
+        body: "Right living that shows up in ordinary conduct. Not performance, but peace you can actually live in.",
         icon: "leaf",
       },
       {
@@ -391,7 +391,7 @@ export const church = {
       },
       {
         title: "Intimacy with the Holy Spirit",
-        body: "A daily walk with the Spirit — listening, yielding, and being led rather than merely informed.",
+        body: "A daily walk with the Spirit: listening, yielding, and being led rather than merely informed.",
         icon: "flame",
       },
       {
@@ -411,7 +411,7 @@ export const church = {
       },
       {
         title: "Responsibility",
-        body: "We own our work, our words and our commitments — to God, to family, and to one another.",
+        body: "We own our work, our words and our commitments, to God, to family, and to one another.",
         icon: "shield",
       },
       {
@@ -446,19 +446,19 @@ export const church = {
       {
         title: "Midweek Services",
         when: "Wednesdays, 5:30 PM",
-        body: "Bible study and prayer in the middle of the week — where the teaching goes deeper, questions are welcome, and there's room to grow.",
+        body: "Bible study and prayer in the middle of the week, where the teaching goes deeper, questions are welcome, and there's room to grow.",
         icon: "book",
       },
       {
         title: "Foundation Classes",
         when: "Mondays, 6:00 PM · and Sundays after service",
-        body: "Where discipleship starts. A friendly course laying the spiritual foundations of the faith and what it means to belong here — come to whichever session suits you.",
+        body: "Where discipleship starts. A friendly course laying the spiritual foundations of the faith and what it means to belong here. Come to whichever session suits you.",
         icon: "seedling",
       },
       {
         title: "Water Baptism",
         when: "Saturdays, 9:00 AM [to be confirmed]",
-        body: "A public step of obedience after believing in Jesus. If you're ready, speak to any leader and we'll walk you through it — no fee, no fuss.",
+        body: "A public step of obedience after believing in Jesus. If you're ready, speak to any leader and we'll walk you through it. No fee, no fuss.",
         icon: "droplet",
       },
       {
@@ -470,18 +470,18 @@ export const church = {
       {
         title: "Evangelism",
         when: "Mondays, 7:00 AM [to be confirmed]",
-        body: "We go out. Every Monday morning we take the gospel into our streets, campuses and neighbourhoods — anyone can join, and you'll never go alone.",
+        body: "We go out. Every Monday morning we take the gospel into our streets, campuses and neighbourhoods. Anyone can join, and you'll never go alone.",
         icon: "navigation",
       },
       {
         title: "We Care Ministry",
         when: "[Details to be confirmed]",
-        body: "[Outline the We Care ministry — who it reaches, what it does, and how someone gets help or joins. Awaiting details from the church.]",
+        body: "[Outline the We Care ministry: who it reaches, what it does, and how someone gets help or joins. Awaiting details from the church.]",
         icon: "heart",
       },
       {
         title: "Ministries & Departments",
-        body: "Volunteer teams that carry the work — music, media, ushering, protocol and more. There's a place for you below.",
+        body: "Volunteer teams that carry the work: music, media, ushering, protocol and more. There's a place for you below.",
         icon: "users",
       },
     ] satisfies IconedItem[],
@@ -489,7 +489,7 @@ export const church = {
     /** Section 11 — the path from first visit to sent-out believer. */
     journey: [
       { title: "Visit", body: "Come as you are, sit at the back if you like. No pressure." },
-      { title: "Know Christ", body: "Meet Jesus for yourself — the beginning of everything." },
+      { title: "Know Christ", body: "Meet Jesus for yourself. This is the beginning of everything." },
       { title: "Foundation Class", body: "Learn the basics and get your footing." },
       { title: "Water Baptism", body: "Go public with the decision you've made." },
       { title: "Join a Ministry", body: "Find a team and start serving with others." },
@@ -518,7 +518,7 @@ export const church = {
       },
       {
         q: "What should I wear?",
-        a: "Come as you are. Some dress up, many come casual — you'll fit in either way.",
+        a: "Come as you are. Some dress up, many come casual, and you'll fit in either way.",
       },
       {
         q: "Can I visit if I'm not a Christian?",
@@ -530,7 +530,7 @@ export const church = {
       },
       {
         q: "Do you livestream services?",
-        a: "Not yet — our livestream is on the way. For now the best seat is in the room, and the Watch page will carry it as soon as it's live.",
+        a: "Not yet. Our livestream is on the way. For now the best seat is in the room, and the Watch page will carry it as soon as it's live.",
       },
     ] satisfies Faq[],
   },
@@ -553,14 +553,14 @@ export const church = {
     },
     {
       quote:
-        "I was nervous about walking in alone. Nobody made a fuss — they just made room for me. That meant everything.",
+        "I was nervous about walking in alone. Nobody made a fuss. They just made room for me, and that meant everything.",
       name: "[First name]",
       context: "[Context]",
       photo: "[Photo of person]",
     },
     {
       quote:
-        "The worship, the warmth, the prayer — I drive past three churches to be here, and every Sunday it's worth it.",
+        "For the worship, the warmth and the prayer, I drive past three churches to be here. Every Sunday it's worth it.",
       name: "[First name]",
       context: "[Context]",
       photo: null,
@@ -572,7 +572,7 @@ export const church = {
     {
       name: "Technical / Media",
       blurb:
-        "Sound, cameras, livestream and slides — helping every service reach the room and the world online.",
+        "Sound, cameras, livestream and slides, helping every service reach the room and the world online.",
       photo: "[Media team at the sound desk / cameras]",
     },
     {
@@ -595,13 +595,13 @@ export const church = {
     {
       name: "Protocol",
       blurb:
-        "Order and hospitality — caring for guests and ministers so every service runs smoothly.",
+        "Order and hospitality, caring for guests and ministers so every service runs smoothly.",
       photo: "[Protocol team]",
     },
     {
       name: "Kingdom Dominion Force (KDF)",
       blurb:
-        "[Describe KDF] — a force for prayer, evangelism and taking the gospel beyond the walls.",
+        "[Describe KDF]. A force for prayer, evangelism and taking the gospel beyond the walls.",
       photo: "[KDF team]",
     },
   ] satisfies Department[],
@@ -615,16 +615,16 @@ export const church = {
     upcoming: [
       {
         id: "salem-campus-outreach",
-        title: "Salem Campus Outreach — Ignite",
-        date: "Thursday 30 July – Saturday 1 August 2026",
+        title: "Salem Campus Outreach: Ignite",
+        date: "Thursday 30 July to Saturday 1 August 2026",
         // Two different start times across the three days, so this field carries
         // both rather than hiding one. Same for `location` below — two venues.
         time: "Thu & Fri 4:30 PM · Sat 9:00 AM",
         location:
-          "Ignatius Ajuru University of Education — ICT Centre (Thu & Fri) · Science Village Auditorium (Sat)",
+          "Ignatius Ajuru University of Education. ICT Centre (Thu & Fri) · Science Village Auditorium (Sat)",
         blurb:
-          "Three days on campus under the theme Ignite — Youths on Fire. Worship and Wonders, the Street Wise Campaign, and Faith Dynamite Voice, with the Grand Outreach closing it on Saturday morning. Free welfare materials for the first 500 students.",
-        flyer: "Salem Campus Outreach — Ignite flyer",
+          "Three days on campus under the theme Ignite: Youths on Fire. Worship and Wonders, the Street Wise Campaign, and Faith Dynamite Voice, with the Grand Outreach closing it on Saturday morning. Free welfare materials for the first 500 students.",
+        flyer: "Salem Campus Outreach: Ignite flyer",
       },
       {
         id: "q2-thanksgiving",
@@ -648,7 +648,7 @@ export const church = {
       {
         id: "covenant-week",
         title: "Covenant Week of Celebration",
-        date: "[1–5 July 2026]",
+        date: "[1 to 5 July 2026]",
         photo: "[Covenant Week celebration]",
       },
     ] satisfies PastEvent[],
@@ -668,14 +668,14 @@ export const church = {
    */
   sermons: {
     latest: {
-      title: "[Sermon title — the message, not the series]",
-      speaker: "[Speaker — e.g. Bishop Hilary Ogoliegbune]",
+      title: "[Sermon title: the message, not the series]",
+      speaker: "[Speaker, e.g. Bishop Hilary Ogoliegbune]",
       date: "[Sunday, 26 July 2026]",
       description:
-        "[Two lines on what this message is about — enough that someone who missed Sunday wants to catch up.]",
+        "[Two lines on what this message is about, enough that someone who missed Sunday wants to catch up.]",
       /* ⬇️ PASTE THE YOUTUBE VIDEO ID HERE to turn the player on. Nothing else to change. */
       youtubeId: null,
-      thumbnail: "[Still from the service — the speaker mid-message]",
+      thumbnail: "[Still from the service, the speaker mid-message]",
       watchHref: "/watch",
     } satisfies Sermon,
     /** Where "Browse all sermons" goes. Repoint at /sermons once that page exists. */
@@ -690,7 +690,7 @@ export const church = {
     heading: "Need prayer?",
     body: "No matter what you're facing, we'd be honored to stand with you in prayer. Our prayer team is here to support you.",
     whatsappMessage:
-      "Hello Salem Rivers — I'd like to request prayer.",
+      "Hello Salem Rivers, I'd like to request prayer.",
   },
 
   /** Watch (subordinate fallback). [CONFIRM] */
@@ -714,7 +714,7 @@ export const church = {
 
   /** Real photos to supply for the hero + glimpse strip. */
   photos: {
-    hero: "[Wide, warm photo of the congregation — faces, joy, real service]",
+    hero: "[Wide, warm photo of the congregation showing faces, joy, real service]",
     glimpse: [
       "[Worship moment]",
       "[People greeting / fellowship]",

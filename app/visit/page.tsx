@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Plan Your Visit",
   description:
-    "Where and when to find Salem Rivers in Port Harcourt — service times, our address, and a direct line to message us on WhatsApp. Come as you are.",
+    "Where and when to find Salem Rivers in Port Harcourt: service times, our address, and a direct line to message us on WhatsApp. Come as you are.",
 };
 
 /**
@@ -33,7 +33,7 @@ export default function VisitPage() {
               Plan your visit
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Here&apos;s where and when to find us. Come as you are — and if
+              Here&apos;s where and when to find us. Come as you are, and if
               you have a question first, we&apos;re one message away.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function VisitPage() {
                   Have a question? Talk to us
                 </h2>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                  No forms to fill — just message us directly on WhatsApp, or
+                  No forms to fill. Just message us directly on WhatsApp, or
                   give us a call. We&apos;re happy to help with anything before
                   you come.
                 </p>

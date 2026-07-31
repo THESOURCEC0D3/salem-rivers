@@ -24,7 +24,7 @@ export function YourJourney() {
       id="journey"
       eyebrow="What's next"
       title="Your Journey at Salem Rivers"
-      intro="Nobody is rushed through this. Most people take it one step at a time — and every step has someone walking it with you."
+      intro="Nobody is rushed through this. Most people take it one step at a time, and every step has someone walking it with you."
       className="bg-muted/40"
     >
       <ol className="relative mx-auto max-w-6xl lg:grid lg:grid-cols-4 lg:gap-x-6 lg:gap-y-12">

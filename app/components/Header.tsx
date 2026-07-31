@@ -32,7 +32,7 @@ export function Header() {
           <Link
             href="/"
             className="flex items-center gap-2.5 rounded-md text-foreground"
-            aria-label={`${church.name} — home`}
+            aria-label={`${church.name}, home`}
           >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-on-primary">
               <DoorMarkIcon size={20} />

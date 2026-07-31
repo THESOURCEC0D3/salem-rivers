@@ -2,6 +2,7 @@ import Image from "next/image";
 import { church } from "../../content/church";
 import { leaderImages } from "../leaderImages";
 import { Section } from "../Section";
+import { Reveal } from "../Reveal";
 import { PhotoPlaceholder } from "../PhotoPlaceholder";
 
 /**
@@ -20,15 +21,19 @@ export function Leadership() {
       id="leadership"
       eyebrow="Our leaders"
       title="Meet Our Leadership"
-      intro="Real people you'll actually meet on a Sunday — here to welcome, teach, and pray with you."
+      intro="Real people you'll actually meet on a Sunday, here to welcome, teach, and pray with you."
       className="bg-muted/40"
     >
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {church.about.leadership.map((leader) => {
+        {church.about.leadership.map((leader, i) => {
           const photo = leaderImages[leader.name];
           return (
-            <li
+            // `as="li"` keeps the markup valid: the reveal wrapper IS the list item.
+            <Reveal
+              as="li"
               key={leader.name}
+              y={16}
+              delay={i * 0.06}
               className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md"
             >
               {photo ? (
@@ -92,7 +97,7 @@ export function Leadership() {
                   {leader.bio}
                 </p>
               </div>
-            </li>
+            </Reveal>
           );
         })}
       </ul>

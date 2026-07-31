@@ -162,7 +162,7 @@ export function Footer() {
             © {church.name}, {church.city}, {church.state}.
           </p>
           <p className="text-xs">
-            Built to point everything at one door — come and see.
+            Built to point everything at one door. Come and see.
           </p>
         </div>
       </Container>

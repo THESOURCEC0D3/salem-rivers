@@ -37,7 +37,7 @@ export function PastEvents() {
               {photo ? (
                 <Image
                   src={photo}
-                  alt={`${p.title} — ${p.date}`}
+                  alt={`${p.title}, ${p.date}`}
                   placeholder="blur"
                   sizes="(max-width: 640px) 100vw, 20rem"
                   className="h-auto w-full"
