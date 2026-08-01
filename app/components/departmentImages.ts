@@ -1,7 +1,6 @@
 import type { StaticImageData } from "next/image";
 import technical1 from "../../public/images/technical1.jpg";
 import choir from "../../public/images/choir.jpg";
-import protocolImage from "../../public/images/ProtocolImage.jpg";
 
 /**
  * Department photos, keyed by `church.departments[].name` — so the mapping survives
@@ -25,9 +24,5 @@ export const departmentImages: Record<
   Choir: {
     src: choir,
     alt: "The choir in robes leading the congregation in worship, with a soloist singing at the front",
-  },
-  Protocol: {
-    src: protocolImage,
-    alt: "Protocol team members directing arriving guests and vehicles outside the church",
   },
 };

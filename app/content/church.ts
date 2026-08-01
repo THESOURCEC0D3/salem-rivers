@@ -91,16 +91,16 @@ export const church = {
 
   city: "Port Harcourt",
   state: "Rivers State",
-  neighbourhood: "Rumuomasi",
+  neighbourhood: "No.1 Faith Avenue, Rumuomasi",
 
   /** One Sunday service + midweek. */
   serviceTimes: [
     { label: "Sunday Service", time: "7:00 AM" },
-    { label: "Wednesday · Bible Study", time: "5:30 PM" },
+    { label: "Wednesday Service", time: "5:30 PM" },
   ] satisfies ServiceTime[],
 
   /** Canonical Name/Address/Phone — keep identical everywhere for local SEO. */
-  address: "1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State",
+  address: "No.1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State",
   directionsUrl:
     "https://www.google.com/maps/dir/?api=1&destination=1+Faith+Avenue%2C+Rumuomasi%2C+Port+Harcourt%2C+Rivers+State",
   /** Embeddable map URL (Google Maps → Share → Embed). */
@@ -169,7 +169,7 @@ export const church = {
   about: {
     intro: [
       "Salem Rivers is a warm Pentecostal family in Port Harcourt. We're ordinary people from every walk of life, brought together by Jesus and a shared hunger to know God and love our city.",
-      "We're not a perfect church. We're a real one. Whoever you are, however you come, you'll find a place to belong here.",
+      "Whoever you are, however you come, you'll find a place to belong here.",
     ],
     /**
      * ONE-LINE SUMMARIES FOR THE HOMEPAGE About section (the trailer).

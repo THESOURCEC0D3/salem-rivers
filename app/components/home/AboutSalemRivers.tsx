@@ -32,7 +32,7 @@ export function AboutSalemRivers() {
     <Section
       id="about"
       eyebrow={`About ${church.name}`}
-      title="A family, not an audience"
+      title="A family"
       intro={about.intro[1]}
       className="bg-muted/40"
     >
