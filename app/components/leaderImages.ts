@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import bishopHilary from "../../public/images/BishopHillary.png";
+import bishopHilary from "../../public/images/Bishop-Hilary-about.jpeg";
 import archbishop from "../../public/images/Archbishop.png";
 import doctorLove from "../../public/images/Doctor-love-Sam-Amaga.png";
 
@@ -24,7 +24,7 @@ import doctorLove from "../../public/images/Doctor-love-Sam-Amaga.png";
  *              aligned, on a tinted gradient supplied by the card.
  *
  * Verified at time of writing (PNG IHDR colour type + corner alpha):
- *   BishopHillary.png             842×1264  RGBA but fully opaque  → photo
+ *   Bishop-Hilary-about.jpeg      842×1264  RGBA but fully opaque  → photo
  *   Archbishop.png                523×656   transparent background → cutout
  *   Doctor-love-Sam-Amaga.png     400×566   transparent background → cutout
  */
