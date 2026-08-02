@@ -2,6 +2,7 @@ import { Hero } from "./components/home/Hero";
 import { PastorWelcome } from "./components/home/PastorWelcome";
 import { AboutSalemRivers } from "./components/home/AboutSalemRivers";
 import { GlimpseStrip } from "./components/home/GlimpseStrip";
+import FeaturedSermon from "@/app/components/media/FeaturedSermon";
 import { NextEvent } from "./components/home/NextEvent";
 import { GetInvolved } from "./components/home/GetInvolved";
 import { TestimonySection } from "./components/home/TestimonySection";
@@ -42,6 +43,9 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <GlimpseStrip />
+      </Reveal>
+      <Reveal>
+        <FeaturedSermon />
       </Reveal>
       <Reveal>
         <NextEvent />
