@@ -259,7 +259,7 @@ export const church = {
         name: "Rev. Dr. (Mrs) Ogoliegbune",
         role: "",
         photo: "[Photo of the Pastor's wife]",
-        bio: "[CONFIRM full name.] She serves alongside the Bishop, with a particular heart for women, families, and the campus work. [Add a warm two-line introduction.]",
+        bio: "She serves alongside the Bishop, with a particular heart for women, families, and the campus work.",
       },
     ] satisfies Leader[],
     vision:
@@ -614,37 +614,71 @@ export const church = {
   events: {
     upcoming: [
       {
-        id: "salem-campus-outreach",
-        title: "Salem Campus Outreach: Ignite",
-        date: "Thursday 30 July to Saturday 1 August 2026",
-        // Two different start times across the three days, so this field carries
-        // both rather than hiding one. Same for `location` below — two venues.
-        time: "Thu & Fri 4:30 PM · Sat 9:00 AM",
+        id: "spamic-batch-2",
+        title: "SPAMIC August/September Session (Batch 2)",
+        // Not a one-day event — an intake whose classes run every Saturday from
+        // the 8th, so `date` carries the start and `time` carries the cadence.
+        date: "Classes begin Saturday, 8 August 2026",
+        time: "8:00 AM prompt · Saturdays only",
         location:
-          "Ignatius Ajuru University of Education. ICT Centre (Thu & Fri) · Science Village Auditorium (Sat)",
+          "Salem Pastoral & Management College, #1 Faith Avenue, off Stadium Road, Rumuomasi",
         blurb:
-          "Three days on campus under the theme Ignite: Youths on Fire. Worship and Wonders, the Street Wise Campaign, and Faith Dynamite Voice, with the Grand Outreach closing it on Saturday morning. Free welfare materials for the first 500 students.",
-        flyer: "Salem Campus Outreach: Ignite flyer",
+          "Admission is open for Batch 2 of the August/September session at Salem Pastoral & Management College — upgrade your leadership skills in 2026. Open to CEOs, MDs, church workers, pastors, company staff, front-line leaders, students, business men and women, and entrepreneurs. Register onsite at the Registrar's office, or call 0816 507 9879 or 0813 849 1000.",
+        flyer: "SPAMIC August/September Session (Batch 2) flyer",
       },
       {
-        id: "q2-thanksgiving",
-        title: "2nd Quarter Thanksgiving",
-        date: "Sunday, 2 August 2026",
-        time: "7:00 AM",
-        location: "Church Auditorium, #1 Faith Avenue, Rumuomasi",
+        id: "let-the-fire-fall",
+        title: "Let The Fire Fall — 3 Days Prayer Retreat & Camp Meeting",
+        date: "Wednesday 12 to Saturday 15 August 2026",
+        // A residential camp, so the useful times are the open/close of camp
+        // rather than a daily start time.
+        time: "Camp opens 4:00 PM Wed 12th · closes 8:00 AM Sat 15th",
+        location:
+          "Salem City of Faith, Holy Ghost Conference Ground, #1 Faith Avenue, Rumuomasi",
         blurb:
-          "A morning of praise and gratitude as we mark the second quarter together. Come and rejoice with us.",
-        flyer: "2nd Quarter Thanksgiving flyer",
+          "Three days of prayer and camp meeting hosted by the KDF Prayer Squad under the theme Let The Fire Fall, ministering with Archbishop Dr. Sam Amaga and convened by Bishop Hilary Ogoliegbune. Age limit: 13 years and above.",
+        flyer: "Let The Fire Fall prayer retreat and camp meeting flyer",
+      },
+      {
+        id: "annual-women-conference",
+        title: "Annual Women Conference: Called to Conquer Through Divine Love",
+        date: "Friday 28 and Saturday 29 August 2026",
+        // Two different start times across the two days — same reasoning as above.
+        time: "Fri 5:00 PM · Sat 8:00 AM",
+        location:
+          "Church Auditorium, #1 Faith Avenue, Rumuomasi, Port Harcourt",
+        blurb:
+          "Salem Women Ministry Int'l, Rivers Province, presents two days of prevailing prayers, word exposition, worship and presentations. Chief host Bishop Dr. (Mrs) Love Sam-Amaga, host Rev. Dr. Ijeoma Hilary Ogoliegbune, with guest minister Apostle (Mrs) Ruth Essien.",
+        flyer:
+          "Annual Women Conference: Called to Conquer Through Divine Love flyer",
       },
     ] satisfies ChurchEvent[],
     /*
-     * Past events. Real events only — the invented placeholder entries that used
-     * to pad this list out have been deleted. Covenant Week keeps its real flyer:
-     * `PastEvents.tsx` now looks the image up in `eventImages` by id, the same
-     * way `UpcomingEvents.tsx` does, and only falls back to a placeholder panel
-     * when no image is mapped.
+     * Past events, MOST RECENT FIRST. Real events only — the invented placeholder
+     * entries that used to pad this list out have been deleted.
+     *
+     * Retiring an event is a move, not a delete: keep the SAME `id` when you cut
+     * an entry from `upcoming` and paste it here, because `PastEvents.tsx` looks
+     * the flyer up in `eventImages` by id exactly the way `UpcomingEvents.tsx`
+     * does. Same id → the real flyer keeps showing; change the id and the card
+     * silently drops to a placeholder panel.
+     *
+     * A `PastEvent` has no time/location/blurb, so those fields are dropped in
+     * the move — a past card only shows the flyer, the title and the date.
      */
     past: [
+      {
+        id: "q2-thanksgiving",
+        title: "2nd Quarter Thanksgiving",
+        date: "2 August 2026",
+        photo: "[2nd Quarter Thanksgiving service]",
+      },
+      {
+        id: "salem-campus-outreach",
+        title: "Salem Campus Outreach: Ignite",
+        date: "30 July to 1 August 2026",
+        photo: "[Salem Campus Outreach: Ignite]",
+      },
       {
         id: "covenant-week",
         title: "Covenant Week of Celebration",

@@ -49,14 +49,35 @@ export function GetInvolved({
               className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md"
             >
               {photo ? (
-                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                /*
+                  Two rendering modes, one frame — every card keeps the same
+                  16:10 box so the grid stays even; only what happens INSIDE
+                  differs. Same split as the leadership cards.
+
+                  logo  → a square mark, never cropped. object-contain on a
+                    black frame: the KDF logo's own backdrop is a flat black
+                    (brightest border pixel 8/255), so the letterbox bars join
+                    it invisibly and the panel reads as deliberate rather than
+                    as an image that failed to fill.
+
+                  photo → ordinary image, cropped to fill.
+                */
+                <div
+                  className={`relative aspect-[16/10] w-full overflow-hidden ${
+                    photo.kind === "logo" ? "bg-[#010101]" : ""
+                  }`}
+                >
                   <Image
                     src={photo.src}
                     alt={photo.alt}
                     placeholder="blur"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className={`object-cover ${photo.objectPosition ?? "object-center"}`}
+                    className={
+                      photo.kind === "logo"
+                        ? "object-contain"
+                        : `object-cover ${photo.objectPosition ?? "object-center"}`
+                    }
                   />
                 </div>
               ) : (

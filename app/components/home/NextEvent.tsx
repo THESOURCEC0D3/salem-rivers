@@ -37,24 +37,37 @@ export function NextEvent() {
           {/*
             items-center, deliberately — do not "fix" this to stretch.
 
-            These are real flyers shown at their natural ratio (no crop), and the
-            current two are shaped very differently: the campus outreach poster is
-            portrait (864×1080, 0.80) while the thanksgiving one is landscape
-            (2048×1365, 1.50). At equal card width that is 1.25×W of image height
-            against 0.67×W — the taller card is ~1.9× the height of the shorter.
+            These are real flyers shown at their natural ratio (no crop), and
+            church flyers arrive in wildly different shapes. The current pair on
+            row one is the widest spread yet: SPAMIC is landscape (1280×853,
+            1.50) while Let The Fire Fall is a tall portrait (941×1600, 0.59).
+            At equal card width that is 0.67×W of image height against 1.70×W —
+            the taller card is ~2.5× the height of the shorter.
 
-            Stretching to equal heights would dump all ~280px of that difference
-            below the shorter card's text as one dead pool. Centring splits it
-            evenly above and below, so the short card reads as balanced against
-            its neighbour instead of unfinished. Cards still hug their own content.
+            Stretching to equal heights would dump the whole difference below the
+            shorter card's text as one dead pool. Centring splits it evenly above
+            and below, so the short card reads as balanced against its neighbour
+            instead of unfinished. Cards still hug their own content.
           */}
           <div className="mx-auto grid max-w-5xl items-center gap-6 sm:gap-8 lg:grid-cols-2">
-            {upcoming.map((e) => {
+            {upcoming.map((e, i) => {
               const flyer = eventImages[e.id];
+              /*
+                An odd-numbered list leaves the last card alone on its own row.
+                Left in place it sits in the left-hand track at half width with
+                an empty track beside it, which reads as a card that failed to
+                load. Let it span both tracks instead and centre it, capped at
+                one column's width (50% minus half the 2rem lg gap) so it stays
+                the same size as the cards above rather than stretching wide.
+              */
+              const isOrphan =
+                upcoming.length % 2 === 1 && i === upcoming.length - 1;
               return (
                 <article
                   key={e.id}
-                  className="overflow-hidden rounded-3xl border border-border bg-card shadow-md"
+                  className={`overflow-hidden rounded-3xl border border-border bg-card shadow-md ${
+                    isOrphan ? "lg:col-span-2 lg:mx-auto lg:w-[calc(50%-1rem)]" : ""
+                  }`}
                 >
                   {/*
                     A flyer is a designed poster — shown at its natural ratio
