@@ -1,6 +1,6 @@
 import { Hero } from "./components/home/Hero";
 import { PastorWelcome } from "./components/home/PastorWelcome";
-import { AboutSalemRivers } from "./components/home/AboutSalemRivers";
+import { AboutSalemCityOfFaith } from "./components/home/AboutSalemCityOfFaith";
 import { GlimpseStrip } from "./components/home/GlimpseStrip";
 import FeaturedSermon from "@/app/components/media/FeaturedSermon";
 import { NextEvent } from "./components/home/NextEvent";
@@ -9,7 +9,7 @@ import { TestimonySection } from "./components/home/TestimonySection";
 import { NeedPrayer } from "./components/home/NeedPrayer";
 import { ReadyToJoin } from "./components/home/ReadyToJoin";
 import { Reveal } from "./components/Reveal";
-
+import { getFeaturedSermon } from "@/app/lib/sermonService";
 /**
  * Home — "the trailer."
  *
@@ -26,7 +26,8 @@ import { Reveal } from "./components/Reveal";
  * Section backgrounds alternate background → muted → background so no two
  * adjacent sections share a surface. If you reorder, re-check that alternation.
  */
-export default function Home() {
+export default async function Home() {
+  const featuredSermon = await getFeaturedSermon();
   return (
     <>
       {/*
@@ -39,13 +40,13 @@ export default function Home() {
         <PastorWelcome />
       </Reveal>
       <Reveal>
-        <AboutSalemRivers />
+        <AboutSalemCityOfFaith />
       </Reveal>
       <Reveal>
         <GlimpseStrip />
       </Reveal>
       <Reveal>
-        <FeaturedSermon />
+        <FeaturedSermon sermon={featuredSermon} />
       </Reveal>
       <Reveal>
         <NextEvent />

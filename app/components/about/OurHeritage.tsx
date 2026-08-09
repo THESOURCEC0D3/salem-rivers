@@ -4,7 +4,7 @@ import { Section } from "../Section";
 import founders from "../../../public/images/Archbishop-and-his-wife.png";
 
 /**
- * Our heritage — a vertical timeline of the line Salem Rivers stands in.
+ * Our heritage — a vertical timeline of the line Salem City of Faith stands in.
  *
  * Vertical at every breakpoint, on purpose. Seven entries with real prose will
  * not survive a horizontal rail on a phone, and a layout that only works on a

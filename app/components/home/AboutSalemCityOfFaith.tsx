@@ -4,10 +4,10 @@ import { Section } from "../Section";
 import { ArrowRightIcon } from "../icons";
 
 /**
- * About Salem Rivers — the short "who we are" beat, straight after the Bishop's
- * welcome. Four one-sentence cards rather than paragraphs: the homepage is the
- * trailer, /about is the full picture (which the closing link hands the reader
- * to, so the section is never a dead end).
+ * About Salem City of Faith — the short "who we are" beat, straight after the
+ * Bishop's welcome. Four one-sentence cards rather than paragraphs: the homepage
+ * is the trailer, /about is the full picture (which the closing link hands the
+ * reader to, so the section is never a dead end).
  *
  * The four beats mirror the first four sections of /about in the same order —
  * identity, heritage, vision, mission — so a reader who clicks through finds the
@@ -18,7 +18,7 @@ import { ArrowRightIcon } from "../icons";
  * summarising it here and stating it there would make the church look like it
  * has two different missions.
  */
-export function AboutSalemRivers() {
+export function AboutSalemCityOfFaith() {
   const { about } = church;
 
   const beats = [
@@ -29,9 +29,15 @@ export function AboutSalemRivers() {
   ];
 
   return (
+    /*
+      eyebrow uses `shortName` — section eyebrows on this site are short labels
+      ("Get involved", "Our leaders", "A glimpse of us"). The full six-word name
+      set in small uppercase with wide tracking runs past the heading it is
+      meant to introduce.
+    */
     <Section
       id="about"
-      eyebrow={`About ${church.name}`}
+      eyebrow={`About ${church.shortName}`}
       title="A family"
       intro={about.intro[1]}
       className="bg-muted/40"

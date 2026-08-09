@@ -1,10 +1,10 @@
-# SALEM RIVERS — COMPLETE ARCHITECTURAL DOCUMENTATION
+# SALEM CITY OF FAITH — COMPLETE ARCHITECTURAL DOCUMENTATION
 
 **A reverse-engineering audit prepared for handover to an incoming senior development and web-strategy team.**
 
 | | |
 |---|---|
-| **Project** | Salem Rivers church website |
+| **Project** | Salem City of Faith church website |
 | **Repository** | `salem-rivers` |
 | **Branch** | `main` (working tree dirty — uncommitted changes present) |
 | **Stack** | Next.js 16.2.9 (App Router) · React 19.2.4 · TypeScript 5 · Tailwind CSS v4 |
@@ -51,12 +51,12 @@ Sections 1–5 describe *what the site is and does*. Sections 6–10 describe *h
 
 ## 1.1 What this website is
 
-A **marketing / invitation website for a single-location Nigerian Pentecostal church** — *Salem Rivers*, at 1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State, Nigeria.
+A **marketing / invitation website for a single-location Nigerian Pentecostal church** — *Salem City of Faith*, at 1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State, Nigeria.
 
 Two naming observations the incoming team must resolve:
 
-- The codebase calls the church **"Salem Rivers"**, flagged `[CONFIRM]` in the content file. Client-supplied event flyer artwork reads **"Foundation Faith Church, Salem City of Faith"**. These are unreconciled. "Salem Rivers" may be a working title.
-- The lead figure is **Bishop Hilary Ogoliegbune** (spelling confirmed from flyer artwork). The same flyer describes him as "National Coordinating Bishop" and names **Archbishop Dr Sam Amaga** as "Salem Family Worldwide — Chief Host". This implies Salem Rivers is one branch of a larger denominational network. **That relationship is documented nowhere in the codebase and should be clarified before redesign.**
+- **RESOLVED, 9 August 2026.** The audit originally recorded this as an open conflict: the codebase called the church **"Salem Rivers"** (flagged `[CONFIRM]` in the content file) while client-supplied event flyer artwork read **"Foundation Faith Church, Salem City of Faith"**. The flyer wording is correct and "Salem Rivers" was a working title. The site now uses **"Foundation Faith Church, Salem City of Faith"** as the official name and **"Salem City of Faith"** as the short form in running prose. One deliberate exception: the **navbar** still reads "Foundation Faith Church, Salem Rivers", by explicit request — see the name-fields comment in `app/content/church.ts`.
+- The lead figure is **Bishop Hilary Ogoliegbune** (spelling confirmed from flyer artwork). The same flyer describes him as "National Coordinating Bishop" and names **Archbishop Dr Sam Amaga** as "Salem Family Worldwide — Chief Host". This implies Salem City of Faith is one branch of a larger denominational network. **That relationship is documented nowhere in the codebase and should be clarified before redesign.**
 
 It is a **static brochure site**. No CMS, no database, no authentication, no API routes, no server actions, no form submission of any kind. Every route prerenders to static HTML at build time.
 
@@ -138,7 +138,7 @@ Six routes exist. All statically prerendered.
 ## 2.2 Annotated site map with entry points
 
 ```
-SALEM RIVERS
+SALEM CITY OF FAITH
 │
 ├─ / ................................. HOME
 │  │  Entry: direct, organic search, social
@@ -205,7 +205,7 @@ ENTRY
 │ STEP 1 — HERO (~5 seconds, the "is this real?" test)         │
 │  Sees: full-bleed photo of a packed service, minister        │
 │        preaching, choir behind                               │
-│  Reads: "Welcome to Salem Rivers"                            │
+│  Reads: "Welcome to Salem City of Faith"                            │
 │         "In Salem God is making many mighty through the      │
 │          Word and Prayer"                                    │
 │  Critically: 7:00 AM · 5:30 PM · Rumuomasi, Port Harcourt    │
@@ -219,7 +219,7 @@ ENTRY
 │  Photo of Bishop Hilary Ogoliegbune + mission statement      │
 │  Escape hatch: WhatsApp "Have a question? Message us"        │
 │    pre-filled: "Hello Bishop, I'd like to ask a question     │
-│                 about Salem Rivers."                         │
+│                 about Salem City of Faith."                         │
 └──────────────────────────────────────────────────────────────┘
         ↓
 ┌──────────────────────────────────────────────────────────────┐
@@ -265,7 +265,7 @@ ENTRY
 
 PARALLEL ESCAPE ROUTE (available at every single step):
   Floating WhatsApp button, fixed bottom-right, z-50
-  → "Hello Salem Rivers! I have a question about visiting."
+  → "Hello Salem City of Faith! I have a question about visiting."
 ```
 
 **Alternative branch — the cautious researcher.** From the header this persona clicks **About** rather than scrolling: beliefs (6 plain-language cards), how the church functions, leadership, vision — then `ReadyToJoin` hands them to `/visit`. The About page is explicitly designed to *remove objections rather than convert directly* (`about/page.tsx:16-17`).
@@ -300,7 +300,7 @@ The only available route is incidental:
 
 ```
 Any page → floating WhatsApp button
-        → "Hello Salem Rivers! I have a question about visiting."
+        → "Hello Salem City of Faith! I have a question about visiting."
         → user must manually delete and retype their prayer request
 ```
 
@@ -424,7 +424,7 @@ Render order from `app/page.tsx`:
 
 **Animations.** None beyond the WhatsApp link's `hover:underline`.
 
-**CTAs.** WhatsApp → *"Hello Bishop, I'd like to ask a question about Salem Rivers."*
+**CTAs.** WhatsApp → *"Hello Bishop, I'd like to ask a question about Salem City of Faith."*
 
 **Dependencies.** `church.pastor.{name,title,words}`, `church.name`, `whatsappLink()`, `/images/BishopHillary.png`.
 
@@ -529,7 +529,7 @@ Render order from `app/page.tsx`:
 
 **Animations.** Card hover `shadow-sm → shadow-md` (200ms). Link `hover:underline`.
 
-**CTAs.** Six WhatsApp links — *"Hello Salem Rivers! I'd like to serve in the [Department] department."*
+**CTAs.** Six WhatsApp links — *"Hello Salem City of Faith! I'd like to serve in the [Department] department."*
 
 **Dependencies.** `church.departments`, `departmentImages` (`technical1.jpg`, `choir.jpg`, `ProtocolImage.jpg`), `whatsappLink()`.
 
@@ -758,14 +758,14 @@ Also missing: no onward link from this terminal page; no fallback if the third-p
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ [◫] Salem Rivers      Home  About  Events  Watch   [Plan Your ▸] │
+│ [◫] Foundation Faith Church, Salem Rivers   Home  About  Events  Watch  [Plan Your ▸] │
 │  ↑ logo                    ↑ nav links            ↑ primary CTA │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 | Element | Implementation |
 |---|---|
-| **Logo** | `DoorMarkIcon` (custom doorway-plus-cross glyph) in a 36px `bg-primary` rounded square + church name in Fraunces. Links to `/`. `aria-label="Salem Rivers — home"`. |
+| **Logo** | `DoorMarkIcon` (custom doorway-plus-cross glyph) in a 36px `bg-primary` rounded square + church name in Fraunces. Links to `/`. Renders `church.navName`, **not** `church.name` — the navbar is the one place that keeps the retired "Salem Rivers" wording, so this reads "Foundation Faith Church, Salem Rivers" with a matching `aria-label`. |
 | **Nav links** | Rendered from `navLinks` in `church.ts`. Pill hit areas (`rounded-full px-3.5 py-2`). |
 | **Active state** | `pathname === link.href` → `text-primary` + `aria-current="page"`. |
 | **Hover** | `hover:text-primary`, colour transition. |
@@ -1284,9 +1284,9 @@ The file opens with an explicit convention that governs the entire project:
 
 | Page | `h1` | `h2`s | `h3`s |
 |---|---|---|---|
-| `/` | "Welcome to / Salem Rivers" | "Real people, real Sundays" · "What people say" · "Find your place in the family" · "The next time to join us" · "Ready to join the family?" | 6 department names · event title |
+| `/` | "Welcome to / Salem City of Faith" | "Real people, real Sundays" · "What people say" · "Find your place in the family" · "The next time to join us" · "Ready to join the family?" | 6 department names · event title |
 | `/about` | "Who we are" | "The heart of our faith, plainly" · "How we function" · "The people who serve us" · vision statement | 6 belief titles · "Our departments & units" · 2 function blocks · 3 leader names |
-| `/events` | "Events" | "What's coming up" · "Life at Salem Rivers" · "Ready to join the family?" | 4 event titles |
+| `/events` | "Events" | "What's coming up" · "Life at Salem City of Faith" · "Ready to join the family?" | 4 event titles |
 | `/visit` | "Plan your visit" | "Service times" · "Where to find us" · "Have a question? Talk to us" | — |
 | `/watch` | "Our livestream is on the way" | — | — |
 | `/give` | "Online giving is on the way" | — | — |
@@ -1301,7 +1301,7 @@ The file opens with an explicit convention that governs the entire project:
 
 A consistent pattern sitewide: `text-xs font-bold uppercase tracking-[0.14em]–[0.16em] text-accent`.
 
-Instances: "Welcome to" (hero, gold) · "A word from our Bishop" · "A glimpse of us" · "Testimonies" · "Get involved" · "What's coming up" · "About Salem Rivers" · "What we believe" · "How the church works" · "Our leaders" · "Our heart" · "What's happening" · "Upcoming" · "A look back" · "We'd love to have you" · "Watch" · "Give".
+Instances: "Welcome to" (hero, gold) · "A word from our Bishop" · "A glimpse of us" · "Testimonies" · "Get involved" · "What's coming up" · "About Salem City of Faith" · "What we believe" · "How the church works" · "Our leaders" · "Our heart" · "What's happening" · "Upcoming" · "A look back" · "We'd love to have you" · "Watch" · "Give".
 
 ## 9.3 Body text
 
@@ -1701,13 +1701,13 @@ Both are **variable fonts**, self-hosted by `next/font/google` at build time (no
 
 ```ts
 title: {
-  default:  "Salem Rivers — A Pentecostal family in Port Harcourt",
-  template: "%s · Salem Rivers",
+  default:  "Salem City of Faith — A Pentecostal family in Port Harcourt",
+  template: "%s · Salem City of Faith",
 }
 description: "A warm Pentecostal church in Port Harcourt. New here? Find service
               times, plan your first visit, and come as you are…"
 keywords: ["church in Port Harcourt", "Pentecostal church Port Harcourt",
-           "Rivers State church", "Salem Rivers"]
+           "Rivers State church", "Salem City of Faith"]
 openGraph: { title, description, type: "website", locale: "en_NG" }
 ```
 
@@ -2021,7 +2021,7 @@ This is a **development-environment issue only** and does not affect production 
 | C8 | **Vision statement still ends with `[Refine with the church's own vision statement.]`** |
 | C9 | **Membership steps and weekly rhythm are both brackets** |
 | C10 | **All three social URLs are `example` placeholders** — and they return HTTP 200, so no link checker will flag them |
-| C11 | **Church naming is unresolved** — "Salem Rivers" vs the flyer's "Foundation Faith Church, Salem City of Faith" |
+| C11 | ~~**Church naming is unresolved** — "Salem Rivers" vs the flyer's "Foundation Faith Church, Salem City of Faith"~~ **RESOLVED 9 Aug 2026** — the flyer wording is official; see §Naming above |
 | C12 | **No church history** — the flyer implies 38 years; the site says nothing |
 | C13 | **Homepage has no unique meta description** — it inherits the root default |
 
@@ -2142,7 +2142,7 @@ A checklist of every piece of content currently represented by a placeholder or 
 
 ## 16.3 Church information
 
-- [ ] **Confirmation of the official church name** — "Salem Rivers" vs "Foundation Faith Church, Salem City of Faith"
+- [x] **Confirmation of the official church name** — resolved 9 Aug 2026 to "Foundation Faith Church, Salem City of Faith" (short form "Salem City of Faith"); "Salem Rivers" retired except in the navbar
 - [ ] **Denominational affiliation** and the relationship to Salem Family Worldwide / Archbishop Dr Sam Amaga
 - [ ] **Church founding date / history** (the flyer implies 38 years)
 - [ ] **Membership pathway** — currently `[Outline the real membership path…]`
@@ -2299,7 +2299,7 @@ Ordered by impact. Each entry states **why it matters**, not merely what to chan
 
 ```
 ═══════════════════════════════════════════════════════════════════════════
-                            SALEM RIVERS
+                            SALEM CITY OF FAITH
 ═══════════════════════════════════════════════════════════════════════════
 
                          app/layout.tsx  (ROOT LAYOUT)

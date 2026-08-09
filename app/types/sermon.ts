@@ -1,4 +1,4 @@
-export type SermonStatus = "live" | "latest";
+export type SermonStatus = "live" | "latest" | "previous";
 export type VideoPlatform = "youtube" | "facebook";
 
 export interface Sermon {

@@ -23,15 +23,22 @@ import { ArrowRightIcon, PlayIcon } from "../icons";
  */
 export function AboutHero() {
   return (
+    /*
+      The eyebrow used to be `About ${church.name}` above a title that also
+      began "About …", so the name was announced twice in a row. Now the eyebrow
+      is a short label like every other one on the site ("Our leaders", "Get
+      involved") and the H1 carries the full official name — this is the page's
+      strongest name signal, so it takes `name`, not `shortName`.
+    */
     <PageHero
-      eyebrow={`About ${church.name}`}
-      title="About Salem Rivers Church"
+      eyebrow="About us"
+      title={`About ${church.name}`}
       intro="More than a church, we are a family raising people who are strong in faith, empowered by wisdom, intimate with the Holy Spirit, and equipped to impact their world for Jesus Christ."
       align="center"
       size="tall"
       image={{
         src: "/images/Hero-IMAGE.png",
-        alt: "The Salem Rivers congregation on their feet, hands raised in worship during a praise night service",
+        alt: "The Salem City of Faith congregation on their feet, hands raised in worship during a praise night service",
       }}
     >
       {/*

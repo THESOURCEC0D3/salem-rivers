@@ -1,4 +1,4 @@
-# HANDOFF — Salem Rivers church website
+# HANDOFF — Salem City of Faith church website
 
 A warm-start guide for whoever picks this up next (Codex, Cursor, a human, or future-me).
 Read this, then `AGENTS.md`, then `Church-architecture.pdf`, then `design-system/salem-rivers/MASTER.md`.
@@ -7,7 +7,7 @@ Read this, then `AGENTS.md`, then `Church-architecture.pdf`, then `design-system
 
 ## 1. What this is
 
-A website for a **Nigerian Pentecostal church** in **Port Harcourt, Rivers State** ("Salem Rivers").
+A website for a **Nigerian Pentecostal church** in **Port Harcourt, Rivers State** ("Salem City of Faith").
 The entire site has **one job: compel a first-time _physical_ visit.** The livestream is always a
 subordinate fallback, never a co-equal call to action. The authoritative spec is **`Church-architecture.pdf`**
 (repo root) — read it; it explains the strategy behind every page.

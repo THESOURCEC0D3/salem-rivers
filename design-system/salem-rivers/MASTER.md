@@ -6,7 +6,7 @@
 
 ---
 
-**Project:** Salem Rivers (Nigerian Pentecostal church · Port Harcourt, Rivers State)
+**Project:** Salem City of Faith (Nigerian Pentecostal church · Port Harcourt, Rivers State)
 **Category:** Church / Religious Organization
 **Style:** Accessible & Ethical (WCAG AAA targets)
 

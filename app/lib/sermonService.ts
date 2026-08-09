@@ -5,7 +5,11 @@ export async function getFeaturedSermon() {
 
   if (live) return live;
 
-  return sermons.find((sermon) => sermon.status === "latest");
+  const latest = sermons.find((sermon) => sermon.status === "latest");
+
+  if (latest) return latest;
+
+  return sermons[0];
 }
 
 export async function getAllSermons() {

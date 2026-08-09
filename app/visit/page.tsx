@@ -12,7 +12,8 @@ import {
 export const metadata: Metadata = {
   title: "Plan Your Visit",
   description:
-    "Where and when to find Salem Rivers in Port Harcourt: service times, our address, and a direct line to message us on WhatsApp. Come as you are.",
+    // Full official name — search snippet, same reasoning as /about.
+    "Where and when to find Foundation Faith Church, Salem City of Faith in Port Harcourt: service times, our address, and a direct line to message us on WhatsApp. Come as you are.",
 };
 
 /**

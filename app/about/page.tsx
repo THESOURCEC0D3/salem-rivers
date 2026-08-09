@@ -19,7 +19,9 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Who Salem Rivers Church is: our heritage, vision, mission, values, beliefs and leadership. A Pentecostal family in Port Harcourt raising people strong in faith, empowered by wisdom, and intimate with the Holy Spirit.",
+    // Full official name, not the prose short form — this is a search snippet,
+    // so it should carry the same name as the <title> and the JSON-LD schema.
+    "Who Foundation Faith Church, Salem City of Faith is: our heritage, vision, mission, values, beliefs and leadership. A Pentecostal family in Port Harcourt raising people strong in faith, empowered by wisdom, and intimate with the Holy Spirit.",
 };
 
 /**
@@ -83,7 +85,7 @@ export default function AboutPage() {
       <Reveal>
         <GlimpseStrip
           eyebrow="A glimpse of us"
-          title="Life at Salem Rivers"
+          title="Life at Salem City of Faith"
           intro="Take a glimpse into our worship, fellowship, ministries, outreach, and church family."
           className="bg-background"
         />

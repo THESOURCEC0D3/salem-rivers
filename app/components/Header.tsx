@@ -29,16 +29,23 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">
+          {/*
+            `navName`, NOT `name` — this is the single place that keeps the
+            retired "Salem Rivers" wording, by explicit request. The aria-label
+            matches the visible text on purpose: a screen reader announcing a
+            different name from the one sighted users read is its own bug.
+            See the block comment on the name fields in church.ts.
+          */}
           <Link
             href="/"
             className="flex items-center gap-2.5 rounded-md text-foreground"
-            aria-label={`${church.name}, home`}
+            aria-label={`${church.navName}, home`}
           >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-on-primary">
               <DoorMarkIcon size={20} />
             </span>
             <span className="font-serif text-lg font-semibold tracking-tight">
-              {church.name}
+              {church.navName}
             </span>
           </Link>
 

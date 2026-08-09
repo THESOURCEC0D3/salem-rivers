@@ -23,7 +23,7 @@ export function YourJourney() {
     <Section
       id="journey"
       eyebrow="What's next"
-      title="Your Journey at Salem Rivers"
+      title="Your Journey at Salem City of Faith"
       intro="Nobody is rushed through this. Most people take it one step at a time, and every step has someone walking it with you."
       className="bg-muted/40"
     >

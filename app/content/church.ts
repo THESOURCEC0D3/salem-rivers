@@ -1,5 +1,5 @@
 /**
- * Salem Rivers — single source of content.
+ * Salem City of Faith — single source of content.
  *
  * EVERYTHING IN [SQUARE BRACKETS] IS A PLACEHOLDER and must be confirmed with the
  * real church before launch. Swap values here and every page updates. Photos are
@@ -81,8 +81,27 @@ export type Sermon = {
 };
 
 export const church = {
-  /** [CONFIRM] Official church name. */
-  name: "Salem Rivers",
+  /*
+   * THREE NAME FIELDS, ON PURPOSE. Confirmed 9 August 2026; the old "[CONFIRM]"
+   * flag is resolved and the working title "Salem Rivers" is retired.
+   *
+   *   name      — the official name. Labels: footer, page <title>, the local-SEO
+   *               JSON-LD in layout.tsx, WhatsApp greetings. Reach for this one
+   *               by default.
+   *   shortName — the same church inside running prose. The full name is six
+   *               words and reads like boilerplate mid-sentence.
+   *   navName   — THE NAVBAR AND NOWHERE ELSE, by explicit request. It is the
+   *               one place that keeps the retired "Salem Rivers" wording.
+   *
+   * Note the deliberate inconsistency this creates: the most prominent name on
+   * every page says something different from the <title> and the SEO schema.
+   * See the comment on `address` below — Name/Address/Phone is supposed to match
+   * everywhere for local search. This is a known, accepted trade-off, not a bug
+   * to "fix" by quietly pointing Header.tsx back at `name`.
+   */
+  name: "Foundation Faith Church, Salem City of Faith",
+  shortName: "Salem City of Faith",
+  navName: "Foundation Faith Church, Salem Rivers",
   /** Short identity used in the footer + search engine schema (not the hero). */
   identity: "A warm Pentecostal family in Port Harcourt.",
   /** The one nice line under the hero title. */
@@ -168,7 +187,7 @@ export const church = {
   /** About page — the deeper "who we are + how we function". [CONFIRM wording with the church] */
   about: {
     intro: [
-      "Salem Rivers is a warm Pentecostal family in Port Harcourt. We're ordinary people from every walk of life, brought together by Jesus and a shared hunger to know God and love our city.",
+      "Salem City of Faith is a warm Pentecostal family in Port Harcourt. We're ordinary people from every walk of life, brought together by Jesus and a shared hunger to know God and love our city.",
       "Whoever you are, however you come, you'll find a place to belong here.",
     ],
     /**
@@ -241,7 +260,7 @@ export const church = {
         name: "Archbishop Sam Amaga",
         role: "Founder, Foundation Faith Church",
         photo: "[Photo of the Archbishop]",
-        bio: "Began preaching in 1973 and was commissioned, with Dr. Love Sam-Amaga, to raise an army of believers. Planted Foundation Faith Church in Port Harcourt in 1988, the root Salem Rivers grows from.",
+        bio: "Began preaching in 1973 and was commissioned, with Dr. Love Sam-Amaga, to raise an army of believers. Planted Foundation Faith Church in Port Harcourt in 1988, the root Salem City of Faith grows from.",
       },
       {
         name: "Dr. Love Sam-Amaga",
@@ -253,7 +272,7 @@ export const church = {
         name: "Bishop Hilary Ogoliegbune",
         role: "Bishop",
         photo: "[Photo of the Bishop]",
-        bio: "Bishop Hilary leads Salem Rivers with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM: add years served and a personal line.]",
+        bio: "Bishop Hilary leads Salem City of Faith with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM: add years served and a personal line.]",
       },
       {
         name: "Rev. Dr. (Mrs) Ogoliegbune",
@@ -269,7 +288,7 @@ export const church = {
 
     /** Section 1 — Who we are. Short paragraphs on purpose; this is a phone-first page. */
     whoWeAre: [
-      "Salem Rivers is a Christ-centred, Bible-believing family in Port Harcourt. Everything here starts and ends with Jesus.",
+      "Salem City of Faith is a Christ-centred, Bible-believing family in Port Harcourt. Everything here starts and ends with Jesus.",
       "We're ordinary people from every walk of life: students, traders, professionals and families, brought together by one hunger to know God.",
       "We take the Bible seriously and each other personally. Faith is grown in community here, not in isolation.",
       "We exist to raise disciples: believers who are established, equipped, and sent out to serve this city well.",
@@ -281,12 +300,12 @@ export const church = {
      */
     heritage: {
       intro:
-        "Salem Rivers did not begin in a vacuum. We are one local expression of a work God started decades ago, and the vision we carry today was handed to us.",
+        "Salem City of Faith did not begin in a vacuum. We are one local expression of a work God started decades ago, and the vision we carry today was handed to us.",
       /** The founders' feature panel above the timeline. */
       founders: {
         names: "Archbishop Sam Amaga & Dr. Love Sam-Amaga",
         role: "Founders, Foundation Faith Church",
-        body: "In 1984 God called them to raise an army of believers: a people strong in faith, empowered by wisdom, and intimate with the Holy Spirit. Everything Salem Rivers is today grows out of that commission.",
+        body: "In 1984 God called them to raise an army of believers: a people strong in faith, empowered by wisdom, and intimate with the Holy Spirit. Everything Salem City of Faith is today grows out of that commission.",
       },
       timeline: [
         {
@@ -307,7 +326,7 @@ export const church = {
         {
           year: "1988",
           title: "Foundation Faith Church",
-          body: "The first church is planted in Port Harcourt, on the same soil Salem Rivers stands on today.",
+          body: "The first church is planted in Port Harcourt, on the same soil Salem City of Faith stands on today.",
         },
         {
           year: "1998",
@@ -321,7 +340,7 @@ export const church = {
         },
         {
           year: "Today",
-          title: "Salem Rivers",
+          title: "Salem City of Faith",
           body: "Here in Port Harcourt we continue that same vision, one person at a time.",
         },
       ] satisfies TimelineEntry[],
@@ -724,7 +743,7 @@ export const church = {
     heading: "Need prayer?",
     body: "No matter what you're facing, we'd be honored to stand with you in prayer. Our prayer team is here to support you.",
     whatsappMessage:
-      "Hello Salem Rivers, I'd like to request prayer.",
+      "Hello Salem City of Faith, I'd like to request prayer.",
   },
 
   /** Watch (subordinate fallback). [CONFIRM] */

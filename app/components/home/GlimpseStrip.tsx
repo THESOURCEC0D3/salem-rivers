@@ -4,7 +4,7 @@ import { Reveal } from "../Reveal";
 import { glimpseImages } from "../glimpseImages";
 
 /**
- * Life at Salem Rivers — real faces and moments, not the building.
+ * Life at Salem City of Faith — real faces and moments, not the building.
  * `bg-background` keeps the light/muted alternation correct now that the
  * About section (muted) sits directly above this one.
  *
@@ -15,7 +15,7 @@ import { glimpseImages } from "../glimpseImages";
  */
 export function GlimpseStrip({
   eyebrow = "A glimpse of us",
-  title = "Life at Salem Rivers",
+  title = "Life at Salem City of Faith",
   intro = "Take a glimpse into our worship, community, ministries, and moments of fellowship.",
   className = "bg-background",
 }: {

@@ -32,7 +32,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
     <div
       className="relative mx-auto max-w-2xl"
       aria-roledescription="carousel"
-      aria-label="What people say about Salem Rivers"
+      aria-label="What people say about Salem City of Faith"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}

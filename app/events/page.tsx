@@ -8,7 +8,8 @@ import { Reveal } from "../components/Reveal";
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Upcoming events at Salem Rivers in Port Harcourt, plus a look back at life in the church. Come along, because an event is an easy first step.",
+    // Full official name — search snippet, same reasoning as /about.
+    "Upcoming events at Foundation Faith Church, Salem City of Faith in Port Harcourt, plus a look back at life in the church. Come along, because an event is an easy first step.",
 };
 
 /**

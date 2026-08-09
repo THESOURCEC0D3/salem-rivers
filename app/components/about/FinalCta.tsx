@@ -27,8 +27,13 @@ export function FinalCta() {
 
           <p className="max-w-2xl text-lg leading-relaxed text-white/85">
             Whether you&apos;re exploring faith, looking for a church home, or
+            {/*
+              `shortName`, and no trailing "Church" — `name` already ends in
+              "…Salem City of Faith", so the old `{church.name} Church` now
+              renders "…Salem City of Faith Church".
+            */}
             simply searching for hope, there&apos;s a place for you at{" "}
-            {church.name} Church.
+            {church.shortName}.
           </p>
 
           <div className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">

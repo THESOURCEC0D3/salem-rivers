@@ -1,14 +1,18 @@
 import Link from "next/link";
-import { getFeaturedSermon } from "@/app/lib/sermonService";
+import { Sermon } from "@/app/types/sermon";
 import FeaturedVideoPlayer from "./FeaturedVideoPlayer";
 
-export default async function FeaturedSermon() {
-  const sermon = await getFeaturedSermon();
 
-  if (!sermon) return null;
+interface FeaturedSermonProps {
+  sermon: Sermon;
+}
+
+export default function FeaturedSermon({
+  sermon,
+}: FeaturedSermonProps) {
 
   return (
-    <section className="py-24">
+    <section id="featured-sermon" className="py-24">
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Section Heading */}
