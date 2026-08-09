@@ -777,10 +777,40 @@ export const church = {
   },
 } as const;
 
-/** Build a WhatsApp deep link with an optional prefilled message. */
+/**
+ * Appended to every prefilled WhatsApp message.
+ *
+ * The church's admins receive messages from unknown numbers with no name
+ * attached, so every link asks for one. WhatsApp drops the cursor at the END of
+ * a prefilled message, which is why this ends on "My name is: " — the caret
+ * lands exactly where the visitor should type.
+ *
+ * The trailing space is deliberate. Do not trim it.
+ */
+const NAME_PROMPT = "\n\nMy name is: ";
+
+/**
+ * Build a WhatsApp deep link with an optional prefilled message.
+ *
+ * THIS IS THE ONLY PLACE IN THE CODEBASE THAT BUILDS A wa.me URL — every
+ * WhatsApp link on every page routes through it. Keep it that way: it is why
+ * the name prompt could be added in one edit instead of fifteen.
+ *
+ * NOTE what this does and does not do. A wa.me link PREFILLS WhatsApp's
+ * composer; it does not send. The visitor still taps send inside WhatsApp.
+ * Sending from the site itself would need the WhatsApp Business Cloud API (Meta
+ * verification, a dedicated number that can no longer be used in the normal
+ * app, a server — this site is fully static — and per-conversation cost). So do
+ * not wire this up behind anything labelled "Send": a button that claims to
+ * send and only opens a draft loses messages silently.
+ */
 export function whatsappLink(message?: string): string {
   const base = `https://wa.me/${church.whatsappNumber}`;
-  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+  // Only when there IS a message. A bare link is deliberately context-free, and
+  // a lone "My name is:" with nothing above it reads like a broken template.
+  return message
+    ? `${base}?text=${encodeURIComponent(message + NAME_PROMPT)}`
+    : base;
 }
 
 /**

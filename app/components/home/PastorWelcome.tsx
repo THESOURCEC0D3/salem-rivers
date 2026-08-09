@@ -42,7 +42,9 @@ export function PastorWelcome() {
             </div>
             <a
               href={whatsappLink(
-                `Hello Bishop, I'd like to ask a question about ${church.name}.`,
+                // "Pastor", not his title "Bishop" — the warmer address for a
+                // newcomer who may not be comfortable with the formal one.
+                `Hello Pastor, I'd like to ask a question about ${church.name}.`,
               )}
               target="_blank"
               rel="noopener noreferrer"

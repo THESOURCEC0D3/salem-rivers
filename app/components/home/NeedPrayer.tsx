@@ -36,6 +36,18 @@ export function NeedPrayer() {
               Request prayer
             </Button>
           </div>
+
+          {/*
+            The blessing sits HERE, as the church speaking to the visitor, and
+            not inside the prefilled WhatsApp message — there the visitor is the
+            sender, so it would be blessing the church on their behalf.
+            The name line only repeats what the composer already shows, so it is
+            phrased as reassurance rather than a second instruction.
+          */}
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+            WhatsApp will open with your message ready — just add your name and
+            send. The Lord bless you.
+          </p>
         </div>
       </Container>
     </section>
