@@ -1,12 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { church, navLinks, PLAN_VISIT_HREF } from "../content/church";
 import { Button } from "./Button";
 import { Container } from "./Container";
-import { DoorMarkIcon, MenuIcon, CloseIcon, ArrowRightIcon } from "./icons";
+import { MenuIcon, CloseIcon, ArrowRightIcon } from "./icons";
+/*
+  The NAV asset, not `salem-logo-1.png`. The source file is a 500×500 canvas
+  holding a 395×101 horizontal lockup — the artwork fills only 20% of its
+  height, so sized by height here it would render about 8px tall. This is the
+  same file trimmed to its alpha bounding box. If the church ever supplies a new
+  logo export, trim it the same way rather than pointing this import at the
+  untrimmed original.
+*/
+import salemLogo from "../../public/images/salem-logo-nav.png";
 
 export function Header() {
   const pathname = usePathname();
@@ -28,25 +38,77 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <Container>
-        <div className="flex h-16 items-center justify-between gap-4">
+        {/*
+          h-20 (80px), raised from h-16. The logo could not get meaningfully
+          bigger inside a 64px bar — 48px was already the ceiling there. If you
+          change this, change the two `calc(100svh-5rem)` values that subtract
+          it: Hero.tsx and give/page.tsx. That 5rem IS this height, and if they
+          drift apart those sections stop filling the viewport exactly.
+        */}
+        <div className="flex h-20 items-center justify-between gap-4">
           {/*
-            `navName`, NOT `name` — this is the single place that keeps the
-            retired "Salem Rivers" wording, by explicit request. The aria-label
-            matches the visible text on purpose: a screen reader announcing a
-            different name from the one sighted users read is its own bug.
-            See the block comment on the name fields in church.ts.
+            The logo replaces what used to be a DoorMarkIcon tile plus the
+            church name in text.
+
+            alt="" is deliberate, NOT an oversight. The link already carries an
+            aria-label, which is what a screen reader announces; giving the
+            image its own alt as well would announce the church name twice for
+            one link. The artwork itself reads "Foundation Faith Church / Salem
+            City of Faith", so the aria-label uses `name` to match it — a screen
+            reader announcing a different name from the one sighted users can
+            read is its own bug.
+
+            Sized by HEIGHT with w-auto: the lockup is 3.91:1, so pinning the
+            width instead would let the height drift with the viewport and
+            fight the bar.
+
+            THE SIZES DIP AT md ON PURPOSE — that is not a typo. Because the
+            lockup is wide, its height is really a WIDTH budget, and the budget
+            is smallest in the middle of the range, not at the bottom:
+
+              mobile   only a 44px menu button beside it. At 320px that leaves
+                       ~220px, so h-14 (56px → 219px wide) is the true ceiling.
+              md       the desktop nav appears — 4 links (~312px) plus "Plan
+                       Your Visit" (~174px) plus gaps (32px) ≈ 518px of fixed
+                       chrome against 720px of container. ~202px left, so h-12
+                       (48px → 188px) is all that fits. This is the tightest
+                       point on the whole range.
+              lg       container grows to 960px and the gutter widens, leaving
+                       ~442px. h-16 (64px → 250px) fits with room to spare.
+
+            So: bigger on phones, smallest on tablets, biggest on desktop. Check
+            the arithmetic above before raising any of these — going one step up
+            at md is what pushes the nav into the logo.
+
+            NO loading/preload props — the Next default (lazy) is deliberate,
+            and this was measured, not assumed. In this version of Next
+            `loading="eager"` ALSO inserts a <link rel="preload"> for the image,
+            and passing `preload={false}` alongside it does not suppress that.
+            Verified against the built HTML: eager → the logo gets a preload
+            emitted BEFORE the hero's, default → no preload at all.
+
+            That matters because the route heroes are the LCP element on every
+            page (Hero.tsx, PageHero.tsx) and hold the only preload worth
+            having. Queueing a 44KB logo ahead of the image the score is
+            actually measured on is a straight loss. The logo sits in the
+            initial viewport, so a lazy image is fetched during first layout
+            regardless — there is no real deferral to avoid here.
+
+            Note for future edits: `priority` is DEPRECATED in Next 16 in favour
+            of `preload` (see node_modules/next/dist/docs → components/image.md).
+            Hero.tsx and PageHero.tsx still pass `priority` and should be
+            migrated at some point; they work for now.
           */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 rounded-md text-foreground"
-            aria-label={`${church.navName}, home`}
+            className="flex items-center rounded-md"
+            aria-label={`${church.name}, home`}
           >
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-on-primary">
-              <DoorMarkIcon size={20} />
-            </span>
-            <span className="font-serif text-lg font-semibold tracking-tight">
-              {church.navName}
-            </span>
+            <Image
+              src={salemLogo}
+              alt=""
+              className="h-14 w-auto md:h-12 lg:h-16"
+            />
           </Link>
 
           {/* Desktop nav */}

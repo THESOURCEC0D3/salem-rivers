@@ -15,8 +15,9 @@ export const metadata: Metadata = {
  * deliberate later build. Mirrors the /watch coming-soon page.
  */
 export default function GivePage() {
+  // 5rem = the sticky header's h-20. Keep the two in step.
   return (
-    <section className="flex min-h-[calc(100svh-4rem)] items-center justify-center bg-gradient-to-b from-purple-soft to-background py-20">
+    <section className="flex min-h-[calc(100svh-5rem)] items-center justify-center bg-gradient-to-b from-purple-soft to-background py-20">
       <Container>
         <div className="mx-auto max-w-xl text-center">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.16em] text-accent">

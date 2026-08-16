@@ -23,8 +23,27 @@ import { getFeaturedSermon } from "@/app/lib/sermonService";
  * the quiet strip at the bottom of ReadyToJoin, nothing more. A `LatestSermon`
  * component exists but is parked; see HANDOFF §8c before re-adding it.
  *
- * Section backgrounds alternate background → muted → background so no two
- * adjacent sections share a surface. If you reorder, re-check that alternation.
+ * SECTION SURFACES — the homepage runs a gold wash rhythm rather than one flat
+ * ivory. The scale is defined in globals.css (--color-gold-wash-1..3, mixed from
+ * the logo's own gold). Running order:
+ *
+ *   Hero              photo, full bleed
+ *   PastorWelcome     wash-1
+ *   AboutSalemCity…   wash-3
+ *   GlimpseStrip      wash-1
+ *   FeaturedSermon    wash-2
+ *   NextEvent         wash-3
+ *   GetInvolved       wash-1
+ *   TestimonySection  dark photo — deliberately outside the scale
+ *   NeedPrayer        wash-2
+ *   ReadyToJoin       bg-primary — deliberately outside the scale
+ *
+ * The rule that matters: NO TWO ADJACENT SECTIONS SHARE A STEP. If you reorder
+ * or insert a section, re-check that, or the seam between them disappears.
+ *
+ * GlimpseStrip, FeaturedSermon and GetInvolved are also used by /about and
+ * /watch, so their washes are passed HERE as props rather than changed in the
+ * components — their defaults stay untouched and the other pages are unaffected.
  */
 export default async function Home() {
   const featuredSermon = await getFeaturedSermon();
@@ -43,16 +62,16 @@ export default async function Home() {
         <AboutSalemCityOfFaith />
       </Reveal>
       <Reveal>
-        <GlimpseStrip />
+        <GlimpseStrip className="bg-gold-wash-1" />
       </Reveal>
       <Reveal>
-        <FeaturedSermon sermon={featuredSermon} />
+        <FeaturedSermon sermon={featuredSermon} className="bg-gold-wash-2" />
       </Reveal>
       <Reveal>
         <NextEvent />
       </Reveal>
       <Reveal>
-        <GetInvolved />
+        <GetInvolved className="bg-gold-wash-1" />
       </Reveal>
       <Reveal>
         <TestimonySection />

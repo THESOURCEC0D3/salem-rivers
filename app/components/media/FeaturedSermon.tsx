@@ -5,14 +5,21 @@ import FeaturedVideoPlayer from "./FeaturedVideoPlayer";
 
 interface FeaturedSermonProps {
   sermon: Sermon;
+  /**
+   * Surface class for the section. Defaults to none, which is what /watch
+   * renders — only the homepage passes a gold wash, so adding this does not
+   * change /watch.
+   */
+  className?: string;
 }
 
 export default function FeaturedSermon({
   sermon,
+  className = "",
 }: FeaturedSermonProps) {
 
   return (
-    <section id="featured-sermon" className="py-24">
+    <section id="featured-sermon" className={`py-24 ${className}`}>
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Section Heading */}

@@ -55,7 +55,7 @@ A **marketing / invitation website for a single-location Nigerian Pentecostal ch
 
 Two naming observations the incoming team must resolve:
 
-- **RESOLVED, 9 August 2026.** The audit originally recorded this as an open conflict: the codebase called the church **"Salem Rivers"** (flagged `[CONFIRM]` in the content file) while client-supplied event flyer artwork read **"Foundation Faith Church, Salem City of Faith"**. The flyer wording is correct and "Salem Rivers" was a working title. The site now uses **"Foundation Faith Church, Salem City of Faith"** as the official name and **"Salem City of Faith"** as the short form in running prose. One deliberate exception: the **navbar** still reads "Foundation Faith Church, Salem Rivers", by explicit request — see the name-fields comment in `app/content/church.ts`.
+- **RESOLVED, 9 August 2026.** The audit originally recorded this as an open conflict: the codebase called the church **"Salem Rivers"** (flagged `[CONFIRM]` in the content file) while client-supplied event flyer artwork read **"Foundation Faith Church, Salem City of Faith"**. The flyer wording is correct and "Salem Rivers" was a working title. The site now uses **"Foundation Faith Church, Salem City of Faith"** as the official name and **"Salem City of Faith"** as the short form in running prose. There was briefly one deliberate exception — the navbar kept "Foundation Faith Church, Salem Rivers" via a `church.navName` field — but that ended when the navbar was changed to render the church's logo artwork instead of text. The artwork reads "Foundation Faith Church / Salem City of Faith", `navName` was deleted, and **the name is now consistent everywhere**, including Name/Address/Phone for local search.
 - The lead figure is **Bishop Hilary Ogoliegbune** (spelling confirmed from flyer artwork). The same flyer describes him as "National Coordinating Bishop" and names **Archbishop Dr Sam Amaga** as "Salem Family Worldwide — Chief Host". This implies Salem City of Faith is one branch of a larger denominational network. **That relationship is documented nowhere in the codebase and should be clarified before redesign.**
 
 It is a **static brochure site**. No CMS, no database, no authentication, no API routes, no server actions, no form submission of any kind. Every route prerenders to static HTML at build time.
@@ -758,14 +758,14 @@ Also missing: no onward link from this terminal page; no fallback if the third-p
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ [◫] Foundation Faith Church, Salem Rivers   Home  About  Events  Watch  [Plan Your ▸] │
+│ [Salem logo artwork]   Home  About  Events  Watch      [Plan Your ▸] │
 │  ↑ logo                    ↑ nav links            ↑ primary CTA │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 | Element | Implementation |
 |---|---|
-| **Logo** | `DoorMarkIcon` (custom doorway-plus-cross glyph) in a 36px `bg-primary` rounded square + church name in Fraunces. Links to `/`. Renders `church.navName`, **not** `church.name` — the navbar is the one place that keeps the retired "Salem Rivers" wording, so this reads "Foundation Faith Church, Salem Rivers" with a matching `aria-label`. |
+| **Logo** | The church's logo artwork (`public/images/salem-logo-nav.png`), 48px tall, width auto at its 3.91:1 ratio. Links to `/`. The image carries `alt=""` and the link an `aria-label` of `church.name`, so the name is announced once, matching the words in the artwork. **Superseded** the previous `DoorMarkIcon` tile + `church.navName` text; `navName` has been deleted, so the navbar, `<title>` and SEO schema now all say "Foundation Faith Church, Salem City of Faith". `DoorMarkIcon` itself is still used by the footer. |
 | **Nav links** | Rendered from `navLinks` in `church.ts`. Pill hit areas (`rounded-full px-3.5 py-2`). |
 | **Active state** | `pathname === link.href` → `text-primary` + `aria-current="page"`. |
 | **Hover** | `hover:text-primary`, colour transition. |
@@ -2142,7 +2142,7 @@ A checklist of every piece of content currently represented by a placeholder or 
 
 ## 16.3 Church information
 
-- [x] **Confirmation of the official church name** — resolved 9 Aug 2026 to "Foundation Faith Church, Salem City of Faith" (short form "Salem City of Faith"); "Salem Rivers" retired except in the navbar
+- [x] **Confirmation of the official church name** — resolved 9 Aug 2026 to "Foundation Faith Church, Salem City of Faith" (short form "Salem City of Faith"); "Salem Rivers" fully retired — the navbar now shows the logo artwork
 - [ ] **Denominational affiliation** and the relationship to Salem Family Worldwide / Archbishop Dr Sam Amaga
 - [ ] **Church founding date / history** (the flyer implies 38 years)
 - [ ] **Membership pathway** — currently `[Outline the real membership path…]`

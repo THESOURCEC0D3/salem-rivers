@@ -29,6 +29,34 @@
   --color-gold: #c8881d; /* brighter gold for small flourishes */
   --color-gold-soft: #f7ead0; /* gold-tinted surface */
 
+  /*
+    --color-gold-core is THE LOGO'S OWN GOLD, sampled from the artwork rather
+    than picked by eye: #c1a545 is the single most common tone across
+    salem-logo-nav.png (hue 46°, sat 50%, light 51%). Note it is softer and
+    yellower than --color-gold above (hue 38°, sat 75%) — that older token
+    actually matches the logo's *shadow* tone, not its dominant one. Both are
+    kept: --color-gold stays because it is load-bearing for accessible text and
+    borders, and lightening it would cost contrast.
+
+    The washes are page-section surfaces, mixed from gold-core into
+    --color-background (#fffcf7) at the percentage noted. They exist so the
+    homepage can carry a gentle gold rhythm instead of one flat ivory.
+
+    THE SCALE STOPS AT 11% FOR A REASON. Section eyebrows render in
+    --color-accent at 12px bold, which is NOT "large text" under WCAG, so it
+    needs 4.5:1. Measured against these surfaces: wash-1 4.76, wash-2 4.65,
+    wash-3 4.51 — all pass. A 16% step lands at 4.34 and fails. Do not add a
+    darker wash without re-checking the eyebrow.
+  */
+  --color-gold-core: #c1a545; /* logo's dominant gold, sampled from artwork */
+  /* Derived, not hardcoded: retune --color-gold-core and all three follow.
+     Tailwind FOLDS THESE AT BUILD TIME — the compiled stylesheet ships literal
+     #fdf9f0 / #fbf6eb / #f8f2e3, the exact values the contrast table above was
+     measured on, so there is no runtime color-mix() in the output. */
+  --color-gold-wash-1: color-mix(in srgb, var(--color-gold-core) 4%, var(--color-background));
+  --color-gold-wash-2: color-mix(in srgb, var(--color-gold-core) 7%, var(--color-background));
+  --color-gold-wash-3: color-mix(in srgb, var(--color-gold-core) 11%, var(--color-background));
+
   /* System */
   --color-destructive: #dc2626;
   --color-ring: #4b70c2;

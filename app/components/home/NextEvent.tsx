@@ -28,9 +28,9 @@ export function NextEvent() {
       id="next-event"
       eyebrow="What's coming up"
       title="Upcoming events"
-      // muted, not background: GlimpseStrip above is bg-background, so this has
-      // to be the muted half of the alternation (see page.tsx).
-      className="bg-muted/40"
+      // gold-wash-3, the strongest step. FeaturedSermon above is wash-2, so
+      // this stays distinct from it (see the surface order in page.tsx).
+      className="bg-gold-wash-3"
     >
       {upcoming.length > 0 ? (
         <>

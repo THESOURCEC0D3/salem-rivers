@@ -5,8 +5,10 @@ import { WhatsAppIcon } from "../icons";
 
 /** Section 4 — the Bishop's genuine, plain, warm welcome. */
 export function PastorWelcome() {
+  // gold-wash-1 — see the wash scale in globals.css and the running order of
+  // surfaces documented in page.tsx.
   return (
-    <section className="py-16 sm:py-20 lg:py-24">
+    <section className="bg-gold-wash-1 py-16 sm:py-20 lg:py-24">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1fr] lg:gap-14">
           {/* Photo sits in the left column and he faces right — into the quote. */}

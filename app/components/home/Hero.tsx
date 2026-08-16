@@ -43,7 +43,8 @@ export function Hero() {
         edge so more of the photo reads, instead of starting a third of the way in.
       */}
       <div className="mx-auto w-full max-w-[110rem] px-5 sm:px-8 lg:px-12">
-        <div className="flex min-h-[calc(100svh-4rem)] max-w-xl flex-col justify-center py-20 text-white sm:py-24">
+        {/* 5rem = the sticky header's h-20. Keep the two in step. */}
+        <div className="flex min-h-[calc(100svh-5rem)] max-w-xl flex-col justify-center py-20 text-white sm:py-24">
           {/*
             Two-part heading, one <h1>: the small gold "Welcome to" is the lead-in
             and the church's full name carries the display weight. The name is

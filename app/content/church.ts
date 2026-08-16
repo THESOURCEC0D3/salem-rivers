@@ -82,7 +82,7 @@ export type Sermon = {
 
 export const church = {
   /*
-   * THREE NAME FIELDS, ON PURPOSE. Confirmed 9 August 2026; the old "[CONFIRM]"
+   * TWO NAME FIELDS, ON PURPOSE. Confirmed 9 August 2026; the old "[CONFIRM]"
    * flag is resolved and the working title "Salem Rivers" is retired.
    *
    *   name      — the official name. Labels: footer, page <title>, the local-SEO
@@ -90,18 +90,20 @@ export const church = {
    *               by default.
    *   shortName — the same church inside running prose. The full name is six
    *               words and reads like boilerplate mid-sentence.
-   *   navName   — THE NAVBAR AND NOWHERE ELSE, by explicit request. It is the
-   *               one place that keeps the retired "Salem Rivers" wording.
    *
-   * Note the deliberate inconsistency this creates: the most prominent name on
-   * every page says something different from the <title> and the SEO schema.
-   * See the comment on `address` below — Name/Address/Phone is supposed to match
-   * everywhere for local search. This is a known, accepted trade-off, not a bug
-   * to "fix" by quietly pointing Header.tsx back at `name`.
+   * There WAS a third field, `navName`, holding "Foundation Faith Church, Salem
+   * Rivers" so the navbar could keep the retired wording. It is gone: the navbar
+   * now renders the church's logo artwork instead of any text, and that artwork
+   * reads "Foundation Faith Church / Salem City of Faith". Nothing rendered the
+   * field any more, and leaving it would have been a string that looks
+   * authoritative while affecting nothing.
+   *
+   * A welcome side effect: Name/Address/Phone is consistent again. The navbar,
+   * the <title> and the SEO schema all say the same thing, which is what the
+   * comment on `address` below asks for.
    */
   name: "Foundation Faith Church, Salem City of Faith",
   shortName: "Salem City of Faith",
-  navName: "Foundation Faith Church, Salem Rivers",
   /** Short identity used in the footer + search engine schema (not the hero). */
   identity: "A warm Pentecostal family in Port Harcourt.",
   /** The one nice line under the hero title. */

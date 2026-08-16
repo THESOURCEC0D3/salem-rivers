@@ -40,7 +40,7 @@ export function AboutSalemCityOfFaith() {
       eyebrow={`About ${church.shortName}`}
       title="A family"
       intro={about.intro[1]}
-      className="bg-muted/40"
+      className="bg-gold-wash-3"
     >
       <ul className="grid gap-5 sm:grid-cols-2">
         {beats.map((beat) => (
