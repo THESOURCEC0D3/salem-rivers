@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { church, navLinks, whatsappLink, PLAN_VISIT_HREF } from "../content/church";
 import { Container } from "./Container";
+// The same trimmed asset the header uses — one logo across the whole site.
+import salemLogo from "../../public/images/salem-logo-nav.png";
 import {
-  DoorMarkIcon,
   MapPinIcon,
   PhoneIcon,
   MailIcon,
@@ -22,12 +24,26 @@ export function Footer() {
         <div className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
           {/* Identity + canonical contact (local SEO: consistent Name/Address/Phone) */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-on-primary">
-                <DoorMarkIcon size={20} />
-              </span>
-              <span className="font-serif text-lg font-semibold">{church.name}</span>
-            </div>
+            {/*
+              The church's logo artwork, the same file the header renders — it
+              replaced a DoorMarkIcon tile plus the name set in Fraunces, which
+              was the old lockup and no longer matched the header.
+
+              alt is the church name here, NOT "" as in the header. There the
+              image sits inside a link that already carries an aria-label, so a
+              second name would be announced twice; here it stands alone, so it
+              has to carry the name itself.
+
+              h-12 (188px wide at this 3.91:1 lockup) rather than the header's
+              h-14/h-16: at lg this column is one of four and only ~242px wide,
+              so a header-sized logo would not fit. Same asset, sized for its
+              slot.
+
+              The church name is still on the page as crawlable text in the
+              copyright line below, so the canonical Name/Address/Phone this
+              column exists to carry is intact.
+            */}
+            <Image src={salemLogo} alt={church.name} className="h-12 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {church.identity}
             </p>

@@ -62,24 +62,23 @@ export function Header() {
             width instead would let the height drift with the viewport and
             fight the bar.
 
-            THE SIZES DIP AT md ON PURPOSE — that is not a typo. Because the
-            lockup is wide, its height is really a WIDTH budget, and the budget
-            is smallest in the middle of the range, not at the bottom:
+            THE DESKTOP NAV APPEARS AT lg, NOT md — that is what makes this
+            size possible. Because the lockup is wide, its height is really a
+            WIDTH budget, and a fifth nav link (Classes) blew that budget:
 
-              mobile   only a 44px menu button beside it. At 320px that leaves
-                       ~220px, so h-14 (56px → 219px wide) is the true ceiling.
-              md       the desktop nav appears — 4 links (~312px) plus "Plan
-                       Your Visit" (~174px) plus gaps (32px) ≈ 518px of fixed
-                       chrome against 720px of container. ~202px left, so h-12
-                       (48px → 188px) is all that fits. This is the tightest
-                       point on the whole range.
-              lg       container grows to 960px and the gutter widens, leaving
-                       ~442px. h-16 (64px → 250px) fits with room to spare.
+              5 links (~388px) + "Plan Your Visit" (~174px) + gaps (32px)
+              = ~594px of fixed chrome. At md the container is only 720px,
+              leaving ~126px — less than the logo needs at ANY size.
 
-            So: bigger on phones, smallest on tablets, biggest on desktop. Check
-            the arithmetic above before raising any of these — going one step up
-            at md is what pushes the nav into the logo.
+            So 768–1023px now shows the hamburger and gives the logo the whole
+            row, and the nav returns at lg where the container is 960px and
+            ~366px is left over. h-16 (64px → 250px wide) fits comfortably.
 
+            On phones the ceiling is the 44px menu button: at 320px that
+            leaves ~220px, so h-14 (56px → 219px) is the true maximum.
+
+            BEFORE ADDING A SIXTH NAV LINK, redo this arithmetic. Each link
+            costs roughly 90px and comes straight out of the logo's budget.
             NO loading/preload props — the Next default (lazy) is deliberate,
             and this was measured, not assumed. In this version of Next
             `loading="eager"` ALSO inserts a <link rel="preload"> for the image,
@@ -107,12 +106,12 @@ export function Header() {
             <Image
               src={salemLogo}
               alt=""
-              className="h-14 w-auto md:h-12 lg:h-16"
+              className="h-14 w-auto lg:h-16"
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav aria-label="Primary" className="hidden md:block">
+          <nav aria-label="Primary" className="hidden lg:block">
             <ul className="flex items-center gap-1">
               {navLinks.map((link) => {
                 const active = pathname === link.href;
@@ -133,7 +132,7 @@ export function Header() {
             </ul>
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button href={PLAN_VISIT_HREF} variant="primary" size="md">
               Plan Your Visit
               <ArrowRightIcon size={18} />
@@ -147,7 +146,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid h-11 w-11 cursor-pointer place-items-center rounded-xl border border-border bg-surface text-foreground md:hidden"
+            className="grid h-11 w-11 cursor-pointer place-items-center rounded-xl border border-border bg-surface text-foreground lg:hidden"
           >
             {open ? <CloseIcon size={22} /> : <MenuIcon size={22} />}
           </button>
@@ -156,7 +155,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="border-t border-border bg-background md:hidden">
+        <div id="mobile-menu" className="border-t border-border bg-background lg:hidden">
           <Container>
             <nav aria-label="Primary mobile" className="py-4">
               <ul className="flex flex-col gap-1">

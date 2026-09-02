@@ -17,6 +17,12 @@ import { ArrowRightIcon } from "../icons";
  * (the same string /about renders at display size). It is a stated commitment —
  * summarising it here and stating it there would make the church look like it
  * has two different missions.
+ *
+ * CARD SURFACES follow one rule: a card is always LIGHTER than the section it
+ * sits on, or it stops reading as raised. Only the two wash-3 sections (this
+ * one and NextEvent) have room to tint their cards — wash-1 there is still
+ * 5/7/13 lighter than the surface. Cards on wash-1 and wash-2 sections stay
+ * white, because a tint would eat the delta that makes them read as cards.
  */
 export function AboutSalemCityOfFaith() {
   const { about } = church;
@@ -46,7 +52,7 @@ export function AboutSalemCityOfFaith() {
         {beats.map((beat) => (
           <li
             key={beat.title}
-            className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+            className="rounded-2xl border border-border bg-gold-wash-1 p-6 shadow-sm"
           >
             <h3 className="font-serif text-xl font-semibold text-foreground">
               {beat.title}

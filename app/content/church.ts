@@ -16,6 +16,23 @@ export type ChurchEvent = {
   blurb: string;
   flyer: string; // placeholder label for the event flyer image
 };
+export type ChurchClass = {
+  id: string;
+  /** Short form as printed on the flyer, e.g. "C.F.B.I". */
+  acronym: string;
+  /** Dotless short form used in running prose, e.g. "CFBI". */
+  short: string;
+  /** Full name as printed on the flyer. */
+  name: string;
+  /** Which months it runs, e.g. "May to June". No year — see `classes.year`. */
+  season: string;
+  /** Which days it meets, e.g. "Weekends". */
+  meets: string;
+  /** Start time. The flyer prints the literal word "TIME", so this is unknown. */
+  time: string;
+  /** One sentence, for the homepage preview card. */
+  summary: string;
+};
 export type PastEvent = {
   id: string;
   title: string;
@@ -128,12 +145,19 @@ export const church = {
   mapEmbedUrl:
     "https://www.google.com/maps?q=1%20Faith%20Avenue%2C%20Rumuomasi%2C%20Port%20Harcourt%2C%20Rivers%20State&output=embed",
 
-  phone: "0703 065 9232",
-  phoneHref: "tel:+2347030659232",
+  phone: "0703 152 2204",
+  phoneHref: "tel:+2347031522204",
   email: "info@salemrivers.org",
 
-  /** International format, digits only, no “+”. Used for wa.me links. */
-  whatsappNumber: "2347030659232",
+  /*
+   * ONE NUMBER FOR THE WHOLE SITE. `phone` (displayed), `phoneHref` (the
+   * tel: link), the JSON-LD `telephone` in layout.tsx and this field are all
+   * the same line, by explicit request. Local SEO wants Name/Address/Phone
+   * identical everywhere, so if one moves, move all four together.
+   *
+   * This field is the wa.me form: international, digits only, no plus sign.
+   */
+  whatsappNumber: "2347031522204",
 
   pastor: {
     name: "Bishop Hilary Ogoliegbune",
@@ -635,6 +659,13 @@ export const church = {
   events: {
     upcoming: [
       {
+        /*
+         * The two phone numbers in `blurb` below are SPAMIC's REGISTRAR, taken
+         * off the flyer — they are NOT the church's line and must not be swept
+         * into `church.phone`. Anyone dialling them is registering for a course.
+         * Every church-owned number on the site is one line; these are the
+         * deliberate exception because they belong to someone else.
+         */
         id: "spamic-batch-2",
         title: "SPAMIC August/September Session (Batch 2)",
         // Not a one-day event — an intake whose classes run every Saturday from
@@ -648,30 +679,15 @@ export const church = {
         flyer: "SPAMIC August/September Session (Batch 2) flyer",
       },
       {
-        id: "let-the-fire-fall",
-        title: "Let The Fire Fall — 3 Days Prayer Retreat & Camp Meeting",
-        date: "Wednesday 12 to Saturday 15 August 2026",
-        // A residential camp, so the useful times are the open/close of camp
-        // rather than a daily start time.
-        time: "Camp opens 4:00 PM Wed 12th · closes 8:00 AM Sat 15th",
+        id: "ignite-revival",
+        title: "Provincial Youth Conference 2026: Ignite Revival",
+        date: "Saturday, 19 September 2026",
+        time: "9:00 AM prompt",
         location:
-          "Salem City of Faith, Holy Ghost Conference Ground, #1 Faith Avenue, Rumuomasi",
+          "#1 Faith Avenue, Rumuomasi, Port Harcourt",
         blurb:
-          "Three days of prayer and camp meeting hosted by the KDF Prayer Squad under the theme Let The Fire Fall, ministering with Archbishop Dr. Sam Amaga and convened by Bishop Hilary Ogoliegbune. Age limit: 13 years and above.",
-        flyer: "Let The Fire Fall prayer retreat and camp meeting flyer",
-      },
-      {
-        id: "annual-women-conference",
-        title: "Annual Women Conference: Called to Conquer Through Divine Love",
-        date: "Friday 28 and Saturday 29 August 2026",
-        // Two different start times across the two days — same reasoning as above.
-        time: "Fri 5:00 PM · Sat 8:00 AM",
-        location:
-          "Church Auditorium, #1 Faith Avenue, Rumuomasi, Port Harcourt",
-        blurb:
-          "Salem Women Ministry Int'l, Rivers Province, presents two days of prevailing prayers, word exposition, worship and presentations. Chief host Bishop Dr. (Mrs) Love Sam-Amaga, host Rev. Dr. Ijeoma Hilary Ogoliegbune, with guest minister Apostle (Mrs) Ruth Essien.",
-        flyer:
-          "Annual Women Conference: Called to Conquer Through Divine Love flyer",
+          "Salem Diplomats, Rivers Province, host this year's Provincial Youth Conference under the theme Ignite Revival — Take the Initiative. Convened by Bishop Hilary Ogoliegbune and hosted by Pst. Tony Wilcox, with Rev. Henry Power, Rev. Joseph Sam Odumo, Rev. Chuks Anointed, Pst. Inifie Allaputa and Pst. Ani Udo ministering.",
+        flyer: "Ignite Revival: Provincial Youth Conference 2026 flyer",
       },
     ] satisfies ChurchEvent[],
     /*
@@ -688,6 +704,34 @@ export const church = {
      * the move — a past card only shows the flyer, the title and the date.
      */
     past: [
+      {
+        // Moved from `upcoming` once it had run. Same id, so the real flyer
+        // follows it across via `eventImages`.
+        id: "teens-summit",
+        title: "Teens Summit 2026: Dominion",
+        date: "30 August 2026",
+        photo: "[Teens Summit 2026: Dominion]",
+      },
+      {
+        id: "annual-women-conference",
+        title: "Annual Women Conference: Called to Conquer Through Divine Love",
+        date: "28 and 29 August 2026",
+        photo: "[Annual Women Conference]",
+      },
+      {
+        id: "worship-experience",
+        title: "The Worship Experience",
+        date: "23 August 2026",
+        photo: "[The Worship Experience]",
+      },
+      {
+        // Moved from `upcoming` once the camp finished. Same id, so the real
+        // flyer follows it across via `eventImages` — see the note above.
+        id: "let-the-fire-fall",
+        title: "Let The Fire Fall — 3 Days Prayer Retreat & Camp Meeting",
+        date: "12 to 15 August 2026",
+        photo: "[Let The Fire Fall camp meeting]",
+      },
       {
         id: "q2-thanksgiving",
         title: "2nd Quarter Thanksgiving",
@@ -746,6 +790,158 @@ export const church = {
     body: "No matter what you're facing, we'd be honored to stand with you in prayer. Our prayer team is here to support you.",
     whatsappMessage:
       "Hello Salem City of Faith, I'd like to request prayer.",
+  },
+
+  /**
+   * Classes — the church's three schools, from the "Effective Leader" flyer.
+   *
+   * These are STANDING SCHOOLS with an annual rhythm, not one-off events, which
+   * is why `season` carries months but no year and `year` is separate. Written
+   * that way on purpose: copy that says "starts March 2026" is wrong every year
+   * from 2027, whereas "runs March to May" stays true and only `year` has to be
+   * touched. If a school is ever retired, delete it here — /classes and the
+   * homepage preview both read this array and neither hardcodes three.
+   *
+   * The registrar's phone numbers below are SPAMIC's, NOT the church's line —
+   * the same pair that appears in the `spamic-batch-2` event blurb. See the
+   * guard comment there. Do not fold them into `church.phone`.
+   */
+  classes: {
+    /** The programme name. (The flyer's own headline reads "The Effective Leader".) */
+    theme: "Arch-Bishop's Arm",
+    tagline: "Upgrade your leadership skills",
+    /** [CONFIRM] The flyer is the 2026 announcement. Update each year. */
+    year: "2026",
+    /** Verbatim from the flyer's "Open to" line. */
+    openTo: [
+      "CEOs and MDs",
+      "Church workers and pastors",
+      "Staff of companies",
+      "Front-line leaders",
+      "Students",
+      "Business men and women",
+      "Entrepreneurs",
+    ],
+    register: {
+      how: "Admission is open. Register onsite at the Registrar's office.",
+      address:
+        "1 Faith Avenue, off Stadium Road, Rumuomasi, Port Harcourt",
+      /** SPAMIC's registrar — NOT `church.phone`. See the note above. */
+      phones: ["0816 507 9879", "0813 849 1000"],
+    },
+    /*
+     * The institute's own story, supplied by the church. Rendered on /classes
+     * directly under the flyer.
+     *
+     * Two small tidy-ups were made to the supplied text and nothing else:
+     * "Sscholarship" -> "Scholarship", and a stray trailing slash after
+     * "Salem University of Nigeria" was dropped. Wording is otherwise verbatim.
+     */
+    institute: {
+      /*
+       * Which schools to name in the lead-in, and in what order. Ids, not
+       * strings — the names themselves live once, on `schools` below, so they
+       * cannot drift. The order here is the church's, and differs from the
+       * flyer order the cards follow.
+       */
+      nameOrder: ["cfbi", "spamic", "plt"],
+      mandate:
+        "The commission mandate God gave to His servant the presiding Archbishop, Dr. Sam Amaga on the 6th of July, 1986, which finally started on the 1st of July 1988: to raise an army of ministry leaders who are strong in faith, empowered by wisdom, intimate with the Holy Spirit, and doing exploits in life and ministry.",
+      objective:
+        "The school's objective is to train, equip and mobilize the entire labour force to think as global leaders in ministry and the marketplace. Each subject taught at this institute has the potential to stretch you.",
+      journey: {
+        heading: "The journey so far",
+        body: "Our training institute runs campuses in Ghana, Lagos, Abuja and here in Port Harcourt where the journey began. So many great men and women have been raised through this institute for end-time impact.",
+      },
+      workforce: {
+        heading: "The capacity of our workforce",
+        body: "We can boast of well-grounded instructors and management staffers.",
+        /*
+         * The supplied text ended mid-sentence — "…staffers like …" — with no
+         * names. Fill this in and ClassList appends it to `body` as "like X, Y
+         * and Z." While it is bracketed the sentence simply stops after
+         * "staffers", which is true and complete on its own.
+         */
+        names: "[CONFIRM: names of the instructors and management staff]",
+      },
+      affiliation: {
+        heading: "Our affiliation",
+        body: "Our affiliation is with our own university, Salem University of Nigeria.",
+      },
+      certificates: {
+        heading: "Our certificates",
+        note: "Awarded by Salem University",
+        // "Certificate Applied Theology" as supplied; "in" added to match the
+        // other three.
+        items: [
+          "Certificate in Applied Theology",
+          "Diploma (Dip) in Applied Theology",
+          "Advanced Diploma (AD) in Practical Ministry",
+          "Post Graduate Diploma (PGD) in Ministerial Arts",
+        ],
+      },
+      modules: {
+        heading: "Our courses have five modules",
+        items: [
+          "Ministerial & Christian Life series",
+          "Organizational Management & Leadership",
+          "Marriage and Home series",
+          "Human Resource Management",
+          "Leadership series",
+        ],
+      },
+      campusLife: {
+        heading: "Life in our campuses",
+        items: [
+          "Practical ministry development",
+          "Student life",
+          "Spirit-led instruction",
+          "Seasoned instructors",
+          "Scholarship",
+          "Washrooms",
+          "Security",
+        ],
+      },
+    },
+
+    schools: [
+      {
+        id: "plt",
+        acronym: "P.L.T",
+        short: "PLT",
+        // Resolved: the flyer's "Provincial Leadership School" did not match its
+        // own "P.L.T". The church confirmed the name is Provincial Leadership
+        // Training, which is what the acronym was always short for.
+        name: "Provincial Leadership Training",
+        season: "March to May",
+        meets: "Thursdays",
+        time: "[CONFIRM: the flyer prints only the word TIME]",
+        summary:
+          "Weekly leadership training for those already carrying responsibility.",
+      },
+      {
+        id: "cfbi",
+        acronym: "C.F.B.I",
+        short: "CFBI",
+        name: "Covenant Faith Bible Institute",
+        season: "May to June",
+        meets: "Weekends",
+        time: "[CONFIRM: the flyer prints only the word TIME]",
+        summary:
+          "A weekend grounding in Scripture — what you believe, and why.",
+      },
+      {
+        id: "spamic",
+        acronym: "S.P.A.M.I.C",
+        short: "SPAMIC",
+        name: "Salem Pastoral & Management College",
+        season: "July to September",
+        meets: "Weekends",
+        time: "[CONFIRM: the flyer prints only the word TIME]",
+        summary:
+          "Pastoral ministry and management, for those leading a work.",
+      },
+    ] satisfies ChurchClass[],
   },
 
   /** Watch (subordinate fallback). [CONFIRM] */
@@ -823,6 +1019,8 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/events", label: "Events" },
+  // [CONFIRM] Label may change — the church has not settled on "Classes".
+  { href: "/classes", label: "Classes" },
   { href: "/watch", label: "Watch" },
 ] as const;
 

@@ -17,7 +17,7 @@ export function NeedPrayer() {
   return (
     <section id="prayer" className="bg-gold-wash-2 py-16 sm:py-20 lg:py-24">
       <Container>
-        <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-card p-8 text-center shadow-sm sm:p-12">
+        <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-gold-wash-1 p-8 text-center shadow-sm sm:p-12">
           <h2 className="text-balance font-serif text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
             {church.prayer.heading}
           </h2>

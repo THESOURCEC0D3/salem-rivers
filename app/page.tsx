@@ -5,6 +5,7 @@ import { GlimpseStrip } from "./components/home/GlimpseStrip";
 import FeaturedSermon from "@/app/components/media/FeaturedSermon";
 import { NextEvent } from "./components/home/NextEvent";
 import { GetInvolved } from "./components/home/GetInvolved";
+import { ClassesPreview } from "./components/home/ClassesPreview";
 import { TestimonySection } from "./components/home/TestimonySection";
 import { NeedPrayer } from "./components/home/NeedPrayer";
 import { ReadyToJoin } from "./components/home/ReadyToJoin";
@@ -34,6 +35,7 @@ import { getFeaturedSermon } from "@/app/lib/sermonService";
  *   FeaturedSermon    wash-2
  *   NextEvent         wash-3
  *   GetInvolved       wash-1
+ *   ClassesPreview    wash-2
  *   TestimonySection  dark photo — deliberately outside the scale
  *   NeedPrayer        wash-2
  *   ReadyToJoin       bg-primary — deliberately outside the scale
@@ -72,6 +74,9 @@ export default async function Home() {
       </Reveal>
       <Reveal>
         <GetInvolved className="bg-gold-wash-1" />
+      </Reveal>
+      <Reveal>
+        <ClassesPreview />
       </Reveal>
       <Reveal>
         <TestimonySection />

@@ -50,21 +50,30 @@ export function GetInvolved({
             >
               {photo ? (
                 /*
-                  Two rendering modes, one frame — every card keeps the same
-                  16:10 box so the grid stays even; only what happens INSIDE
-                  differs. Same split as the leadership cards.
+                  Three rendering modes, ONE FRAME — every card keeps the same
+                  16:10 box so the grid stays even; only what happens inside it
+                  differs. See the measurements in departmentImages.ts.
 
-                  logo  → a square mark, never cropped. object-contain on a
-                    black frame: the KDF logo's own backdrop is a flat black
-                    (brightest border pixel 8/255), so the letterbox bars join
-                    it invisibly and the panel reads as deliberate rather than
-                    as an image that failed to fill.
+                  photo   → a real photograph, cropped to fill. Losing a little
+                    background is fine, and `objectPosition` steers the crop.
 
-                  photo → ordinary image, cropped to fill.
+                  graphic → a designed banner carrying a wordmark. NOT cropped:
+                    these are 1.78 wide against a 1.60 frame and their ink runs
+                    past what a centre crop keeps, so cover slices the last
+                    letter off. object-contain on a warm frame whose colour sits
+                    near the artwork's own edges, so the ~5% bars read as a mat
+                    around a poster rather than as a failure to fill.
+
+                  logo    → a square mark. Also not cropped. Black frame, which
+                    joins the logo's own flat black backdrop invisibly.
                 */
                 <div
                   className={`relative aspect-[16/10] w-full overflow-hidden ${
-                    photo.kind === "logo" ? "bg-[#010101]" : ""
+                    photo.kind === "logo"
+                      ? "bg-[#010101]"
+                      : photo.kind === "graphic"
+                        ? "bg-gold-soft"
+                        : ""
                   }`}
                 >
                   <Image
@@ -74,9 +83,9 @@ export function GetInvolved({
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className={
-                      photo.kind === "logo"
-                        ? "object-contain"
-                        : `object-cover ${photo.objectPosition ?? "object-center"}`
+                      photo.kind === "photo"
+                        ? `object-cover ${photo.objectPosition ?? "object-center"}`
+                        : "object-contain"
                     }
                   />
                 </div>

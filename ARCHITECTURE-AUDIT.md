@@ -765,7 +765,7 @@ Also missing: no onward link from this terminal page; no fallback if the third-p
 
 | Element | Implementation |
 |---|---|
-| **Logo** | The church's logo artwork (`public/images/salem-logo-nav.png`), 48px tall, width auto at its 3.91:1 ratio. Links to `/`. The image carries `alt=""` and the link an `aria-label` of `church.name`, so the name is announced once, matching the words in the artwork. **Superseded** the previous `DoorMarkIcon` tile + `church.navName` text; `navName` has been deleted, so the navbar, `<title>` and SEO schema now all say "Foundation Faith Church, Salem City of Faith". `DoorMarkIcon` itself is still used by the footer. |
+| **Logo** | The church's logo artwork (`public/images/salem-logo-nav.png`), 56px tall rising to 64px at lg, width auto at its 3.91:1 ratio. Links to `/`. The image carries `alt=""` and the link an `aria-label` of `church.name`, so the name is announced once, matching the words in the artwork. **Superseded** the previous `DoorMarkIcon` tile + `church.navName` text; `navName` has been deleted, so the navbar, `<title>` and SEO schema now all say "Foundation Faith Church, Salem City of Faith". The footer now renders the SAME asset at h-12 (its column is only ~242px wide at lg), with `alt` set to the church name because it stands alone there rather than inside a labelled link. `DoorMarkIcon` is no longer rendered anywhere and survives only as an unused export in `icons.tsx`. |
 | **Nav links** | Rendered from `navLinks` in `church.ts`. Pill hit areas (`rounded-full px-3.5 py-2`). |
 | **Active state** | `pathname === link.href` → `text-primary` + `aria-current="page"`. |
 | **Hover** | `hover:text-primary`, colour transition. |
@@ -1381,10 +1381,10 @@ All real and consistent:
 | Field | Value |
 |---|---|
 | `address` | 1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State |
-| `phone` | 0703 065 9232 |
-| `phoneHref` | `tel:+2347030659232` |
+| `phone` | 0703 152 2204 |
+| `phoneHref` | `tel:+2347031522204` |
 | `email` | info@salemrivers.org |
-| `whatsappNumber` | `2347030659232` |
+| `whatsappNumber` | `2347031522204` — same line as `phone`, deliberately |
 | `directionsUrl` / `mapEmbedUrl` | Google Maps, pointed at the real address |
 | `serviceTimes` | Sunday 7:00 AM · Wednesday Bible Study 5:30 PM |
 
@@ -2184,9 +2184,9 @@ A checklist of every piece of content currently represented by a placeholder or 
 For completeness, these are **done**:
 
 - [x] Full address — 1 Faith Avenue, Rumuomasi, Port Harcourt, Rivers State
-- [x] Phone number — 0703 065 9232
+- [x] Phone number — 0703 152 2204 (changed 9 Aug 2026; one number sitewide)
 - [x] Email — info@salemrivers.org
-- [x] WhatsApp number — 2347030659232
+- [x] WhatsApp number — 2347031522204 (same line as the phone)
 - [x] Service times — Sunday 7:00 AM, Wednesday 5:30 PM
 - [x] Google Maps directions + embed URLs
 - [x] Neighbourhood — Rumuomasi

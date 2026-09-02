@@ -65,7 +65,7 @@ export function NextEvent() {
               return (
                 <article
                   key={e.id}
-                  className={`overflow-hidden rounded-3xl border border-border bg-card shadow-md ${
+                  className={`overflow-hidden rounded-3xl border border-border bg-gold-wash-1 shadow-md ${
                     isOrphan ? "lg:col-span-2 lg:mx-auto lg:w-[calc(50%-1rem)]" : ""
                   }`}
                 >
@@ -145,7 +145,7 @@ export function NextEvent() {
           </div>
         </>
       ) : (
-        <div className="mx-auto max-w-xl rounded-3xl border border-border bg-card p-8 text-center shadow-md sm:p-10">
+        <div className="mx-auto max-w-xl rounded-3xl border border-border bg-gold-wash-1 p-8 text-center shadow-md sm:p-10">
           <p className="text-lg leading-relaxed text-muted-foreground">
             We currently do not have any event coming up.
           </p>
