@@ -117,6 +117,13 @@ function TestimonyCard({ quote, name, context, photo }: Testimonial) {
       <blockquote className="mt-5 flex-1 text-balance font-serif text-xl leading-snug text-white sm:text-2xl">
         &ldquo;{quote}&rdquo;
       </blockquote>
+      {/*
+        The caption is rendered ONLY when there is a name. An unattributed
+        testimony is a deliberate state, not a missing value, so this must not
+        fall back to a placeholder — printing "[First name]" to visitors is
+        exactly what the previous content did.
+      */}
+      {name && (
       <figcaption className="mt-6 flex items-center justify-center gap-3">
         {photo && (
           <span
@@ -132,6 +139,7 @@ function TestimonyCard({ quote, name, context, photo }: Testimonial) {
           )}
         </span>
       </figcaption>
+      )}
     </figure>
   );
 }

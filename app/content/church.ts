@@ -41,7 +41,11 @@ export type PastEvent = {
 };
 export type Testimonial = {
   quote: string;
-  name: string;
+  /**
+   * Optional. A testimony may be published unattributed — the card omits the
+   * whole caption when this is absent rather than printing a placeholder.
+   */
+  name?: string;
   context?: string;
   photo?: string | null; // optional — a person's photo, only if they want one
 };
@@ -581,33 +585,36 @@ export const church = {
   },
 
   /** Testimonies — CLEARED by the church for launch. Carousel on the homepage. */
+  /*
+   * Real testimonies given by members, replacing the four invented placeholders
+   * that used to sit here (they rendered literal "[First name]" text on the page).
+   *
+   * NO NAMES, ON PURPOSE. None were supplied, and inventing attribution for a
+   * real person's medical testimony is not something to guess at. `name` is
+   * optional on the type, and `Testimonials.tsx` simply omits the caption when
+   * it is absent — so the quote stands on its own. Add a name here once the
+   * person has agreed to be identified and the caption appears automatically.
+   *
+   * Wording is the members' own. Only clear typos and run-on punctuation were
+   * corrected: "outporing"->"outpouring", "preservind"->"preserving",
+   * "to to God"->"to God", "Arch Bishop Sam-Amaga"->"Archbishop Sam Amaga"
+   * (matching the spelling used everywhere else on the site), and two comma
+   * splices were made full stops. Nothing was rephrased or shortened.
+   */
   testimonials: [
     {
       quote:
-        "I came in not knowing a single person, just to see what it was like. By the end someone had prayed with me and invited me back. I've never looked back.",
-      name: "[First name]",
-      context: "First visited [last year]",
-      photo: "[Photo of person]",
-    },
-    {
-      quote:
-        "This is the first place that felt like family from day one. My kids love it, and honestly, so do I.",
-      name: "[First name]",
-      context: "Member since [year]",
+        "On December 9, 2024, I felt a sharp pain in my head, collapsed, and was rushed to the hospital. I was diagnosed with a stroke. During our outpouring conference, my husband found me with foam coming out of my mouth and nose, and medical tests revealed I had suffered a stroke caused by a blood clot in my brain. During this year's Covenant Week of Celebration, Archbishop Sam Amaga decreed supernatural provision for all Salemites. I claimed that decree, began praying, and also called my pastor to pray with me through the pain. Afterward, I returned to the hospital for medical analysis. To the glory of God, the test results showed that the blood clot in my brain was completely gone! I bless the God of Salem for my total healing.",
       photo: null,
     },
     {
       quote:
-        "I was nervous about walking in alone. Nobody made a fuss. They just made room for me, and that meant everything.",
-      name: "[First name]",
-      context: "[Context]",
-      photo: "[Photo of person]",
+        "I am here to thank God for sustaining me as I travelled across four countries in the last two weeks. The testimony means more to me after I was informed that my colleague who also travelled was found dead. I give all thanks to God for preserving me and my family.",
+      photo: null,
     },
     {
       quote:
-        "For the worship, the warmth and the prayer, I drive past three churches to be here. Every Sunday it's worth it.",
-      name: "[First name]",
-      context: "[Context]",
+        "My child was a special child. She was not able to go to school for seven years, but now she has graduated and is about to enter the university. I am here to give God all the glory.",
       photo: null,
     },
   ] satisfies Testimonial[],
