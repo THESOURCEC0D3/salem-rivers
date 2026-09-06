@@ -32,24 +32,33 @@ export function PastEvents() {
           return (
             <li
               key={p.id}
-              className="w-full overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:w-80"
+              className="flex w-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:w-80"
             >
-              {photo ? (
-                <Image
-                  src={photo}
-                  alt={`${p.title}, ${p.date}`}
-                  placeholder="blur"
-                  sizes="(max-width: 640px) 100vw, 20rem"
-                  className="h-auto w-full"
-                />
-              ) : (
-                <PhotoPlaceholder
-                  label={p.photo}
-                  rounded=""
-                  className="aspect-[4/3] w-full"
-                />
-              )}
-              <div className="p-4">
+              {/*
+                Fixed 4:3 frame, matching the upcoming cards. These wrap into
+                rows, and flex already stretches every card in a row to the
+                tallest — so without a fixed frame the images sat at different
+                heights and the titles below them never lined up.
+              */}
+              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-muted">
+                {photo ? (
+                  <Image
+                    src={photo}
+                    alt={`${p.title}, ${p.date}`}
+                    placeholder="blur"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 20rem"
+                    className="object-contain"
+                  />
+                ) : (
+                  <PhotoPlaceholder
+                    label={p.photo}
+                    rounded=""
+                    className="h-full w-full"
+                  />
+                )}
+              </div>
+              <div className="flex flex-1 flex-col p-4">
                 <p className="font-semibold text-foreground">{p.title}</p>
                 <p className="text-sm text-muted-foreground">{p.date}</p>
               </div>

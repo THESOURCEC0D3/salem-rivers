@@ -686,6 +686,19 @@ export const church = {
         flyer: "SPAMIC August/September Session (Batch 2) flyer",
       },
       {
+        id: "going-beyond-your-fathers",
+        title: "Going Beyond Your Fathers",
+        // A four-week series, not a single date, so `date` carries the whole
+        // run and the individual Sundays.
+        date: "Every Sunday in September 2026 \u2014 6th, 13th, 20th and 27th",
+        time: "7:00 AM prompt",
+        location:
+          "Salem City of Faith, #1 Faith Avenue, Rumuomasi, Port Harcourt",
+        blurb:
+          "\u201CFor whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith.\u201D \u2014 1 John 5:4. Four Sundays of encounter in the presence of God, hosted and convened by Bishop Hilary Ogoliegbune, National Coordinating Bishop. Also ministering: Bishop Designate Nixon Iyalla, Rev. Mina Geoffery, Rev. Charles Akpunne and Rev. Olanrewaju Ojo. Get ready for diverse encounters like never before \u2014 don\u2019t miss this glorious experience.",
+        flyer: "Going Beyond Your Fathers flyer",
+      },
+      {
         id: "ignite-revival",
         title: "Provincial Youth Conference 2026: Ignite Revival",
         date: "Saturday, 19 September 2026",

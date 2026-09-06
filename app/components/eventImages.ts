@@ -8,6 +8,7 @@ import womenConference from "../../public/images/women-ministry-event.jpeg";
 import worshipExperience from "../../public/images/worship-experience.jpeg";
 import teensSummit from "../../public/images/teens-conference.jpg";
 import igniteRevival from "../../public/images/ignite-revival.jpeg";
+import goingBeyond from "../../public/images/going-beyond-your-fathers-event.jpeg";
 
 /**
  * Real event flyer images, keyed by event id (see `church.events`).
@@ -17,6 +18,7 @@ import igniteRevival from "../../public/images/ignite-revival.jpeg";
 export const eventImages: Record<string, StaticImageData> = {
   // Upcoming, in the order they appear in `church.events.upcoming`.
   "spamic-batch-2": spamic,
+  "going-beyond-your-fathers": goingBeyond,
   "ignite-revival": igniteRevival,
 
   // PAST events. Nothing below needs moving or renaming when an event is

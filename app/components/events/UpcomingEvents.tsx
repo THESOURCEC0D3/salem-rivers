@@ -29,20 +29,32 @@ export function UpcomingEvents() {
               key={e.id}
               className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm md:flex"
             >
-              <div className="bg-muted md:w-2/5 md:shrink-0">
+              {/*
+                Same fixed 4:3 frame as the homepage cards, for the same reason:
+                flyers range from 0.59 to 3.16, so at a fixed column width their
+                natural heights are wildly different and the rows came out
+                ragged.
+
+                `md:self-start` matters. Without it the flex row stretches this
+                column to the full card height, and any flyer shorter than the
+                text left a slab of bare bg-muted underneath it. Hugging the
+                frame removes that band.
+              */}
+              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-muted md:w-2/5 md:self-start">
                 {flyer ? (
                   <Image
                     src={flyer}
                     alt={`Flyer for ${e.title}`}
                     placeholder="blur"
+                    fill
                     sizes="(max-width: 768px) 100vw, 24rem"
-                    className="h-auto w-full"
+                    className="object-contain"
                   />
                 ) : (
                   <PhotoPlaceholder
                     label={e.flyer}
                     rounded=""
-                    className="aspect-[3/4] h-full w-full"
+                    className="h-full w-full"
                   />
                 )}
               </div>

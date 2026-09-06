@@ -35,21 +35,20 @@ export function NextEvent() {
       {upcoming.length > 0 ? (
         <>
           {/*
-            items-center, deliberately — do not "fix" this to stretch.
+            EQUAL-HEIGHT CARDS. This replaces an earlier `items-center` layout
+            where every card hugged its own flyer and the row came out ragged.
 
-            These are real flyers shown at their natural ratio (no crop), and
-            church flyers arrive in wildly different shapes. The current pair on
-            row one is the widest spread yet: SPAMIC is landscape (1280×853,
-            1.50) while Let The Fire Fall is a tall portrait (941×1600, 0.59).
-            At equal card width that is 0.67×W of image height against 1.70×W —
-            the taller card is ~2.5× the height of the shorter.
+            The reason cards could not match before: flyers were rendered at
+            their natural ratio, and the real set runs from 0.59 (Let The Fire
+            Fall, tall portrait) to 3.16 (Going Beyond Your Fathers, wide
+            banner). At equal card width that is a 5.4× spread in image height,
+            so no amount of alignment could square it.
 
-            Stretching to equal heights would dump the whole difference below the
-            shorter card's text as one dead pool. Centring splits it evenly above
-            and below, so the short card reads as balanced against its neighbour
-            instead of unfinished. Cards still hug their own content.
+            Now every flyer sits in the same fixed 4:3 frame (see the card
+            below), so the images are identical in size and the only variable
+            left is text length — which `flex-1` on the text block absorbs.
           */}
-          <div className="mx-auto grid max-w-5xl items-center gap-6 sm:gap-8 lg:grid-cols-2">
+          <div className="mx-auto grid max-w-5xl gap-6 sm:gap-8 lg:grid-cols-2">
             {upcoming.map((e, i) => {
               const flyer = eventImages[e.id];
               /*
@@ -65,32 +64,44 @@ export function NextEvent() {
               return (
                 <article
                   key={e.id}
-                  className={`overflow-hidden rounded-3xl border border-border bg-gold-wash-1 shadow-md ${
+                  className={`flex flex-col overflow-hidden rounded-3xl border border-border bg-gold-wash-1 shadow-md ${
                     isOrphan ? "lg:col-span-2 lg:mx-auto lg:w-[calc(50%-1rem)]" : ""
                   }`}
                 >
                   {/*
-                    A flyer is a designed poster — shown at its natural ratio
-                    (h-auto, no crop) so no text gets cut off. Events without a
-                    real flyer fall back to the labelled placeholder.
-                  */}
-                  {flyer ? (
-                    <Image
-                      src={flyer}
-                      alt={`Flyer for ${e.title}`}
-                      placeholder="blur"
-                      sizes="(max-width: 1024px) 100vw, 30rem"
-                      className="h-auto w-full"
-                    />
-                  ) : (
-                    <PhotoPlaceholder
-                      label={e.flyer}
-                      rounded=""
-                      className="aspect-[4/3] w-full"
-                    />
-                  )}
+                    FIXED 4:3 FRAME + object-contain. A flyer is a designed
+                    poster, so it is still never cropped — every word survives.
+                    What changed is that it now sits inside a frame of a known
+                    size instead of dictating one.
 
-                  <div className="p-6 sm:p-7">
+                    4:3 is not arbitrary: it is the geometric mean of the real
+                    flyer ratios (1.28), i.e. the frame that wastes the least
+                    space across the actual set. The cost is honest — a 3.16
+                    banner fills ~42% of the frame height and a 0.59 portrait
+                    ~44% of its width, so both letterbox against the bg-muted
+                    mat. That is the price of uniform cards with uncropped
+                    posters; there is no third option.
+                  */}
+                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-muted">
+                    {flyer ? (
+                      <Image
+                        src={flyer}
+                        alt={`Flyer for ${e.title}`}
+                        placeholder="blur"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 30rem"
+                        className="object-contain"
+                      />
+                    ) : (
+                      <PhotoPlaceholder
+                        label={e.flyer}
+                        rounded=""
+                        className="h-full w-full"
+                      />
+                    )}
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
                     <h3 className="text-balance text-2xl font-semibold leading-snug text-foreground">
                       {e.title}
                     </h3>
