@@ -314,6 +314,31 @@ Name/Address/Phone crawlable.
 ### WhatsAppButton
 Fixed bottom-right on every page. The persistent "reach a human" channel.
 
+### Favicon and app icons
+Three files in `app/`, picked up by Next's file convention — no `metadata.icons` config:
+
+| File | Size | Notes |
+|---|---|---|
+| `favicon.ico` | 16 / 32 / 48 | multi-size, so the browser picks a real bitmap instead of downscaling one |
+| `icon.png` | 512×512 | transparent; the modern `<link rel="icon">` |
+| `apple-icon.png` | 180×180 | flattened onto ivory `#fffcf7` — **iOS composites transparency onto black**, which would put a gold wreath on a black tile |
+
+All three are generated from **the emblem only** — the wreath, cropped out of
+`public/images/salem-logo-2.png` at rows 127–308. That source is the stacked lockup, with
+"FOUNDATION FAITH CHURCH" and "SALEM CITY OF FAITH" as two text lines beneath the wreath. At the
+16×16 a browser tab actually renders, those lines are about one pixel tall each and turn into a
+grey smear, so including them would make the icon *less* recognisable, not more.
+
+**Known limitation:** the mark is thin gold strokes on transparency. That reads well on a dark
+browser tab and is washed out on a light one — the more common default. The fix, if it ever
+matters, is flattening the icon onto its own dark tile (`--color-foreground` #2a1a33) so it
+carries its contrast with it; it then looks identical whatever the tab colour. That was a
+deliberate deferral, not an oversight — it changes how the brand mark is presented.
+
+To regenerate after a logo change: crop the emblem, pad to square with ~6% margin, then emit the
+three files above. `sharp` cannot write `.ico`, so that one is a hand-built container — ICO
+header, one 16-byte directory entry per size, then PNG payloads.
+
 ---
 
 ## 8. Design system
@@ -601,14 +626,15 @@ Harmless, but do not mistake any of it for live code.
 
 **Unused export:** `DoorMarkIcon` in `icons.tsx` — was the site's mark before the real logo.
 
-**Orphaned images** — 10 of the 43 files in `public/images/` are referenced by nothing and
+**Orphaned images** — 9 of the 43 files in `public/images/` are referenced by nothing and
 are safe to delete:
 
 ```
 Archbishop Sam-Amaga.png   Archbishop.jpg        Bishop-Hillary.png
-Hero-Congregation.jpg      HeroImage2.jpg        salem-logo-2.png
-technicalimage1.jpeg       technicalimage3.jpeg  ushering-department-image.jpg
+Hero-Congregation.jpg      HeroImage2.jpg        technicalimage1.jpeg
+technicalimage3.jpeg       ushering-department-image.jpg
 salem-logo-1.png  <- KEEP: the untrimmed source artwork for salem-logo-nav.png
+salem-logo-2.png  <- KEEP: the stacked lockup; its emblem is the favicon source (§7)
 ```
 
 > ### ⚠ Before deleting ANY image, run the checker
@@ -740,4 +766,11 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
      M public/images/worship-experience.jpeg
     ?? .claude/hooks/log-changes.sh
     ?? .claude/settings.json
+
+
+### 2026-09-07 08:21 — 3 file(s) changed · at `cd100b2`
+
+     M app/favicon.ico
+    ?? app/apple-icon.png
+    ?? app/icon.png
 
