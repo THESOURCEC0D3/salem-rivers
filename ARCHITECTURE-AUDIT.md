@@ -314,6 +314,30 @@ Name/Address/Phone crawlable.
 ### WhatsAppButton
 Fixed bottom-right on every page. The persistent "reach a human" channel.
 
+### Social links
+Six accounts, in `church.socials`, rendered as the footer icon row **and** fed to the JSON-LD
+`sameAs` array in `layout.tsx` — which is how search engines tie the profiles to the church.
+
+| Network | Handle |
+|---|---|
+| Facebook | `officialsalemrivers` |
+| Instagram | `salemriversph` |
+| YouTube | `@officialsalemrivers` |
+| TikTok | `@officialsalemrivers` |
+| X | `salemriversph` |
+| Threads | `salemriversph` |
+
+**The handles split in two — do not "tidy" them into one spelling.** Facebook, YouTube and
+TikTok use `officialsalemrivers`; Instagram, X and Threads use `salemriversph`. All six were
+click-tested on 5 Sep 2026.
+
+`sameAs` is `Object.values(church.socials)`, so adding a network to that object puts it in the
+schema automatically — but the footer row is written out by hand, so a new network needs an entry
+there too, plus a brand icon in `icons.tsx`.
+
+These replaced `https://facebook.com/example` style placeholders that had been in place since
+the project began; the footer icons went nowhere real until 5 Sep 2026.
+
 ### Favicon and app icons
 Three files in `app/`, picked up by Next's file convention — no `metadata.icons` config:
 
@@ -584,6 +608,12 @@ The KDF one is the worst — it is on the homepage. Fix these before any launch.
 *(Most other brackets in `church.ts` are in `photo:` fields, which only feed placeholder labels,
 or in comments. Those are fine.)*
 
+### ✅ Recently closed
+
+- **Social links were `example.com` placeholders** — all six now point at real accounts
+  (see §7). This was a live-site defect nobody had flagged: every footer icon was a dead link.
+- **Favicon was the Next.js starter icon** — now the church emblem (see §7).
+
 ### 🟠 Stale content
 
 - **SPAMIC sits in `upcoming`** dated "Classes begin Saturday, 8 August 2026" — nearly a month
@@ -773,4 +803,12 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
      M app/favicon.ico
     ?? app/apple-icon.png
     ?? app/icon.png
+
+
+### 2026-09-07 11:39 — 4 file(s) changed · at `8f46065`
+
+     M app/components/Footer.tsx
+     M app/components/icons.tsx
+     M app/content/church.ts
+     M app/layout.tsx
 

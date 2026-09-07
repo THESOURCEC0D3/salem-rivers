@@ -977,10 +977,31 @@ export const church = {
     href: "/give",
   },
 
+  /*
+   * The church's social accounts. These replaced "https://facebook.com/example"
+   * style placeholders that had been in place since the project started — the
+   * footer icons went nowhere real until now.
+   *
+   * ORDER MATTERS: the footer renders these in the order written here, and
+   * layout.tsx feeds the same values to the JSON-LD `sameAs` array, which is how
+   * search engines tie these profiles to the church. Add a network in both
+   * places or it appears in the footer while staying invisible to search.
+   *
+   * The handles split cleanly in two, and do NOT tidy them into one spelling:
+   *   facebook + youtube + tiktok -> officialsalemrivers
+   *   instagram + x + threads     -> salemriversph
+   *
+   * Facebook was briefly wrong here ("/Salemrivers", the display name rather
+   * than the page's actual slug) and led to the wrong page. All six were
+   * click-tested on 5 Sep 2026.
+   */
   socials: {
-    facebook: "https://facebook.com/example",
-    youtube: "https://youtube.com/@example",
-    instagram: "https://instagram.com/example",
+    facebook: "https://www.facebook.com/officialsalemrivers",
+    instagram: "https://www.instagram.com/salemriversph",
+    youtube: "https://www.youtube.com/@officialsalemrivers",
+    tiktok: "https://www.tiktok.com/@officialsalemrivers",
+    x: "https://x.com/salemriversph",
+    threads: "https://www.threads.net/@salemriversph",
   },
 
   /** Real photos to supply for the hero + glimpse strip. */

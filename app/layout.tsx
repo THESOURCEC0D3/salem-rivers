@@ -59,11 +59,10 @@ export default function RootLayout({
       addressCountry: "NG",
     },
     telephone: church.phone,
-    sameAs: [
-      church.socials.facebook,
-      church.socials.youtube,
-      church.socials.instagram,
-    ],
+    // Every social profile, so search engines can tie them to this church.
+    // Keep in step with `church.socials` — a network added to the footer but
+    // not here is invisible to search.
+    sameAs: Object.values(church.socials),
   };
 
   return (

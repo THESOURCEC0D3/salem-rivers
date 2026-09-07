@@ -3,6 +3,19 @@ import { Sermon } from "@/app/types/sermon";
 export const sermons: Sermon[] = [
  
     {
+  id: "10",
+  title: "Going Beyond Your Fathers",
+  speaker: "Bishop Hilary Ogoliegbune",
+  description:
+    "Salem Extraordinary - Life Sunday Service.",
+  youtubeId: "Mu05iBkUA1U",
+  date: "2026-09-06",
+  duration: "",
+  status: "latest",
+  platform: "youtube",
+},
+
+    {
   id: "9",
   title: "Salem Extraordinary - Life Sunday Service",
   speaker: "Bishop Hilary Ogoliegbune",
@@ -11,7 +24,7 @@ export const sermons: Sermon[] = [
   youtubeId: "SoPOClpUHKI",
   date: "2026-08-30",
   duration: "",
-  status: "latest",
+  status: "previous",
   platform: "youtube",
 },
 

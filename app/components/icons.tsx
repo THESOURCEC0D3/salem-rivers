@@ -314,3 +314,27 @@ export const InstagramIcon = ({ size = 24, ...props }: IconProps) => (
     <circle cx="17" cy="7" r="0.6" fill="currentColor" />
   </Stroke>
 );
+
+/*
+  TikTok, X and Threads — added when the church's full social set landed.
+  Filled glyphs, matching Facebook/YouTube/WhatsApp above rather than the
+  stroked `Stroke` helper, because brand marks read badly as outlines at the
+  18px the footer renders them at.
+*/
+export const TiktokIcon = ({ size = 24, ...props }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
+    <path d="M16.5 2h-2.9v12.6a2.1 2.1 0 1 1-1.8-2.1V9.5a5.1 5.1 0 1 0 4.7 5.1V8.9a6.3 6.3 0 0 0 3.5 1.1V7a3.6 3.6 0 0 1-3.5-3.6V2Z" />
+  </svg>
+);
+
+export const XIcon = ({ size = 24, ...props }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
+    <path d="M17.7 3h3.3l-7.2 8.3L22 21h-6.6l-5.2-6.8L4.3 21H1l7.7-8.9L1.4 3H8l4.7 6.2L17.7 3Zm-1.2 16h1.8L7.6 4.9H5.6L16.5 19Z" />
+  </svg>
+);
+
+export const ThreadsIcon = ({ size = 24, ...props }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
+    <path d="M12.2 22h-.1c-3 0-5.3-1-6.9-3C3.8 17.3 3 14.9 3 12s.8-5.3 2.2-7C6.8 3 9.1 2 12.1 2h.1c2.3 0 4.2.6 5.7 1.7 1.4 1.1 2.4 2.6 2.9 4.6l-2 .5c-.9-3.3-3.1-4.7-6.6-4.8-2.3 0-4.1.8-5.3 2.3-1.1 1.4-1.7 3.3-1.7 5.7s.6 4.3 1.7 5.7c1.2 1.5 3 2.3 5.3 2.3 2.1 0 3.5-.5 4.6-1.6 1.3-1.2 1.3-2.8 1-3.7-.2-.6-.7-1.2-1.5-1.6-.2 1.3-.6 2.3-1.3 3-.9.9-2.1 1.3-3.6 1.2-1.2-.1-2.2-.5-2.9-1.2-.8-.8-1.2-1.8-1.1-3 .1-2.3 2-3.8 4.9-3.8.9 0 1.7.1 2.5.2-.1-.7-.3-1.2-.7-1.6-.4-.4-1.1-.6-1.9-.6-.9 0-1.7.4-2.1 1.1l-1.7-1.2c.9-1.3 2.2-1.9 3.8-1.9 2.7 0 4.3 1.6 4.5 4.4l.3.1c1.6.7 2.6 1.8 3.1 3.2.6 1.9.2 4.4-1.7 6.2-1.5 1.4-3.4 2-6 2Zm-.4-11.1c-1.7 0-2.8.7-2.9 1.9 0 .6.2 1 .5 1.3.4.4.9.6 1.6.6.9.1 1.6-.1 2.1-.6.5-.5.8-1.4.9-2.7-.7-.3-1.4-.4-2.2-.5Z" />
+  </svg>
+);

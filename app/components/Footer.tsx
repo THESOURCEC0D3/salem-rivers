@@ -14,6 +14,9 @@ import {
   FacebookIcon,
   YoutubeIcon,
   InstagramIcon,
+  TiktokIcon,
+  XIcon,
+  ThreadsIcon,
   ArrowRightIcon,
 } from "./icons";
 
@@ -47,15 +50,30 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {church.identity}
             </p>
-            <div className="mt-5 flex gap-2.5">
+            {/*
+              Six networks now, up from three. flex-wrap is load-bearing: this
+              column is one of four at lg and only ~242px wide, which fits about
+              five 36px buttons on a row. Without wrapping the sixth pushes the
+              row past the column.
+            */}
+            <div className="mt-5 flex flex-wrap gap-2.5">
               <SocialLink href={church.socials.facebook} label="Facebook">
                 <FacebookIcon size={18} />
+              </SocialLink>
+              <SocialLink href={church.socials.instagram} label="Instagram">
+                <InstagramIcon size={18} />
               </SocialLink>
               <SocialLink href={church.socials.youtube} label="YouTube">
                 <YoutubeIcon size={18} />
               </SocialLink>
-              <SocialLink href={church.socials.instagram} label="Instagram">
-                <InstagramIcon size={18} />
+              <SocialLink href={church.socials.tiktok} label="TikTok">
+                <TiktokIcon size={18} />
+              </SocialLink>
+              <SocialLink href={church.socials.x} label="X">
+                <XIcon size={18} />
+              </SocialLink>
+              <SocialLink href={church.socials.threads} label="Threads">
+                <ThreadsIcon size={18} />
               </SocialLink>
             </div>
           </div>
