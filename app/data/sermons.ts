@@ -7,11 +7,11 @@ export const sermons: Sermon[] = [
   title: "The Beauty & Blessing of Revival",
   speaker: "Arch-Bishop Sam Amaga",
   description:
-    "Europe Outpouring Conference 2026 || Day 4 || ",
+    "Europe Outpouring Conference 2026 || Day 4",
   youtubeId: "T7w52wO5g_U",
   date: "2026-09-13",
   duration: "",
-  status: "live",
+  status: "latest",
   platform: "youtube",
 },
 

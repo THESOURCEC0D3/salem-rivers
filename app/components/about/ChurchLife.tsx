@@ -9,7 +9,8 @@ import {
   BabyIcon,
   UsersIcon,
   NavigationIcon,
-  HeartIcon,
+  FlameIcon,
+  SunriseIcon,
   ClockIcon,
   ArrowRightIcon,
 } from "../icons";
@@ -31,8 +32,18 @@ const lifeIcons = {
   droplet: DropletIcon,
   baby: BabyIcon,
   navigation: NavigationIcon,
-  heart: HeartIcon,
   users: UsersIcon,
+  /*
+    Deliverance -> flame, Anointing -> sunrise. Both chosen to sit inside this
+    section's existing icon language, which is warm and organic (music, seedling,
+    droplet, baby). TrendingUpIcon would read "next level" more literally but
+    looks like a stock chart next to the rest.
+
+    `heart` was dropped with the We Care card. Re-add it here AND re-import
+    HeartIcon if that ministry comes back.
+  */
+  flame: FlameIcon,
+  sunrise: SunriseIcon,
 } as const;
 
 /** The one card that points at the reused ministries section below. */
@@ -69,8 +80,8 @@ export function ChurchLife() {
               {/*
                 The schedule chip. Pulled out of the prose on purpose: a visitor
                 scanning for "when is that?" should find it without reading a
-                paragraph, and it keeps any "[to be confirmed]" marker visible
-                rather than buried mid-sentence.
+                paragraph. `when` is optional — a card with no fixed time (e.g.
+                Ministries & Departments) simply renders without the chip.
               */}
               {item.when && (
                 <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-[13px] font-semibold text-accent">

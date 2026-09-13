@@ -609,25 +609,44 @@ headings to `<h2>` for exactly this reason.
 
 ## 12. Outstanding work
 
-### 🔴 Launch blockers — placeholders visitors can actually read
+### 🔴 Launch blocker — one placeholder left
 
-Verified against the built HTML. These render as literal bracketed text on live pages:
+Verified against the built HTML:
 
 | Text | Where | Page |
 |---|---|---|
 | `[Describe KDF]` | `church.departments` → KDF blurb | **`/` and `/about`** |
-| `[CONFIRM]` | FAQ, "How long is the service?" | `/about` |
-| `[CONFIRM wording.]` | Dr. Love Sam-Amaga's bio | `/about` |
-| `[CONFIRM: add years served and a personal line.]` | Bishop Hilary's bio | `/about` |
-| `[to be confirmed]` ×2 | `churchLife` meeting times | `/about` |
-| `[Details to be confirmed]` | `churchLife` | `/about` |
 
-The KDF one is the worst — it is on the homepage. Fix these before any launch.
+Every `[CONFIRM…]` and `[to be confirmed]` marker was removed on 13 Sep 2026. This is the last
+one, and it is on the homepage. The sentence reads fine without it — dropping the marker leaves
+*"A force for prayer, evangelism and taking the gospel beyond the walls."* — so it can go the
+moment the church either supplies a description or agrees the existing line is enough.
 
-*(Most other brackets in `church.ts` are in `photo:` fields, which only feed placeholder labels,
-or in comments. Those are fine.)*
+> ### ⚠ FOUR BRACKETS IN `church.classes` MUST STAY
+>
+> ```
+> classes.schools[].time     "[CONFIRM: the flyer prints only the word TIME]"  x3
+> classes.institute.workforce.names  "[CONFIRM: names of the instructors…]"
+> ```
+>
+> These look like the markers above but are **sentinels**. `ClassList.tsx` does
+> `const isPlaceholder = (v) => v.trim().startsWith("[")` and uses it to decide whether to render
+> the value at all. Strip the brackets and `/classes` starts printing *"the flyer prints only the
+> word TIME"* and *"names of the instructors and management staff"* to visitors as though they
+> were real content. **The brackets are what keeps the placeholder OFF the site.** Replace the
+> whole string with a real value, or leave it alone.
 
 ### ✅ Recently closed
+
+- **We Care Ministry card removed** (13 Sep 2026) — it carried two of the six visitor-visible
+  placeholders: `[Details to be confirmed]` as its time and an `[Outline the We Care ministry…]`
+  body. Both were rendering as literal bracketed text on `/about`. **Four placeholders remain.**
+  `heart` was dropped from `lifeIcons` with it; re-add the key *and* re-import `HeartIcon` if
+  that ministry returns.
+- **Two services added** — Deliverance Services (Thursdays 10:00 AM) and Anointing for the Next
+  Level (first Saturday, 7:30 AM), slotted after Midweek so the gathered services run in day
+  order. `churchLife` is now **9 cards**, which fills the `lg:grid-cols-3` grid exactly — it was
+  8 before, leaving a gap on the last row.
 
 - **Social links were `example.com` placeholders** — all six now point at real accounts
   (see §7). This was a live-site defect nobody had flagged: every footer icon was a dead link.
@@ -872,4 +891,11 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
      M app/components/home/ReadyToJoin.tsx
      M app/give/page.tsx
      M app/visit/page.tsx
+
+
+### 2026-09-13 18:44 — 3 file(s) changed · at `4f46238`
+
+     M app/components/about/ChurchLife.tsx
+     M app/content/church.ts
+     M app/data/sermons.ts
 

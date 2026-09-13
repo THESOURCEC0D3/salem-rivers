@@ -272,7 +272,7 @@ export const church = {
       },
       rhythms: {
         title: "Our weekly rhythm",
-        body: "Sunday gathering for worship and the word, midweek Bible study, and units that meet through the week. [Confirm details.]",
+        body: "Sunday gathering for worship and the word, midweek Bible study, and units that meet through the week.",
       },
       // The serving teams (departments) are defined once in `departments` above and reused here.
     },
@@ -296,13 +296,13 @@ export const church = {
         name: "Dr. Love Sam-Amaga",
         role: "Co-Founder",
         photo: "[Photo of Dr. Love Sam-Amaga]",
-        bio: "Co-carrier of the original commission, and a mother in the faith to a generation of believers across the nations the ministry now reaches. [CONFIRM wording.]",
+        bio: "Co-carrier of the original commission, and a mother in the faith to a generation of believers across the nations the ministry now reaches.",
       },
       {
         name: "Bishop Hilary Ogoliegbune",
         role: "Bishop",
         photo: "[Photo of the Bishop]",
-        bio: "Bishop Hilary leads Salem City of Faith with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit. [CONFIRM: add years served and a personal line.]",
+        bio: "Bishop Hilary leads Salem City of Faith with a pastor's heart and a teacher's patience. His burden is simple: that ordinary people become strong in faith, wise in life, and close to the Holy Spirit.",
       },
       {
         name: "Rev. Dr. (Mrs) Ogoliegbune",
@@ -481,9 +481,9 @@ export const church = {
      * ⚠️ The `when` lines for Sunday Worship and Midweek restate `serviceTimes`
      * at the top of this file. Change one, change the other.
      *
-     * "[to be confirmed]" inside a `when` is deliberate and visitor-facing: the
-     * church gave the time but has not yet verified it, and a wrong time on a
-     * church website costs someone a wasted trip. Delete the marker once confirmed.
+     * These times are confirmed. If one is ever in doubt again, fix or remove the
+     * `when` rather than shipping a hedge — a wrong time on a church website costs
+     * someone a wasted trip, and a visible "[to be confirmed]" reads as unfinished.
      */
     churchLife: [
       {
@@ -499,6 +499,18 @@ export const church = {
         icon: "book",
       },
       {
+        title: "Deliverance Services",
+        when: "Thursdays, 10:00 AM",
+        body: "A weekly service given to prayer and freedom. Bring whatever you're carrying — we'll pray with you, and there's no appointment needed.",
+        icon: "flame",
+      },
+      {
+        title: "Anointing for the Next Level",
+        when: "First Saturday of the month, 7:30 AM",
+        body: "Once a month we gather early to pray over the season ahead, and to ask God for grace to step into what's next. Everyone is welcome, whatever you're believing for.",
+        icon: "sunrise",
+      },
+      {
         title: "Foundation Classes",
         when: "Mondays, 6:00 PM · and Sundays after service",
         body: "Where discipleship starts. A friendly course laying the spiritual foundations of the faith and what it means to belong here. Come to whichever session suits you.",
@@ -506,7 +518,7 @@ export const church = {
       },
       {
         title: "Water Baptism",
-        when: "Saturdays, 9:00 AM [to be confirmed]",
+        when: "Saturdays, 9:00 AM",
         body: "A public step of obedience after believing in Jesus. If you're ready, speak to any leader and we'll walk you through it. No fee, no fuss.",
         icon: "droplet",
       },
@@ -518,15 +530,9 @@ export const church = {
       },
       {
         title: "Evangelism",
-        when: "Mondays, 7:00 AM [to be confirmed]",
+        when: "Mondays, 7:00 AM",
         body: "We go out. Every Monday morning we take the gospel into our streets, campuses and neighbourhoods. Anyone can join, and you'll never go alone.",
         icon: "navigation",
-      },
-      {
-        title: "We Care Ministry",
-        when: "[Details to be confirmed]",
-        body: "[Outline the We Care ministry: who it reaches, what it does, and how someone gets help or joins. Awaiting details from the church.]",
-        icon: "heart",
       },
       {
         title: "Ministries & Departments",
@@ -575,7 +581,7 @@ export const church = {
       },
       {
         q: "How long is the service?",
-        a: "[CONFIRM] About two hours, including worship, the message and prayer.",
+        a: "About two hours, including worship, the message and prayer.",
       },
       {
         q: "Do you livestream services?",
