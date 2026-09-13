@@ -1,7 +1,20 @@
 import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
- 
+
+    {
+  id: "11",
+  title: "Going Beyond Your Fathers",
+  speaker: "Arch-Bishop Sam Amaga",
+  description:
+    "Europe Outpouring Conference 2026 || Day 4 || The Beauty & Blessing of Revival",
+  youtubeId: "T7w52wO5g_U",
+  date: "2026-09-13",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
+
     {
   id: "10",
   title: "Going Beyond Your Fathers",
@@ -11,7 +24,7 @@ export const sermons: Sermon[] = [
   youtubeId: "Mu05iBkUA1U",
   date: "2026-09-06",
   duration: "",
-  status: "latest",
+  status: "previous",
   platform: "youtube",
 },
 

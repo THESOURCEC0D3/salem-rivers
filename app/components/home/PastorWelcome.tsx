@@ -50,7 +50,7 @@ export function PastorWelcome() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-whatsapp-hover hover:underline"
+              className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-whatsapp-text hover:underline"
             >
               <WhatsAppIcon size={20} />
               Have a question? Message us

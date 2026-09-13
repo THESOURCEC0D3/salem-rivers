@@ -109,7 +109,17 @@ export function GetInvolved({
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-whatsapp-hover hover:underline"
+                  /*
+                    The visible text is the same on all six cards, which is right
+                    — it reads well in context. But six links with identical
+                    accessible names and six different destinations is what
+                    Lighthouse means by "identical links have the same purpose":
+                    a screen-reader user tabbing the list hears the same phrase
+                    six times. aria-label names the department; the visible copy
+                    is untouched.
+                  */
+                  aria-label={`Message us on WhatsApp about serving in the ${d.name} department`}
+                  className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-whatsapp-text hover:underline"
                 >
                   <WhatsAppIcon size={18} />
                   I&apos;d like to serve here

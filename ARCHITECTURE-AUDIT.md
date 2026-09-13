@@ -395,6 +395,19 @@ is no runtime cost.
 Cards on the strongest sections use `bg-gold-wash-1` so they read as elevation within one
 palette rather than white islands.
 
+### Three greens, and which is which
+`--color-whatsapp` (#25d366) and `--color-whatsapp-hover` (#1ebe5d) are **fills only**.
+`--color-whatsapp-text` (#167c3c) is for green **text or icons** on a light surface.
+
+Same split the golds use (`--color-gold` = flourish, `--color-accent` = may carry text), and
+for the same reason: #1ebe5d as text scores **2.19–2.45:1**, under half the 4.5 AA needs.
+Lighthouse caught it on the live site (Accessibility 96, 9 Sep 2026). #167c3c is the same hue at
+59% brightness and clears AA on every surface (4.55–5.24).
+
+> **⚠ Still failing, deliberately untouched:** white on the #25d366 button fill is **1.98:1**.
+> That is WhatsApp's own brand pairing, so changing it is a brand decision, not a bug fix.
+> Darkening the fill to #167c3c would take white to 5.24 if accessibility wins that argument.
+
 ### Typography
 - Headings: **Fraunces** (serif), via `--font-serif`
 - Body: **Nunito** (sans), via `--font-sans`
@@ -614,6 +627,26 @@ or in comments. Those are fine.)*
   (see §7). This was a live-site defect nobody had flagged: every footer icon was a dead link.
 - **Favicon was the Next.js starter icon** — now the church emblem (see §7).
 
+### 🟠 Performance — Lighthouse 79 on production (9 Sep 2026)
+
+Measured on the live Vercel site, incognito. Accessibility 96 → expected 100 after the contrast
+fix above. Best Practices 100, SEO 100.
+
+The score is dragged almost entirely by **TBT 670 ms** (Lighthouse weights it 30%), with 4.2 s of
+main-thread work and 13 long tasks. Cause identified, fix NOT yet applied:
+
+**`Reveal` is expensive twice over.** It pulls in Framer Motion (a **117 KB** chunk) for one
+fade-and-slide, and — worse — it renders a plain tag, then flips `canAnimate` in `useEffect` and
+**swaps the whole subtree to a `motion.*` component**. That is a full remount of every wrapped
+section right after hydration: **10 on the homepage, 14 on /about**.
+
+Replacing it with `IntersectionObserver` + a CSS transition is ~1 KB and visually identical.
+**The hard constraint:** any replacement must keep the existing hydration gate — content is never
+hidden unless JS has proven it can show it again (see §11.1; this fixed a real bug where sections
+rendered blank). A naive `opacity: 0` in CSS reintroduces exactly that bug.
+
+Deferred on 9 Sep 2026 at the user's request — too risky to attempt the night before a deploy.
+
 ### 🟠 Stale content
 
 - **SPAMIC sits in `upcoming`** dated "Classes begin Saturday, 8 August 2026" — nearly a month
@@ -811,4 +844,12 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
      M app/components/icons.tsx
      M app/content/church.ts
      M app/layout.tsx
+
+
+### 2026-09-09 18:18 — 4 file(s) changed · at `68d6561`
+
+     M app/components/Footer.tsx
+     M app/components/home/GetInvolved.tsx
+     M app/components/home/PastorWelcome.tsx
+     M app/globals.css
 

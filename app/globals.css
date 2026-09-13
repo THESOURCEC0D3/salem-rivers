@@ -60,8 +60,19 @@
   /* System */
   --color-destructive: #dc2626;
   --color-ring: #4b70c2;
-  --color-whatsapp: #25d366;
-  --color-whatsapp-hover: #1ebe5d;
+  --color-whatsapp: #25d366; /* WhatsApp brand green — BUTTON FILLS ONLY */
+  --color-whatsapp-hover: #1ebe5d; /* hover state for those fills */
+  /*
+    NOT the brand green. #1ebe5d as TEXT scores 2.19-2.45:1 on this site's light
+    surfaces — under half the 4.5:1 WCAG AA needs — and Lighthouse flagged it.
+    This is the same hue at 59% brightness, which clears AA everywhere:
+    white 5.24 · background 5.12 · gold-wash-1/2/3 4.99/4.86/4.69 · muted 4.55.
+
+    Same split the golds already use: --color-gold is the bright flourish,
+    --color-accent is the one that may carry text. Use this for any green TEXT
+    or icon on a light surface; keep --color-whatsapp for solid fills.
+  */
+  --color-whatsapp-text: #167c3c;
 
   /* Fonts (injected by next/font via CSS variables on <html>) */
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;

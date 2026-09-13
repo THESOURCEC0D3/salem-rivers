@@ -182,7 +182,7 @@ export function Footer() {
                 href={whatsappLink(`Hello ${church.name}! I have a question.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-whatsapp-hover hover:underline"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-whatsapp-text hover:underline"
               >
                 <WhatsAppIcon size={16} />
                 Message us on WhatsApp
