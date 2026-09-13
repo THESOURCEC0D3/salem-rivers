@@ -16,7 +16,9 @@ const sizes: Record<Size, string> = {
 };
 
 const variants: Record<Variant, string> = {
-  // The "Plan Your Visit" CTA — the one button the whole site funnels to.
+  // The "Worship with us" CTA — the one button the whole site funnels to.
+  // Renamed from "Plan Your Visit"; the /visit route and the PLAN_VISIT_HREF
+  // constant deliberately kept their old names.
   primary:
     "bg-primary text-on-primary shadow-md hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg",
   // Subordinate (e.g. on light surfaces next to primary).

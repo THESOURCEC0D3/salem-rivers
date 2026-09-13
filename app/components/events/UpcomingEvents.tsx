@@ -102,7 +102,7 @@ export function UpcomingEvents() {
                     href={PLAN_VISIT_HREF}
                     className="inline-flex items-center gap-1.5 px-2 text-sm font-semibold text-primary hover:underline"
                   >
-                    New here? Plan your visit
+                    New here? Worship with us
                     <ArrowRightIcon size={16} />
                   </Link>
                 </div>

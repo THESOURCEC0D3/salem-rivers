@@ -278,7 +278,13 @@ say *"time confirmed at registration"*. Fill `time` in `church.ts` and they swit
 
 Two arrays in `church.events`. `upcoming` is **nearest-first**; `past` is **newest-first**.
 
-### `/visit` — the keystone page
+### `/visit` — the keystone page ("Worship with us")
+
+> **The button says "Worship with us"; the URL is still `/visit`.** Renamed 13 Sep 2026 across
+> all 11 visible labels plus the page `<title>`. The route, and the `PLAN_VISIT_HREF` constant
+> that points at it, deliberately kept their old names — changing a live URL breaks inbound links
+> and loses its search history. So `PLAN_VISIT_HREF` no longer matches the words on the button;
+> that is intentional, not drift.
 Service times, address, embedded map, "what to expect", and a direct WhatsApp link. No form.
 
 ### `/watch`
@@ -852,4 +858,18 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
      M app/components/home/GetInvolved.tsx
      M app/components/home/PastorWelcome.tsx
      M app/globals.css
+
+
+### 2026-09-13 11:00 — 10 file(s) changed · at `34af62e`
+
+     M app/components/Button.tsx
+     M app/components/Footer.tsx
+     M app/components/Header.tsx
+     M app/components/about/AboutHero.tsx
+     M app/components/about/FinalCta.tsx
+     M app/components/events/UpcomingEvents.tsx
+     M app/components/home/Hero.tsx
+     M app/components/home/ReadyToJoin.tsx
+     M app/give/page.tsx
+     M app/visit/page.tsx
 

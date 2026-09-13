@@ -66,7 +66,7 @@ export function Header() {
             size possible. Because the lockup is wide, its height is really a
             WIDTH budget, and a fifth nav link (Classes) blew that budget:
 
-              5 links (~388px) + "Plan Your Visit" (~174px) + gaps (32px)
+              5 links (~388px) + "Worship with us" (~174px) + gaps (32px)
               = ~594px of fixed chrome. At md the container is only 720px,
               leaving ~126px — less than the logo needs at ANY size.
 
@@ -134,7 +134,7 @@ export function Header() {
 
           <div className="hidden lg:block">
             <Button href={PLAN_VISIT_HREF} variant="primary" size="md">
-              Plan Your Visit
+              Worship with us
               <ArrowRightIcon size={18} />
             </Button>
           </div>
@@ -181,7 +181,7 @@ export function Header() {
               </ul>
               <div className="mt-4">
                 <Button href={PLAN_VISIT_HREF} variant="primary" size="lg" className="w-full">
-                  Plan Your Visit
+                  Worship with us
                   <ArrowRightIcon size={18} />
                 </Button>
               </div>

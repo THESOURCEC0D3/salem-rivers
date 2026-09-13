@@ -148,7 +148,7 @@ export function Footer() {
               ))}
               {/*
                 Points at /visit, not /contact — there is no contact route by
-                design (HANDOFF §6: the footer + Plan Your Visit carry the
+                design (HANDOFF §6: the footer + Worship with us carry the
                 canonical address/phone/WhatsApp for local SEO). This link used
                 to 404 on every page of the site.
               */}
@@ -175,7 +175,7 @@ export function Footer() {
                 href={PLAN_VISIT_HREF}
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
               >
-                Plan your visit
+                Worship with us
                 <ArrowRightIcon size={16} />
               </Link>
               <a

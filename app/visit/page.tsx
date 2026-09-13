@@ -10,14 +10,15 @@ import {
 } from "../components/icons";
 
 export const metadata: Metadata = {
-  title: "Plan Your Visit",
+  title: "Worship with us",
   description:
     // Full official name — search snippet, same reasoning as /about.
     "Where and when to find Foundation Faith Church, Salem City of Faith in Port Harcourt: service times, our address, and a direct line to message us on WhatsApp. Come as you are.",
 };
 
 /**
- * Plan Your Visit — intentionally minimal: service times, address, and a direct
+ * "Worship with us" (the route stays /visit) — intentionally minimal: service
+ * times, address, and a direct
  * way to reach us (WhatsApp + call). No contact form — the whole site is
  * WhatsApp-first. Newcomers wanting the full picture go to About.
  */
@@ -31,7 +32,7 @@ export default function VisitPage() {
               We&apos;d love to have you
             </p>
             <h1 className="text-balance text-4xl font-semibold leading-[1.05] text-foreground sm:text-5xl">
-              Plan your visit
+              Worship with us
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               Here&apos;s where and when to find us. Come as you are, and if

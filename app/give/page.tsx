@@ -47,7 +47,7 @@ export default function GivePage() {
             href={PLAN_VISIT_HREF}
             className="mt-8 inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-on-primary shadow-md transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
-            Plan Your Visit
+            Worship with us
             <ArrowRightIcon size={18} />
           </Link>
         </div>

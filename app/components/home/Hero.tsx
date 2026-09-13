@@ -6,7 +6,7 @@ import { ArrowRightIcon, ClockIcon, MapPinIcon } from "../icons";
 /**
  * Hero — "the trailer." A full-bleed photo of a service as the backdrop, with
  * "Welcome to Salem City of Faith" + warm line + service times/location overlaid hard
- * left. Two CTAs: Plan Your Visit (primary) and Give online.
+ * left. Two CTAs: Worship with us (primary) and Give online.
  */
 export function Hero() {
   return (
@@ -98,7 +98,7 @@ export function Hero() {
               href={PLAN_VISIT_HREF}
               className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-primary shadow-lg transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Plan Your Visit
+              Worship with us
               <ArrowRightIcon size={18} />
             </Link>
             <Link

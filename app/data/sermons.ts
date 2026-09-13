@@ -4,10 +4,10 @@ export const sermons: Sermon[] = [
 
     {
   id: "11",
-  title: "Going Beyond Your Fathers",
+  title: "The Beauty & Blessing of Revival",
   speaker: "Arch-Bishop Sam Amaga",
   description:
-    "Europe Outpouring Conference 2026 || Day 4 || The Beauty & Blessing of Revival",
+    "Europe Outpouring Conference 2026 || Day 4 || ",
   youtubeId: "T7w52wO5g_U",
   date: "2026-09-13",
   duration: "",
