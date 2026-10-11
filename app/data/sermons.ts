@@ -2,6 +2,19 @@ import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
 
+     {
+  id: "11",
+  title: "The Beauty & Blessing of Revival",
+  speaker: "BISHOP HILARY OGOLIEGBUNE",
+  description:
+    "SALEM EXTRAORDINARY - LIFE SUNDAY SERVICE",
+  youtubeId: "ugLBFQgXtzs",
+  date: "11-10-2026",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
+
     {
   id: "11",
   title: "The Beauty & Blessing of Revival",
