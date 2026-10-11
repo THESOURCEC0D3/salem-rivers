@@ -3,8 +3,8 @@ import { Sermon } from "@/app/types/sermon";
 export const sermons: Sermon[] = [
 
      {
-  id: "11",
-  title: "The Beauty & Blessing of Revival",
+  id: "12",
+  title: "Kingdom Requirements",
   speaker: "BISHOP HILARY OGOLIEGBUNE",
   description:
     "SALEM EXTRAORDINARY - LIFE SUNDAY SERVICE",
