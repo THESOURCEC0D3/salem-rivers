@@ -18,12 +18,12 @@ import goingBeyond from "../../public/images/going-beyond-your-fathers-event.jpe
 export const eventImages: Record<string, StaticImageData> = {
   // Upcoming, in the order they appear in `church.events.upcoming`.
   "spamic-batch-2": spamic,
-  "going-beyond-your-fathers": goingBeyond,
-  "ignite-revival": igniteRevival,
 
   // PAST events. Nothing below needs moving or renaming when an event is
   // retired — UpcomingEvents and PastEvents read this same map by id, so a
   // flyer keeps showing as long as the entry keeps its id.
+  "going-beyond-your-fathers": goingBeyond,
+  "ignite-revival": igniteRevival,
   "teens-summit": teensSummit,
   "annual-women-conference": womenConference,
   "worship-experience": worshipExperience,

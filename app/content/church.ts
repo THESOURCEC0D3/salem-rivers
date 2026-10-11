@@ -691,30 +691,6 @@ export const church = {
           "Admission is open for Batch 2 of the August/September session at Salem Pastoral & Management College — upgrade your leadership skills in 2026. Open to CEOs, MDs, church workers, pastors, company staff, front-line leaders, students, business men and women, and entrepreneurs. Register onsite at the Registrar's office, or call 0816 507 9879 or 0813 849 1000.",
         flyer: "SPAMIC August/September Session (Batch 2) flyer",
       },
-      {
-        id: "going-beyond-your-fathers",
-        title: "Going Beyond Your Fathers",
-        // A four-week series, not a single date, so `date` carries the whole
-        // run and the individual Sundays.
-        date: "Every Sunday in September 2026 \u2014 6th, 13th, 20th and 27th",
-        time: "7:00 AM prompt",
-        location:
-          "Salem City of Faith, #1 Faith Avenue, Rumuomasi, Port Harcourt",
-        blurb:
-          "\u201CFor whatsoever is born of God overcometh the world: and this is the victory that overcometh the world, even our faith.\u201D \u2014 1 John 5:4. Four Sundays of encounter in the presence of God, hosted and convened by Bishop Hilary Ogoliegbune, National Coordinating Bishop. Also ministering: Bishop Designate Nixon Iyalla, Rev. Mina Geoffery, Rev. Charles Akpunne and Rev. Olanrewaju Ojo. Get ready for diverse encounters like never before \u2014 don\u2019t miss this glorious experience.",
-        flyer: "Going Beyond Your Fathers flyer",
-      },
-      {
-        id: "ignite-revival",
-        title: "Provincial Youth Conference 2026: Ignite Revival",
-        date: "Saturday, 19 September 2026",
-        time: "9:00 AM prompt",
-        location:
-          "#1 Faith Avenue, Rumuomasi, Port Harcourt",
-        blurb:
-          "Salem Diplomats, Rivers Province, host this year's Provincial Youth Conference under the theme Ignite Revival — Take the Initiative. Convened by Bishop Hilary Ogoliegbune and hosted by Pst. Tony Wilcox, with Rev. Henry Power, Rev. Joseph Sam Odumo, Rev. Chuks Anointed, Pst. Inifie Allaputa and Pst. Ani Udo ministering.",
-        flyer: "Ignite Revival: Provincial Youth Conference 2026 flyer",
-      },
     ] satisfies ChurchEvent[],
     /*
      * Past events, MOST RECENT FIRST. Real events only — the invented placeholder
@@ -730,6 +706,20 @@ export const church = {
      * the move — a past card only shows the flyer, the title and the date.
      */
     past: [
+      {
+        // Moved from `upcoming` once the September run finished. Same id, so
+        // the flyer follows it across via `eventImages`.
+        id: "going-beyond-your-fathers",
+        title: "Going Beyond Your Fathers",
+        date: "6, 13, 20 and 27 September 2026",
+        photo: "[Going Beyond Your Fathers]",
+      },
+      {
+        id: "ignite-revival",
+        title: "Provincial Youth Conference 2026: Ignite Revival",
+        date: "19 September 2026",
+        photo: "[Ignite Revival: Provincial Youth Conference 2026]",
+      },
       {
         // Moved from `upcoming` once it had run. Same id, so the real flyer
         // follows it across via `eventImages`.

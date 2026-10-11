@@ -899,3 +899,9 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
      M app/content/church.ts
      M app/data/sermons.ts
 
+
+### 2026-10-05 13:44 — 2 file(s) changed · at `0f7df70`
+
+     M app/components/eventImages.ts
+     M app/content/church.ts
+
