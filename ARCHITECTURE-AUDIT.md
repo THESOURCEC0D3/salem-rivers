@@ -344,6 +344,71 @@ there too, plus a brand icon in `icons.tsx`.
 These replaced `https://facebook.com/example` style placeholders that had been in place since
 the project began; the footer icons went nowhere real until 5 Sep 2026.
 
+### Icons, and installing the site as an app
+
+The site is an **installable PWA**. Per Next's own guide (§6 of
+`node_modules/next/dist/docs/01-app/02-guides/progressive-web-apps.md`) that needs exactly two
+things: a valid manifest, and HTTPS. **No service worker** — that requirement was dropped, whatever
+older tutorials say. One is only needed for offline access or push, both deliberately deferred.
+
+`app/manifest.ts` → served at `/manifest.webmanifest`, `<link>` injected automatically.
+`appleWebApp` in `layout.tsx` covers iOS. Note Next 16 emits `mobile-web-app-capable`, the modern
+standard, **not** the deprecated `apple-mobile-web-app-capable` — don't go looking for the old one.
+
+| File | Size | Purpose |
+|---|---|---|
+| `app/favicon.ico` | 16/32/48 | browser tab |
+| `app/icon.png` | 512 | modern `rel="icon"` |
+| `app/apple-icon.png` | 180 | iOS home screen |
+| `public/icons/icon-192/512.png` | 192, 512 | manifest, `purpose: "any"` |
+| `public/icons/maskable-192/512.png` | 192, 512 | manifest, `purpose: "maskable"` |
+
+All seven are the **emblem only**, cropped from `public/images/salem-logo-2.png` (rows 127–308) —
+that source is the stacked lockup and its two text lines are a grey smear at 16px. All sit on a
+**#2a1a33 tile** (`--color-foreground`): the wreath is thin gold strokes measuring ~2.3:1 on
+ivory, and it washes out at icon size. Maskable icons must be opaque regardless.
+
+> ### ⚠ TWO PADDINGS, AND IT IS NOT DUPLICATION
+>
+> `any` uses **88%** content; `maskable` uses **65%**. Android crops maskable icons into a circle
+> or squircle, and the safe zone is a circle 80% of the width. The largest 1.40:1 box fitting
+> inside a 410px circle on a 512 canvas is 333×238 — 65%. **Verified by rendering the circular
+> mask over both:** at 88% the wreath's outer leaves are clipped; at 65% the whole mark survives.
+> If you regenerate icons, keep both variants.
+
+**Phase 2, not yet done:** offline support. It needs a service worker, and the risk on this site is
+specific — its job is current event dates, so a cache that serves stale content is worse than a
+spinner. If added, use network-first so the cache is only a fallback, and bump the cache version on
+every deploy.
+
+**iOS never prompts.** Android and desktop Chrome show an install banner once the manifest is valid.
+Safari does not and Apple exposes no API for it — iPhone users must tap Share → Add to Home Screen.
+On-page copy is the only fix.
+
+### Social links
+Six accounts, in `church.socials`, rendered as the footer icon row **and** fed to the JSON-LD
+`sameAs` array in `layout.tsx` — which is how search engines tie the profiles to the church.
+
+| Network | Handle |
+|---|---|
+| Facebook | `officialsalemrivers` |
+| Instagram | `salemriversph` |
+| YouTube | `@officialsalemrivers` |
+| TikTok | `@officialsalemrivers` |
+| X | `salemriversph` |
+| Threads | `salemriversph` |
+
+**The handles split in two — do not "tidy" them into one spelling.** Facebook, YouTube and
+TikTok use `officialsalemrivers`; Instagram, X and Threads use `salemriversph`. All six were
+click-tested on 5 Sep 2026.
+
+`sameAs` is `Object.values(church.socials)`, so adding a network to that object puts it in the
+schema automatically — but the footer row is written out by hand, so a new network needs an entry
+there too, plus a brand icon in `icons.tsx`.
+
+These replaced `https://facebook.com/example` style placeholders that had been in place since
+the project began; the footer icons went nowhere real until 5 Sep 2026.
+
 ### Favicon and app icons
 Three files in `app/`, picked up by Next's file convention — no `metadata.icons` config:
 
@@ -904,4 +969,17 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
 
      M app/components/eventImages.ts
      M app/content/church.ts
+
+
+### 2026-10-13 21:35 — 9 file(s) changed · at `7d21529`
+
+     M app/apple-icon.png
+     M app/favicon.ico
+     M app/icon.png
+     M app/layout.tsx
+    ?? app/manifest.ts
+    ?? public/icons/icon-192.png
+    ?? public/icons/icon-512.png
+    ?? public/icons/maskable-192.png
+    ?? public/icons/maskable-512.png
 

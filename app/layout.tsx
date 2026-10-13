@@ -33,6 +33,25 @@ export const metadata: Metadata = {
     "Rivers State church",
     church.name,
   ],
+  /*
+    iOS half of the install story. Safari does not read `display: "standalone"`
+    from the manifest on older versions, so without this an icon added to the
+    home screen reopens inside Safari with the address bar — not as an app.
+
+    `capable: true`  -> opens fullscreen, no browser chrome
+    `title`          -> the label under the home-screen icon (kept short; iOS
+                        truncates, and the full name is six words)
+    `statusBarStyle` -> "default" gives a normal status bar with dark text,
+                        which suits the ivory header. "black-translucent" would
+                        slide page content up under the clock.
+
+    The icon iOS uses is app/apple-icon.png, already generated.
+  */
+  appleWebApp: {
+    capable: true,
+    title: "Salem",
+    statusBarStyle: "default",
+  },
   openGraph: {
     title: `${church.name}: Come and see`,
     description:
