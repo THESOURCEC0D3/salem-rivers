@@ -9,6 +9,7 @@ import worshipExperience from "../../public/images/worship-experience.jpeg";
 import teensSummit from "../../public/images/teens-conference.jpg";
 import igniteRevival from "../../public/images/ignite-revival.jpeg";
 import goingBeyond from "../../public/images/going-beyond-your-fathers-event.jpeg";
+import salemOutpouring from "../../public/images/soc1.jpg";
 
 /**
  * Real event flyer images, keyed by event id (see `church.events`).
@@ -17,11 +18,12 @@ import goingBeyond from "../../public/images/going-beyond-your-fathers-event.jpe
  */
 export const eventImages: Record<string, StaticImageData> = {
   // Upcoming, in the order they appear in `church.events.upcoming`.
-  "spamic-batch-2": spamic,
+  "salem-outpouring-conference": salemOutpouring,
 
   // PAST events. Nothing below needs moving or renaming when an event is
   // retired — UpcomingEvents and PastEvents read this same map by id, so a
   // flyer keeps showing as long as the entry keeps its id.
+  "spamic-batch-2": spamic,
   "going-beyond-your-fathers": goingBeyond,
   "ignite-revival": igniteRevival,
   "teens-summit": teensSummit,

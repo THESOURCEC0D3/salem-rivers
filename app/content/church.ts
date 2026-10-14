@@ -672,24 +672,17 @@ export const church = {
   events: {
     upcoming: [
       {
-        /*
-         * The two phone numbers in `blurb` below are SPAMIC's REGISTRAR, taken
-         * off the flyer — they are NOT the church's line and must not be swept
-         * into `church.phone`. Anyone dialling them is registering for a course.
-         * Every church-owned number on the site is one line; these are the
-         * deliberate exception because they belong to someone else.
-         */
-        id: "spamic-batch-2",
-        title: "SPAMIC August/September Session (Batch 2)",
-        // Not a one-day event — an intake whose classes run every Saturday from
-        // the 8th, so `date` carries the start and `time` carries the cadence.
-        date: "Classes begin Saturday, 8 August 2026",
-        time: "8:00 AM prompt · Saturdays only",
+        id: "salem-outpouring-conference",
+        title: "Salem Outpouring Conference Nigeria 2026: Love in Revival",
+        date: "Tuesday 10 to Sunday 15 November 2026",
+        // Two different start times across the run, so this field carries both
+        // rather than hiding the Sunday morning one.
+        time: "5:00 PM daily \u00B7 Sunday 7:00 AM",
         location:
-          "Salem Pastoral & Management College, #1 Faith Avenue, off Stadium Road, Rumuomasi",
+          "Holy Ghost Conference Ground, #1 Faith Avenue, Rumuomasi, Port Harcourt",
         blurb:
-          "Admission is open for Batch 2 of the August/September session at Salem Pastoral & Management College — upgrade your leadership skills in 2026. Open to CEOs, MDs, church workers, pastors, company staff, front-line leaders, students, business men and women, and entrepreneurs. Register onsite at the Registrar's office, or call 0816 507 9879 or 0813 849 1000.",
-        flyer: "SPAMIC August/September Session (Batch 2) flyer",
+          "Six days of outpouring under the theme Love in Revival. Chief host Archbishop Sam Amaga of Salem Family Worldwide, hosted by Bishop Hilary Ogoliegbune, with bishops ministering from across Nigeria, Ghana and the United Kingdom, and music from Faith Dynamite Voice. The heavens are stirred for a release \u2014 come expecting the supernatural, the miraculous and the extraordinary.",
+        flyer: "Salem Outpouring Conference Nigeria 2026 flyer",
       },
     ] satisfies ChurchEvent[],
     /*
@@ -719,6 +712,15 @@ export const church = {
         title: "Provincial Youth Conference 2026: Ignite Revival",
         date: "19 September 2026",
         photo: "[Ignite Revival: Provincial Youth Conference 2026]",
+      },
+      {
+        // A two-month intake, not a dated event, so `date` carries the span.
+        // Sits below the September one-offs that ended on known dates and
+        // above the August ones. Same id, so the flyer follows it across.
+        id: "spamic-batch-2",
+        title: "SPAMIC August/September Session (Batch 2)",
+        date: "August to September 2026",
+        photo: "[SPAMIC August/September Session]",
       },
       {
         // Moved from `upcoming` once it had run. Same id, so the real flyer

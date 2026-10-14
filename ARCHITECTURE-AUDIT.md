@@ -983,3 +983,11 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
     ?? public/icons/maskable-192.png
     ?? public/icons/maskable-512.png
 
+
+### 2026-10-14 12:50 — 4 file(s) changed · at `3594412`
+
+     M app/components/eventImages.ts
+     M app/content/church.ts
+    ?? public/images/soc1.jpg
+    ?? public/images/socn2.jpeg
+
