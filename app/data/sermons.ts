@@ -2,6 +2,20 @@ import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
 
+
+  
+     {
+  id: "13",
+  title: "Kingdom Requirements",
+  speaker: "BISHOP HILARY OGOLIEGBUNE",
+  description:
+    "SALEM EXTRAORDINARY - LIFE SUNDAY SERVICE",
+  youtubeId: "0w0AEg5ll1o",
+  date: "18-10-2026",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
      {
   id: "12",
   title: "Kingdom Requirements",
