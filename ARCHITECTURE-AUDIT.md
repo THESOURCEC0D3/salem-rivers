@@ -996,3 +996,20 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
 
      M app/data/sermons.ts
 
+
+### 2026-10-21 16:46 — 4 file(s) changed · at `33faca9`
+
+     M app/components/media/FeaturedSermon.tsx
+     M app/components/media/SermonCard.tsx
+     M app/data/sermons.ts
+    ?? app/lib/formatDate.ts
+
+
+### 2026-10-21 18:26 — 5 file(s) changed · at `33faca9`
+
+     M app/components/Reveal.tsx
+     M app/components/media/FeaturedSermon.tsx
+     M app/components/media/SermonCard.tsx
+     M app/data/sermons.ts
+    ?? app/lib/formatDate.ts
+

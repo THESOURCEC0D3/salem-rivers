@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Sermon } from "@/app/types/sermon";
 import FeaturedVideoPlayer from "./FeaturedVideoPlayer";
+import { formatDate } from "@/app/lib/formatDate";
 
 
 interface FeaturedSermonProps {
@@ -67,7 +68,14 @@ export default function FeaturedSermon({
             </p>
 
             <p className="mt-2 text-sm text-gray-500">
-              {sermon.date} • {sermon.duration}
+              {/*
+                The bullet sits INSIDE the guard. 12 of the 13 sermons have
+                an empty `duration`, and this line rendered them as
+                "18 October 2026 • " — a dangling separator, on the homepage
+                and /watch. SermonCard already guarded it; this did not.
+              */}
+              {formatDate(sermon.date)}
+              {sermon.duration && ` • ${sermon.duration}`}
             </p>
 
             <p className="mt-8 leading-8 text-gray-600">

@@ -11,7 +11,7 @@ export const sermons: Sermon[] = [
   description:
     "SALEM EXTRAORDINARY - LIFE SUNDAY SERVICE",
   youtubeId: "0w0AEg5ll1o",
-  date: "18-10-2026",
+  date: "2026-10-18",
   duration: "",
   status: "latest",
   platform: "youtube",
@@ -23,7 +23,7 @@ export const sermons: Sermon[] = [
   description:
     "SALEM EXTRAORDINARY - LIFE SUNDAY SERVICE",
   youtubeId: "ugLBFQgXtzs",
-  date: "11-10-2026",
+  date: "2026-10-11",
   duration: "",
   status: "previous",
   platform: "youtube",

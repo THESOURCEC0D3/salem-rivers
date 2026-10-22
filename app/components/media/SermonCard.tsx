@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Sermon } from "@/app/types/sermon";
 import { getYouTubeThumbnailFromId } from "../../lib/youtube";
+import { formatDate } from "../../lib/formatDate";
 
 interface SermonCardProps {
   sermon: Sermon;
@@ -61,7 +62,7 @@ export default function SermonCard({
         </p>
 
         <p className="mt-2 text-sm text-gray-500">
-          {sermon.date}
+          {formatDate(sermon.date)}
           {sermon.duration && ` • ${sermon.duration}`}
         </p>
 

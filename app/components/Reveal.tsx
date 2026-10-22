@@ -44,8 +44,9 @@ import { useEffect, useState, type ReactNode } from "react";
  * animation in JS and would otherwise ignore that CSS.
  *
  * `once: true` so content settles and never re-animates on scroll back up.
- * `amount: 0.15` plus a negative bottom margin starts the reveal slightly before
- * the element is fully on screen, so it finishes as the reader arrives.
+ * `amount: 0.03` plus a POSITIVE bottom margin starts the reveal before the
+ * section reaches the viewport, so the fade is already underway as the reader
+ * arrives rather than leaving a white gap. See the note on the viewport prop.
  */
 export function Reveal({
   children,
@@ -83,7 +84,29 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15, margin: "0px 0px -80px 0px" }}
+      /*
+        TWO KNOBS, AND THE SECOND ONE IS COUNTER-INTUITIVE.
+
+        `amount`  fraction of the ELEMENT that must be visible. 0.03 = 3%.
+                  Because it is a fraction, tall sections waited longest: at the
+                  old 0.15 a 1200px section needed 180px on screen first.
+
+        `margin`  maps to IntersectionObserver's rootMargin. A NEGATIVE bottom
+                  value SHRINKS the viewport, so the element has to climb higher
+                  before it counts — it DELAYS the trigger. This was -80px, and
+                  the comment above used to claim it started the reveal early.
+                  It did the opposite. A POSITIVE value expands the viewport
+                  downward, firing while the section is still below the fold.
+
+        Together the old settings meant 155-350px of scrolling past a section's
+        top edge before anything happened, which is the white gap. Now it fires
+        roughly 70-105px BEFORE the edge arrives, so the fade is already running
+        as the section scrolls into view.
+
+        If it still feels late, lower `margin` further (more negative offset =
+        earlier). If it now feels like nothing animates, raise it back toward 0.
+      */
+      viewport={{ once: true, amount: 0.07, margin: "0px 0px 120px 0px" }}
       transition={{
         duration: 0.5,
         // Standard decelerate curve: quick out of the gate, soft landing.
