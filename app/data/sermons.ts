@@ -3,6 +3,19 @@ import { Sermon } from "@/app/types/sermon";
 export const sermons: Sermon[] = [
 
 
+  
+     {
+  id: "15",
+  title: "COVENANT SUCCESS FELLOWSHIP",
+  speaker: "BISHOP HILARY OGOLIEGBUNE",
+  description:
+    "COMMUNION SERVICE",
+  youtubeId: "JAD54bmAHgk",
+  date: "2026-10-28",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
      {
   id: "14",
   title: "The Beauty of Righteousness",
