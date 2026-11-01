@@ -2,7 +2,19 @@ import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
 
-
+   
+     {
+  id: "16",
+  title: "STOPPING THE ACTIVITIES OF SABOTEURS",
+  speaker: "BISHOP HILARY OGOLIEGBUNE",
+  description:
+    "SALEM EXTRAORDINARY - LIFE SUNDAY SERVICE",
+  youtubeId: "ubu7OY0MDrg",
+  date: "2026-11-01",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
   
      {
   id: "15",
@@ -13,7 +25,7 @@ export const sermons: Sermon[] = [
   youtubeId: "JAD54bmAHgk",
   date: "2026-10-28",
   duration: "",
-  status: "live",
+  status: "previous",
   platform: "youtube",
 },
      {
