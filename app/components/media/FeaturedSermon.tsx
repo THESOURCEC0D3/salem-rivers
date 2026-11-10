@@ -21,6 +21,11 @@ export default function FeaturedSermon({
 
   return (
     <section id="featured-sermon" className={`py-24 ${className}`}>
+      {/*
+        Shareable anchor: /watch#live (or /#live) jumps here. The section keeps
+        id="featured-sermon" because WatchPageClient scrolls to it by that id.
+      */}
+      <div id="live" aria-hidden="true" />
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Section Heading */}

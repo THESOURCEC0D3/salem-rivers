@@ -592,6 +592,13 @@ costs the logo ~90px.
 `getFeaturedSermon()` prefers `live`, then `latest`, then the first entry. You only need the
 **11-character YouTube video ID**, not the URL.
 
+### Share a link straight to the live video
+Use **`/watch#live`** (or `/#live` on the homepage). `FeaturedSermon.tsx` puts an empty
+`<div id="live">` as the first child of the section, so the browser jumps there on load. It
+is a separate element because the section itself must keep `id="featured-sermon"`:
+`WatchPageClient` scrolls to that id when a sermon is picked, and an element can only have one
+id. **Do not rename either id**: `#live` is in links already shared on WhatsApp/social media.
+
 ### Add a testimony
 `church.testimonials`. Only `quote` is required — `name` is **optional** and the card omits the
 whole caption when it is absent, so a testimony can be published unattributed rather than
@@ -1012,4 +1019,9 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
      M app/components/media/SermonCard.tsx
      M app/data/sermons.ts
     ?? app/lib/formatDate.ts
+
+
+### 2026-11-10 09:35 — 1 file(s) changed · at `1f16dc9`
+
+     M app/components/media/FeaturedSermon.tsx
 
