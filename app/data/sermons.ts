@@ -2,7 +2,19 @@ import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
 
-   
+       {
+  id: "17",
+  title: "ICMC & SALEM MINISTERS CONFERENCE",
+  speaker: "BISHOP HILARY OGOLIEGBUNE",
+  description:
+    "SALEM OUTPOURING CONFERENCE 2026",
+  youtubeId: "flW36c3uBpo",
+  date: "2026-11-10",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
+
      {
   id: "16",
   title: "STOPPING THE ACTIVITIES OF SABOTEURS",
@@ -12,7 +24,7 @@ export const sermons: Sermon[] = [
   youtubeId: "ubu7OY0MDrg",
   date: "2026-11-01",
   duration: "",
-  status: "live",
+  status: "latest",
   platform: "youtube",
 },
   
