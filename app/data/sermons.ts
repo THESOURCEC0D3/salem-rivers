@@ -8,7 +8,7 @@ export const sermons: Sermon[] = [
   speaker: "BISHOP HILARY OGOLIEGBUNE",
   description:
     "SALEM OUTPOURING CONFERENCE 2026",
-  youtubeId: "Znw0OVqEEOo",
+  youtubeId: "9nmnc4SP5nE",
   date: "2026-11-10",
   duration: "",
   status: "live",
