@@ -11,7 +11,7 @@ export const sermons: Sermon[] = [
   youtubeId: "Nj-3-DjrBOA",
   date: "2026-11-10",
   duration: "",
-  status: "live",
+  status: "latest",
   platform: "youtube",
 },
 
