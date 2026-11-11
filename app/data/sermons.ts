@@ -2,18 +2,58 @@ import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
 
-       {
-  id: "17",
-  title: "ICMC & SALEM MINISTERS CONFERENCE",
-  speaker: "BISHOP HILARY OGOLIEGBUNE",
+           {
+  id: "20",
+  title: "GOD'S FIREBRAND",
+  speaker: "BISHOP ABRAHAM ELIJAH",
   description:
-    "SALEM OUTPOURING CONFERENCE 2026",
+    "SALEM OUTPOURING CONFERENCE 2026|| ICMC & SALEM MINISTERS CONFERENCE || DAY 2",
+  youtubeId: "Nj-3-DjrBOA",
+  date: "2026-11-10",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
+
+         {
+  id: "19",
+  title: "ICMC & SALEM MINISTERS CONFERENCE",
+  speaker: "BISHOP ENOBONG ETTEH",
+  description:
+    "SALEM OUTPOURING CONFERENCE 2026 || DAY 1",
+  youtubeId: "DZXcCLJtdy0",
+  date: "2026-11-10",
+  duration: "",
+  status: "previous",
+  platform: "youtube",
+},
+
+       {
+  id: "18",
+  title: "ICMC & SALEM MINISTERS CONFERENCE",
+  speaker: "ARCH-BISHOP SAM AMAGA, REV.O.S MEGBELE, REV NIXON IYALLA",
+  description:
+    "SALEM OUTPOURING CONFERENCE 2026 || DAY 1",
   youtubeId: "9nmnc4SP5nE",
   date: "2026-11-10",
   duration: "",
-  status: "latest",
+  status: "previous",
   platform: "youtube",
 },
+
+       {
+  id: "17",
+  title: "ICMC & SALEM MINISTERS CONFERENCE",
+  speaker: "BISHOP DAVID ONIMISI",
+  description:
+    "SALEM OUTPOURING CONFERENCE 2026 || DAY 1",
+  youtubeId: "flW36c3uBpo",
+  date: "2026-11-10",
+  duration: "",
+  status: "previous",
+  platform: "youtube",
+},
+
 
      {
   id: "16",
@@ -24,7 +64,7 @@ export const sermons: Sermon[] = [
   youtubeId: "ubu7OY0MDrg",
   date: "2026-11-01",
   duration: "",
-  status: "latest",
+  status: "previous",
   platform: "youtube",
 },
   
@@ -49,7 +89,7 @@ export const sermons: Sermon[] = [
   youtubeId: "ThaDwKTMZJQ",
   date: "2026-10-25",
   duration: "",
-  status: "latest",
+  status: "previous",
   platform: "youtube",
 },
   
@@ -62,7 +102,7 @@ export const sermons: Sermon[] = [
   youtubeId: "0w0AEg5ll1o",
   date: "2026-10-18",
   duration: "",
-  status: "latest",
+  status: "previous",
   platform: "youtube",
 },
      {
