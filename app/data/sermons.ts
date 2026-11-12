@@ -2,6 +2,20 @@ import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
 
+
+             {
+  id: "22",
+  title: "Salem Pastor's Wives Session",
+  speaker: "",
+  description:
+    "SALEM OUTPOURING CONFERENCE 2026|| DAY 3 || MORNING SESSION",
+  youtubeId: "GejPOSl6mpc",
+  date: "2026-11-12",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
+
              {
   id: "21",
   title: "",
@@ -9,7 +23,7 @@ export const sermons: Sermon[] = [
   description:
     "SALEM OUTPOURING CONFERENCE 2026|| ICMC & SALEM MINISTERS CONFERENCE || DAY 2",
   youtubeId: "RsiafngiGTM",
-  date: "2026-11-10",
+  date: "2026-11-11",
   duration: "",
   status: "live",
   platform: "youtube",
@@ -22,7 +36,7 @@ export const sermons: Sermon[] = [
   description:
     "SALEM OUTPOURING CONFERENCE 2026|| ICMC & SALEM MINISTERS CONFERENCE || DAY 2",
   youtubeId: "Nj-3-DjrBOA",
-  date: "2026-11-10",
+  date: "2026-11-11",
   duration: "",
   status: "latest",
   platform: "youtube",
