@@ -12,7 +12,7 @@ export const sermons: Sermon[] = [
   youtubeId: "OEqGdjTI_Ow",
   date: "2026-11-13",
   duration: "",
-  status: "live",
+  status: "latest",
   platform: "youtube",
 },
     
@@ -25,7 +25,7 @@ export const sermons: Sermon[] = [
   youtubeId: "UHCSHerfeC4",
   date: "2026-11-13",
   duration: "",
-  status: "latest",
+  status: "previous",
   platform: "youtube",
 },
   
