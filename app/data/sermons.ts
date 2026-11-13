@@ -5,7 +5,7 @@ export const sermons: Sermon[] = [
       
              {
   id: "25",
-  title: "CONFERENCE SESSION",
+  title: "CONFERENCE SERMON",
   speaker: "",
   description:
     "SALEM OUTPOURING CONFERENCE 2026|| DAY 4 || EVENING SESSION",
