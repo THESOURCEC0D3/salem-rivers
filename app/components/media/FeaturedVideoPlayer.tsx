@@ -30,7 +30,7 @@ const thumbnailUrl =
   }
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
+    <div className="relative aspect-video w-full min-w-0 overflow-hidden rounded-2xl bg-black">
       {!isPlaying ? (
         <button
           type="button"

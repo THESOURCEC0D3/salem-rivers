@@ -45,7 +45,7 @@ export default function FeaturedSermon({
         </div>
 
         {/* Main Card */}
-        <div className="grid items-center gap-12 rounded-3xl bg-white p-8 shadow-xl lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-8 rounded-3xl bg-white p-5 shadow-xl sm:gap-12 sm:p-8 lg:grid-cols-2">
 
           {/* Video */}
 <FeaturedVideoPlayer
@@ -55,7 +55,7 @@ export default function FeaturedSermon({
 />
 
           {/* Content */}
-          <div>
+          <div className="min-w-0 [overflow-wrap:anywhere]">
 
             {sermon.status === "live" && (
               <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-600">
@@ -64,7 +64,7 @@ export default function FeaturedSermon({
               </div>
             )}
 
-            <h3 className="text-4xl font-bold text-gray-900">
+            <h3 className="text-2xl font-bold text-gray-900 sm:text-3xl xl:text-4xl">
               {sermon.title}
             </h3>
 
