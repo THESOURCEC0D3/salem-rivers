@@ -11,6 +11,12 @@ import { NeedPrayer } from "./components/home/NeedPrayer";
 import { ReadyToJoin } from "./components/home/ReadyToJoin";
 import { Reveal } from "./components/Reveal";
 import { getFeaturedSermon } from "@/app/lib/sermonService";
+
+/**
+ * Rebuild at most every 5 minutes. A backstop only: dashboard saves refresh this
+ * page immediately (see app/admin/videos/actions.ts).
+ */
+export const revalidate = 300;
 /**
  * Home — "the trailer."
  *

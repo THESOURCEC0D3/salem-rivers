@@ -1258,3 +1258,23 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
     ?? supabase/migrations/20261115192508_create_media_library.sql
     ?? supabase/migrations/20261115195210_configure_gallery_storage.sql
 
+
+### 2026-11-15 22:16 — 16 file(s) changed · at `605cbdc`
+
+     M app/admin/StaffHeader.tsx
+     M app/lib/sermonService.ts
+     M app/lib/youtube.ts
+     M app/page.tsx
+     M app/types/sermon.ts
+     M app/watch/page.tsx
+     M package.json
+     M supabase/README.md
+    ?? app/admin/videos/VideoManager.tsx
+    ?? app/admin/videos/actions.ts
+    ?? app/admin/videos/page.tsx
+    ?? app/api/keep-alive/route.ts
+    ?? app/lib/sermon-merge.ts
+    ?? scripts/sermons.test.mjs
+    ?? supabase/migrations/20261116090000_sermon_featured_rules.sql
+    ?? vercel.json
+

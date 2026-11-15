@@ -122,3 +122,19 @@ environments. Passwords and tokens do not belong in it. Staff membership
 authorizes access to the media tables and gallery files; it does not grant
 Supabase dashboard access. The website's staff sign-in page and dashboard
 are the next implementation step.
+
+## 6. Sermon video rules (video dashboard)
+
+Run `migrations/20261116090000_sermon_featured_rules.sql` once in a new SQL
+Editor query. It allows at most one live and one latest sermon, stops a hidden
+draft from being live or latest, and makes "Go live" move the previous live
+video to previous in the same step. It changes rules only, not videos. The
+result should say **Sermon status rules enabled**.
+
+Videos added in `/admin/videos` are merged with those still in
+`app/data/sermons.ts`. Once any dashboard video is live or latest, the dashboard
+decides what is featured; file videos marked live/latest are shown as previous.
+
+`vercel.json` schedules `/api/keep-alive` daily to help keep the free project
+active. Optionally set a `CRON_SECRET` environment variable in Vercel so only
+Vercel's scheduler can call it.
