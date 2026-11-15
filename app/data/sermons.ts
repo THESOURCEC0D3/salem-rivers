@@ -2,6 +2,19 @@ import { Sermon } from "@/app/types/sermon";
 
 export const sermons: Sermon[] = [
 
+            
+             {
+  id: "28",
+  title: "PAPA'S MINISTRATION",
+  speaker: "ARCHBISHOP SAM-AMAGA",
+  description:
+    "SALEM OUTPOURING CONFERENCE 2026|| DAY 6",
+  youtubeId: "kCmIjO_QZis",
+  date: "2026-11-15",
+  duration: "",
+  status: "live",
+  platform: "youtube",
+},
           
              {
   id: "27",
@@ -12,7 +25,7 @@ export const sermons: Sermon[] = [
   youtubeId: "tzawC2ysYv4",
   date: "2026-11-14",
   duration: "",
-  status: "live",
+  status: "previous",
   platform: "youtube",
 },
         
