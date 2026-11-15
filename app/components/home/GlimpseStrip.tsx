@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Button } from "../Button";
+import { ArrowRightIcon } from "../icons";
 import { Section } from "../Section";
 import { Reveal } from "../Reveal";
 import { glimpseImages } from "../glimpseImages";
@@ -68,6 +70,14 @@ export function GlimpseStrip({
             </Reveal>
           );
         })}
+      </div>
+
+      {/* The strip is a teaser; the gallery is where the full albums live. */}
+      <div className="mt-10 flex justify-center">
+        <Button href="/gallery" variant="secondary" size="lg">
+          See the full gallery
+          <ArrowRightIcon size={18} />
+        </Button>
       </div>
     </Section>
   );

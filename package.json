@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "supabase:check": "node scripts/check-supabase.mjs",
+    "test:media": "node --test scripts/media-upload.test.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.119.0",
     "framer-motion": "^12.43.0",
     "next": "16.2.9",
     "react": "19.2.4",

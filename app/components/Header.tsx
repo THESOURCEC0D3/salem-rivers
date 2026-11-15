@@ -18,6 +18,14 @@ import { MenuIcon, CloseIcon, ArrowRightIcon } from "./icons";
 */
 import salemLogo from "../../public/images/salem-logo-nav.png";
 
+/**
+ * A link is active on its own page AND its sub-pages, so "Gallery" stays lit
+ * on /gallery/some-album. Home is exact-match only, or it would match every page.
+ */
+function isActive(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -77,8 +85,10 @@ export function Header() {
             On phones the ceiling is the 44px menu button: at 320px that
             leaves ~220px, so h-14 (56px → 219px) is the true maximum.
 
-            BEFORE ADDING A SIXTH NAV LINK, redo this arithmetic. Each link
-            costs roughly 90px and comes straight out of the logo's budget.
+            SIXTH LINK (Gallery) ADDED, arithmetic redone: ~83px more chrome
+            leaves ~33px of slack at exactly 1024px, measured in Chrome. There
+            is NO room for a seventh. Another link means shrinking the logo
+            at lg, moving the nav to xl, or dropping a link.
             NO loading/preload props — the Next default (lazy) is deliberate,
             and this was measured, not assumed. In this version of Next
             `loading="eager"` ALSO inserts a <link rel="preload"> for the image,
@@ -114,7 +124,7 @@ export function Header() {
           <nav aria-label="Primary" className="hidden lg:block">
             <ul className="flex items-center gap-1">
               {navLinks.map((link) => {
-                const active = pathname === link.href;
+                const active = isActive(pathname, link.href);
                 return (
                   <li key={link.href}>
                     <Link
@@ -160,7 +170,7 @@ export function Header() {
             <nav aria-label="Primary mobile" className="py-4">
               <ul className="flex flex-col gap-1">
                 {navLinks.map((link) => {
-                  const active = pathname === link.href;
+                  const active = isActive(pathname, link.href);
                   return (
                     <li key={link.href}>
                       <Link

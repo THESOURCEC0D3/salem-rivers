@@ -1061,6 +1061,8 @@ export const navLinks = [
   // [CONFIRM] Label may change — the church has not settled on "Classes".
   { href: "/classes", label: "Classes" },
   { href: "/watch", label: "Watch" },
+  // Sixth link: header arithmetic re-done and measured at 1024px; see Header.tsx.
+  { href: "/gallery", label: "Gallery" },
 ] as const;
 
 /** The single destination almost every CTA points to. */
