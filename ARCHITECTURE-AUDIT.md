@@ -1278,3 +1278,9 @@ To pause it: `/hooks`, or delete the `Stop` block from `.claude/settings.json`.
     ?? supabase/migrations/20261116090000_sermon_featured_rules.sql
     ?? vercel.json
 
+
+### 2026-11-18 15:07 — 2 file(s) changed · at `f33dc2b`
+
+     M app/components/events/UpcomingEvents.tsx
+     M app/content/church.ts
+

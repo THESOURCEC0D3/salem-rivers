@@ -670,21 +670,11 @@ export const church = {
    * The homepage's "next event" is simply `events.upcoming[0]`.
    */
   events: {
-    upcoming: [
-      {
-        id: "salem-outpouring-conference",
-        title: "Salem Outpouring Conference Nigeria 2026: Love in Revival",
-        date: "Tuesday 10 to Sunday 15 November 2026",
-        // Two different start times across the run, so this field carries both
-        // rather than hiding the Sunday morning one.
-        time: "5:00 PM daily \u00B7 Sunday 7:00 AM",
-        location:
-          "Holy Ghost Conference Ground, #1 Faith Avenue, Rumuomasi, Port Harcourt",
-        blurb:
-          "Six days of outpouring under the theme Love in Revival. Chief host Archbishop Sam Amaga of Salem Family Worldwide, hosted by Bishop Hilary Ogoliegbune, with bishops ministering from across Nigeria, Ghana and the United Kingdom, and music from Faith Dynamite Voice. The heavens are stirred for a release \u2014 come expecting the supernatural, the miraculous and the extraordinary.",
-        flyer: "Salem Outpouring Conference Nigeria 2026 flyer",
-      },
-    ] satisfies ChurchEvent[],
+    // Empty on purpose: nothing scheduled. Both the homepage (NextEvent) and the
+    // Events page (UpcomingEvents) show a "no event coming up" state for this.
+    // `as`, not `satisfies`: an empty [] would otherwise be typed never[], and
+    // every component reading e.title etc. would fail to compile.
+    upcoming: [] as ChurchEvent[],
     /*
      * Past events, MOST RECENT FIRST. Real events only — the invented placeholder
      * entries that used to pad this list out have been deleted.
@@ -699,6 +689,14 @@ export const church = {
      * the move — a past card only shows the flyer, the title and the date.
      */
     past: [
+      {
+        // Moved from `upcoming` once the conference ended. Same id, so the
+        // flyer follows it across via `eventImages`.
+        id: "salem-outpouring-conference",
+        title: "Salem Outpouring Conference Nigeria 2026: Love in Revival",
+        date: "10 to 15 November 2026",
+        photo: "[Salem Outpouring Conference Nigeria 2026]",
+      },
       {
         // Moved from `upcoming` once the September run finished. Same id, so
         // the flyer follows it across via `eventImages`.

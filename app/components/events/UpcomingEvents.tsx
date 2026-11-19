@@ -21,6 +21,25 @@ export function UpcomingEvents() {
       title="What's coming up"
       className="bg-background"
     >
+      {/*
+        Empty state. Without it, retiring the last event left this heading
+        sitting over nothing, which reads as a page that failed to load. Same
+        wording as the homepage's NextEvent so the two never disagree.
+      */}
+      {church.events.upcoming.length === 0 ? (
+        <div className="mx-auto max-w-xl rounded-3xl border border-border bg-card p-8 text-center shadow-sm sm:p-10">
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            We currently do not have any event coming up.
+          </p>
+          <a
+            href="#past"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+          >
+            See previous events
+            <ArrowRightIcon size={16} />
+          </a>
+        </div>
+      ) : (
       <div className="space-y-8">
         {church.events.upcoming.map((e) => {
           const flyer = eventImages[e.id];
@@ -111,6 +130,7 @@ export function UpcomingEvents() {
           );
         })}
       </div>
+      )}
     </Section>
   );
 }
